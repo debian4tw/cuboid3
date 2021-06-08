@@ -1,0 +1,53 @@
+{
+  "name": "@cubic-eng/client",
+  "version": "0.5.10",
+  "description": "3D Game Engine for Node and the browser",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "files": [
+    "./build"
+  ],
+  "scripts": {
+    "tsc": "tsc",
+    "build": "tsc",
+    "test": "jest --verbose",
+    "coverage": "jest --coverage",
+    "lint": "tslint 'game/**/*.ts?(x)'",
+    "locs": "find ./g-physics -name '*.ts' | xargs wc -l  && find ./src -name '*.ts' -o -name '*.handlebars' | xargs wc -l && find ./client-src -name '*.ts' -o -name '*.tsx' | xargs wc -l  && find ./game -name '*.ts' -o -name '*.tsx' | xargs wc -l && find ./scenarios -name '*.ts' -o -name '*.tsx' | xargs wc -l ",
+    "locs-total": "echo g-physics && find ./g-physics -name '*.ts' -o -name '*.tsx' | xargs wc -l | grep 'total' && echo server && find ./src -name '*.ts' -o -name '*.handlebars' | xargs wc -l | grep 'total' && echo client && find ./client-src -name '*.ts' -o -name '*.tsx' -o -name '*.scss' -o -name '*.css' | xargs wc -l | grep 'total' && echo game && find ./game -name '*.ts' -o -name '*.tsx' | xargs wc -l | grep 'total' && echo scenarios && find ./scenarios -name '*.ts' -o -name '*.tsx' | xargs wc -l | grep 'total' && echo all && find ./src ./client-src ./scenarios ./game ./g-physics -name '*.ts' -o -name '*.handlebars' -o -name '*.tsx' -o -name '*.scss' -o -name '*.css' | xargs wc -l | grep 'total'",
+    "locs-all": "find ./src ./client-src ./scenarios ./game ./g-physics -name '*.ts' -o -name '*.handlebars' -o -name '*.tsx' | xargs wc -l | grep 'total'"
+  },
+  "keywords": [],
+  "author": "debian4tw",
+  "license": "ISC",
+  "dependencies": {
+    "@cubic-eng/core": "^0.5.10",
+    "@cubic-eng/g-physics": "^0.5.10",
+    "@babel/plugin-transform-runtime": "^7.13.10",
+    "@types/es6-shim": "^0.31.37",
+    "@types/socket.io-client": "^1.4.32",
+    "dotenv": "^8.2.0",
+    "import-to-array": "^1.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "socket.io-client": "^2.3.0",
+    "three": "^0.124.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.14",
+    "@babel/preset-env": "^7.13.12",
+    "@types/jest": "^25.1.4",
+    "@types/react": "^16.9.34",
+    "@types/react-dom": "^16.9.6",
+    "jest": "^25.3.0",
+    "jest-transform-stub": "^2.0.0",
+    "npm-version": "^1.1.0",
+    "source-map-loader": "^0.2.4",
+    "ts-jest": "^25.3.1",
+    "ts-loader": "^6.2.1",
+    "tslint": "^5.20.1",
+    "tslint-eslint-rules": "^5.4.0",
+    "typescript": "^3.9.5"
+  }
+}

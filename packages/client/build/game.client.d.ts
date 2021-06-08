@@ -1,0 +1,30 @@
+import { GameEvent } from "@cubic-eng/core";
+import { IScenarioDefinition } from "@cubic-eng/core";
+export declare class GameClient {
+    private sock;
+    private game;
+    private clientActorRegistry;
+    private scene;
+    private inputHandler;
+    private cameraHandler;
+    private renderManager;
+    private url;
+    scenarioDefs: IScenarioDefinition[];
+    clientScenarios: any;
+    constructor(url: string, scenarioDefs: IScenarioDefinition[]);
+    registerClientScenarios(importedScenarios: any[]): void;
+    connect(name: string, gameId: any): void;
+    disconnect(): void;
+    onSocketGameEvents(events: GameEvent[]): void;
+    clientScenarioChange(status: any): void;
+    onSocketStatus(status: any): void;
+    onSocketDiff(status: any): void;
+    cleanupOldActorsObj(status: any): void;
+    processRemoteActorObj(remoteObj: any): void;
+    processRemoteActorDiffObj(remoteObj: any): void;
+    validateRemoteObj(remoteObj: any): boolean;
+    onGameStatus(gameStatus: any): void;
+    onPrimaryActorAdded(actorId: string): void;
+    onTeamWon(team: number): void;
+    attachNetworkEvents(): void;
+}

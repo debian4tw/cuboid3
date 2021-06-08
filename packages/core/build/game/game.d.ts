@@ -1,0 +1,43 @@
+import { IScenario } from '../scenario/IScenario';
+import { GameEventBus } from '../event/GameEventBus';
+import { Player } from '../player/player';
+import { IScenarioDefinition } from '../scenario/IScenarioDefinition';
+export declare class Game {
+    private id;
+    private gamePlayers;
+    private scenario;
+    private switchInterval;
+    scenarios: any;
+    scenariosNameMap: any;
+    gameEventBus: GameEventBus;
+    constructor(id: string, importedScenarios: IScenarioDefinition[]);
+    registerScenarios(importedScenarios: IScenarioDefinition[]): void;
+    getPlayersIds(): any;
+    getRegisteredScenarios(): any;
+    attachEvents(): void;
+    getPlayersAmount(): number;
+    getPlayers(): Player[];
+    getPlayer(playerId: string): Player;
+    resetLives(): void;
+    setScenario(scenarioId: number): IScenario;
+    onTeamWon(team: number): void;
+    onScenarioChange(): void;
+    setEmptyScenario(): IScenario;
+    setEndScenario(): IScenario;
+    getScenario(): IScenario;
+    getScenarioName(): string | null;
+    startScenarioSwitchLoop(): void;
+    addPlayer(socketId: string, playerName: string): void;
+    removePlayer(socketId: string): void;
+    onPlayerCommand(playerId: string, command: string, value?: any): void;
+    getId(): string;
+    getState(): {
+        createdAt: number;
+        state: any;
+    };
+    setGameState(state: any): void;
+    getScenarioState(): any;
+    getScenarioDiffState(): any;
+    setState(state: any): void;
+    onScenarioEvent(socketId: string, data: any): void;
+}

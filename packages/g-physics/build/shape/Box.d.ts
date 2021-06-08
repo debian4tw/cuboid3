@@ -1,0 +1,30 @@
+import { GVector3 } from '../math/GVector3';
+export declare class Box {
+    private width;
+    private height;
+    private depth;
+    private origin;
+    private hypotenuseXY;
+    private hypotenuseXZ;
+    private magnitude;
+    private angleXY;
+    private angleXZ;
+    private angleY;
+    private angleFloor;
+    rotationX: number;
+    rotationY: number;
+    rotationZ: number;
+    constructor(origin: GVector3, width: number, height: number, depth: number);
+    calculateMagnitude(): number;
+    calculateHypotenuses(): void;
+    calculateAngles(): void;
+    round(n: number): number;
+    getRDF(): GVector3;
+    getRUF(): GVector3;
+    getRUB(): GVector3;
+    getRDB(): GVector3;
+    getLDF(): GVector3;
+    getLUF(): GVector3;
+    getLDB(): GVector3;
+    getLUB(): GVector3;
+}

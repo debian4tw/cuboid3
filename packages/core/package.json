@@ -1,0 +1,42 @@
+{
+  "name": "@cubic-eng/core",
+  "version": "0.5.10",
+  "description": "3D Game Engine for Node and the browser",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "files": [
+    "./build"
+  ],
+  "scripts": {
+    "tsc": "tsc",
+    "build": "tsc",
+    "test": "jest --verbose",
+    "coverage": "jest --coverage",
+    "lint": "tslint 'game/**/*.ts?(x)'",
+    "locs": "find ./g-physics -name '*.ts' | xargs wc -l  && find ./src -name '*.ts' -o -name '*.handlebars' | xargs wc -l && find ./client-src -name '*.ts' -o -name '*.tsx' | xargs wc -l  && find ./game -name '*.ts' -o -name '*.tsx' | xargs wc -l && find ./scenarios -name '*.ts' -o -name '*.tsx' | xargs wc -l ",
+    "locs-total": "echo g-physics && find ./g-physics -name '*.ts' -o -name '*.tsx' | xargs wc -l | grep 'total' && echo server && find ./src -name '*.ts' -o -name '*.handlebars' | xargs wc -l | grep 'total' && echo client && find ./client-src -name '*.ts' -o -name '*.tsx' -o -name '*.scss' -o -name '*.css' | xargs wc -l | grep 'total' && echo game && find ./game -name '*.ts' -o -name '*.tsx' | xargs wc -l | grep 'total' && echo scenarios && find ./scenarios -name '*.ts' -o -name '*.tsx' | xargs wc -l | grep 'total' && echo all && find ./src ./client-src ./scenarios ./game ./g-physics -name '*.ts' -o -name '*.handlebars' -o -name '*.tsx' -o -name '*.scss' -o -name '*.css' | xargs wc -l | grep 'total'",
+    "locs-all": "find ./src ./client-src ./scenarios ./game ./g-physics -name '*.ts' -o -name '*.handlebars' -o -name '*.tsx' | xargs wc -l | grep 'total'"
+  },
+  "keywords": [],
+  "author": "debian4tw",
+  "license": "ISC",
+  "dependencies": {
+    "@cubic-eng/g-physics": "^0.5.10",
+    "@types/es6-shim": "^0.31.37",
+    "@types/uuid": "^7.0.0",
+    "three": "^0.124.0",
+    "uuid": "^7.0.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.1.4",
+    "jest": "^25.3.0",
+    "jest-transform-stub": "^2.0.0",
+    "npm-version": "^1.1.0",
+    "source-map-loader": "^0.2.4",
+    "ts-jest": "^25.3.1",
+    "ts-loader": "^6.2.1",
+    "tslint": "^5.20.1",
+    "tslint-eslint-rules": "^5.4.0",
+    "typescript": "^3.9.5"
+  }
+}
