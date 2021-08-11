@@ -2,6 +2,7 @@ import { CameraHandler } from "../CameraHandler";
 import { OrbitControls as THREEOrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
 import { EventHandler } from "@cubic-eng/core";
 import * as THREE from "three";
+import { ICanvasUIElementsManager } from ".";
 // import Stats from 'three/examples/jsm/libs/stats.module.js';
 
 export class RenderManager {
@@ -11,6 +12,7 @@ export class RenderManager {
   private orbitControlsEnabled: boolean
   private inGameUiElements: THREE.Mesh[]
   // private stats: Stats
+  private canvasUIElementsManager: ICanvasUIElementsManager
 
   renderCanvas: boolean
   constructor() {
@@ -61,6 +63,8 @@ export class RenderManager {
     this.renderer.setSize( width, height);
     this.cameraHandler.getCamera().aspect = width / height;
     this.cameraHandler.getCamera().updateProjectionMatrix();
+
+    this.canvasUIElementsManager?.setDimensions(width, height)
   }
 
   initCanvas() {
@@ -118,7 +122,13 @@ export class RenderManager {
     this.renderer.render( this.scene, this.cameraHandler.getCamera() )
     // console.log("calls", this.renderer.info.render.calls );
     // console.log("triangles", this.renderer.info.render.triangles );
+
+    if (this.canvasUIElementsManager) {
+      this.canvasUIElementsManager.updateUIElements()
+      this.renderer.render( this.canvasUIElementsManager.sceneHUD, this.canvasUIElementsManager.cameraHUD )
+    }
     // this.stats.update();
+
   }
 
   public limitLoop(fn: any, fpsArg: any) {
@@ -151,25 +161,20 @@ export class RenderManager {
 
 
   public calculateCanvassize() {
-    /*const headerElem = document.getElementById("header")!
-    // const gameStatusEleme = document.getElementById("game-status")
+    const headerElem = document.getElementById("header")
+    //const gameStatusEleme = document.getElementById("game-status")
     const windowHeight = window.innerHeight
-    const rendererHeight = windowHeight - headerElem?.clientHeight
+    const rendererHeight = windowHeight - headerElem?.clientHeight!
 
-    const playerInfoElem = document.getElementById("players-info")!
-    const sidebarAdContainer = document.getElementById("ad-container")!
+    const playerInfoElem = document.getElementById("players-info")
+    const sidebarAdContainer = document.getElementById("ad-container")
     const windowWidth = window.innerWidth
 
-    // tslint:disable-next-line:no-console
-    console.log("Renderer dimensions", windowWidth, windowHeight)
-    const rendererWidth = windowWidth - playerInfoElem?.clientWidth - sidebarAdContainer?.clientWidth
-    // tslint:disable-next-line:no-console
-    console.log("rendererWidth rendererHeight", rendererWidth, rendererHeight)
-    */
-    const container  = document.getElementById('game-container')
+    const rendererWidth = windowWidth - playerInfoElem?.clientWidth! - sidebarAdContainer?.clientWidth! 
+
     return {
-      width: container?.clientWidth || 800,
-      height: container?.clientHeight || 600
+      width: rendererWidth,
+      height: rendererHeight
     }
   }
 
@@ -192,7 +197,13 @@ export class RenderManager {
         }
 
       })
-      obj.material.dispose()
+      if (typeof obj.material.dispose === 'function') {
+        obj.material.dispose()
+      }
     }
+  }
+
+  addCanvas2D(canvas2DManager: ICanvasUIElementsManager) {
+    this.canvasUIElementsManager = canvas2DManager
   }
 }
