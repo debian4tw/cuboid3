@@ -3,12 +3,12 @@ import { ClientActorRegistry } from '../client-actors/ClientActorRegistry';
 //import {ShipActor, BulletActor, FleetActor, BarrierActor} from '../../scenarios/space/actors';
 import {Game} from '@cubic-eng/core';
 
-let game = new Game('323', []);
+let game = new Game('323', [], null);
 game.setScenario(1);
 
 let scene = new THREE.Scene();
 
-let registry = new ClientActorRegistry(game, scene);
+let registry = new ClientActorRegistry(game, scene, []);
 
 let status = [
 {id: "58d6754c-3246-48dd-ab95-59397eb9baed", name: "Fleet", x: 50, y: 300},

@@ -79,7 +79,8 @@ class AudioManager {
   }
 }
 
-
+let handler = AudioManager.getInstance()
+export {handler as AudioManager}
 // let handler = AudioManager.getInstance()
-export {AudioManager}
+//export {AudioManager}
 

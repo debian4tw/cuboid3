@@ -124,28 +124,10 @@ export class GameClient {
 
     const scenarioName = this.game.getScenario().getName()
 
-    
     events.forEach((event) => {
-      // @todo: refactor into polymorphic gameEventResolver.resolve()
       if (scenarioName) {
         this.clientScenarios[scenarioName].resolveRemoteGameEvent(event)
       }
-      // console.log(event)
-      /*if (event.label === 'gameCollision') {
-        AudioManager.play(event.value)
-        if (event.value.indexOf("-aignore") > -1) {
-          //console.log("should draw ignore")
-          EventHandler.publish('client:aIgnoreApplied', event.position)
-        }
-      }
-
-      if (event.label === 'playerLostLive') {
-        EventHandler.publish('client:playerLostLive', event.value)
-      }
-
-      if (event.label === 'swingMiss') {
-        EventHandler.publish('client:swingMiss', event.position)
-      }*/
     })
   }
 
