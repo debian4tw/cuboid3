@@ -1,3 +1,4 @@
+import base64id from 'base64id';
 import {IScenario} from '../scenario/IScenario'
 import {Scenario} from '../scenario/Scenario'
 import {EventHandler} from '../event/EventHandler'
@@ -5,6 +6,7 @@ import {GameEventBus} from '../event/GameEventBus'
 import {Player} from '../player/player'
 
 import { IScenarioDefinition } from '../scenario/IScenarioDefinition'
+import { IGameHooks } from './IGameHooks';
 
 export class Game {
   private id: string
@@ -17,9 +19,12 @@ export class Game {
   public scenariosNameMap: any = {}
 
   public gameEventBus: GameEventBus
+  public createdAt: Date
+  public timeLimit: number // seconds
+  configuredSwitchLoop: any
+  private gameHooks: IGameHooks
 
-  constructor(id: string, importedScenarios: IScenarioDefinition[]) {
-    console.log("*****v2 eng creating game")
+  constructor(id: string, importedScenarios: IScenarioDefinition[], gameHooksClass?: any) {
     this.id = id
     this.gamePlayers = []
     this.registerScenarios(importedScenarios)
@@ -27,6 +32,11 @@ export class Game {
     this.switchInterval = false
     this.gameEventBus = new GameEventBus()
     this.attachEvents()
+    if (gameHooksClass) {
+      this.gameHooks = new gameHooksClass(this)
+      this.configuredSwitchLoop = this.gameHooks.startScenarioSwitchLoop
+    }
+
   }
 
   public registerScenarios(importedScenarios: IScenarioDefinition[]) {
@@ -53,7 +63,10 @@ export class Game {
   }
 
   public getPlayersAmount() {
-    return this.gamePlayers.length
+    //return this.gamePlayers.length
+    const reducer: any = (accumulator: number, currentPlayer: Player) => accumulator + (currentPlayer.isBotPlayer() ? 0 : 1);
+    let playersAmount = this.gamePlayers.reduce(reducer, 0)
+    return playersAmount
   }
 
   public getPlayers() {
@@ -67,6 +80,7 @@ export class Game {
   public resetLives() {
     this.gamePlayers.forEach(player => {
       player.lives = 5
+      player.resetScore()
     })
     // console.log('resetLives', this.id, this.gamePlayers);
     EventHandler.publish('gameStateChanged', this.id)
@@ -123,20 +137,17 @@ export class Game {
   }
 
   startScenarioSwitchLoop() {
-    console.log("eng game start scenarioswitch", this.id)
+    this.configuredSwitchLoop(this)
+
+    /*console.log("eng game start scenarioswitch", this.id)
     const switchToId = 0
     clearInterval(this.switchInterval)
 
     this.setScenario(7).init(this.getPlayers(), this.id)
 
+    this.resetLives()*/
 
 
-    setTimeout(() => {
-      console.log("players", this.getPlayers())
-      console.log("triggering roleSelected")
-      this.getScenario().roleSelected(this.gamePlayers[0], 'axer')
-    },8000)
-    this.resetLives()
         // console.log('starting startScenarioSwitchLoop')
         /*this.switchInterval = setInterval(() => {
             if (this.getScenarioName() == 'empty') {
@@ -153,9 +164,9 @@ export class Game {
         },25000);*/
   }
 
-  addPlayer(socketId: string, playerName: string) {
-        // socket.join(this.id)
-    const player = new Player(socketId, playerName)
+  addPlayer(socketId: string, playerName: string, isBot: boolean = false) {
+    //socket.join(this.id)
+    const player = new Player(socketId, playerName, isBot)
     this.gamePlayers.push(player)
     if (this.scenario !== null) {
       this.scenario.addPlayer(player);
@@ -190,7 +201,8 @@ export class Game {
       state.push(player.serialize())
     })
     return {
-      createdAt: Date.now(),
+      createdAt: this.createdAt,
+      timeLimit: this.timeLimit,
       state
     }
   }
@@ -247,5 +259,52 @@ export class Game {
 
   onScenarioEvent(socketId: string, data: any) {
     this.scenario.onEvent(socketId, data)
+  }
+
+  setCreatedAt(createdAt: Date) {
+    this.createdAt = new Date(createdAt)
+  }
+
+  setTimeLimit(timeLimit: number) {
+    this.timeLimit = timeLimit
+  }
+
+  setSwitchInterval(switchInterval: any) {
+    clearInterval(this.switchInterval)
+    this.switchInterval = switchInterval
+  }
+
+  beforeRemove() {
+    clearInterval(this.switchInterval)
+  }
+
+  public getBotPlayers() {
+    return this.gamePlayers.filter(player => player.isBotPlayer())
+  }
+
+  addBot(botName: string) {
+    this.addPlayer(base64id.generateId(), botName, true)
+  }
+
+  removeBot() {
+      const bot = this.gamePlayers.find(player => player.isBotPlayer())
+      if (!bot) {
+          return
+      }
+      this.removePlayer(bot.getId())
+  }
+
+  //@todo: hooks, moght be mooved somewhere else
+
+  onPlayerConnect() {
+    this.gameHooks.onClientConnect(this)
+  }
+
+  onPlayerDisconnect() {
+    this.gameHooks.onClientDisconnect(this)
+  }
+
+  onGameCreate() {
+    this.gameHooks.onGameCreate(this)
   }
 }
