@@ -1,5 +1,7 @@
+import * as THREE from "three";
 import { GameEvent } from "@cubic-eng/core";
 import { IScenarioDefinition } from "@cubic-eng/core";
+import { ICanvasUIElementsManager } from "./managers";
 export declare class GameClient {
     private sock;
     private game;
@@ -8,13 +10,17 @@ export declare class GameClient {
     private inputHandler;
     private cameraHandler;
     private renderManager;
+    private canvasUIElementsManager;
+    clientStepManagers: any[];
     private url;
     scenarioDefs: IScenarioDefinition[];
     clientScenarios: any;
-    constructor(url: string, scenarioDefs: IScenarioDefinition[]);
+    constructor(url: string, scenarioDefs: IScenarioDefinition[], clientDefs: any);
     registerClientScenarios(importedScenarios: any[]): void;
+    setCanvasUIElementsManager(canvasUIElementsManager: new (width: number, height: number, camera: THREE.PerspectiveCamera) => ICanvasUIElementsManager): void;
     connect(name: string, gameId: any): void;
     disconnect(): void;
+    setUrl(url: string): void;
     onSocketGameEvents(events: GameEvent[]): void;
     clientScenarioChange(status: any): void;
     onSocketStatus(status: any): void;

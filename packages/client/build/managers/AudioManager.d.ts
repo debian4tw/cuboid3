@@ -14,4 +14,5 @@ declare class AudioManager {
     play(label: string): void;
     playSound(sound: THREE.Audio): void;
 }
-export { AudioManager };
+declare let handler: AudioManager;
+export { handler as AudioManager };

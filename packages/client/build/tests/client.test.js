@@ -23,10 +23,10 @@ const THREE = __importStar(require("three"));
 const ClientActorRegistry_1 = require("../client-actors/ClientActorRegistry");
 //import {ShipActor, BulletActor, FleetActor, BarrierActor} from '../../scenarios/space/actors';
 const core_1 = require("@cubic-eng/core");
-let game = new core_1.Game('323', []);
+let game = new core_1.Game('323', [], null);
 game.setScenario(1);
 let scene = new THREE.Scene();
-let registry = new ClientActorRegistry_1.ClientActorRegistry(game, scene);
+let registry = new ClientActorRegistry_1.ClientActorRegistry(game, scene, []);
 let status = [
     { id: "58d6754c-3246-48dd-ab95-59397eb9baed", name: "Fleet", x: 50, y: 300 },
     { id: "7a46ba50-952d-4449-b53a-6af6e9598f2b", name: "Ship", x: 400, y: -80 },

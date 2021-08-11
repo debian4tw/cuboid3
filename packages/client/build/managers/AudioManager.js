@@ -82,5 +82,8 @@ class AudioManager {
         sound.play();
     }
 }
-exports.AudioManager = AudioManager;
 AudioManager.instance = null;
+let handler = AudioManager.getInstance();
+exports.AudioManager = handler;
+// let handler = AudioManager.getInstance()
+//export {AudioManager}

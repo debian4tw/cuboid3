@@ -1,4 +1,4 @@
-import { IActor } from '@cubic-eng/core';
+import { Actor, IActor } from '@cubic-eng/core';
 export interface IClientActor {
     id: string;
     update(): void;
@@ -8,4 +8,7 @@ export interface IClientActor {
     addToScene(scene: THREE.Scene): void;
     getActor(): IActor;
     getMesh(): any;
+}
+export interface IClientActorConstructor {
+    new (actor: Actor): IClientActor;
 }

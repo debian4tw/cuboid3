@@ -28,21 +28,24 @@ const core_3 = require("@cubic-eng/core");
 const ClientActorRegistry_1 = require("./client-actors/ClientActorRegistry");
 const InputHandler_1 = require("./InputHandler");
 const CameraHandler_1 = require("./CameraHandler");
-const AudioManager_1 = require("./managers/AudioManager");
 const RenderManager_1 = require("./managers/RenderManager");
 class GameClient {
-    constructor(url, scenarioDefs) {
+    constructor(url, scenarioDefs, clientDefs) {
         this.clientScenarios = {};
         this.url = url;
         this.scenarioDefs = scenarioDefs;
+        this.clientStepManagers = [];
         // tslint:disable-next-line:no-console
         console.log('%c CubicEngine Started', 'color: white;font-weight:bold;background-color: black; padding:10px;');
-        this.registerClientScenarios([]);
+        this.registerClientScenarios(clientDefs);
     }
     registerClientScenarios(importedScenarios) {
         importedScenarios.forEach((scenarioDefinition) => {
             this.clientScenarios[scenarioDefinition.name] = scenarioDefinition;
         });
+    }
+    setCanvasUIElementsManager(canvasUIElementsManager) {
+        this.canvasUIElementsManager = canvasUIElementsManager;
     }
     connect(name, gameId) {
         const params = {
@@ -62,14 +65,18 @@ class GameClient {
             core_2.EventHandler.publish('client:connected', name);
             this.attachNetworkEvents();
             this.scene = new THREE.Scene();
-            this.game = new core_1.Game(gameId, this.scenarioDefs);
-            this.clientActorRegistry = new ClientActorRegistry_1.ClientActorRegistry(this.game, this.scene);
+            this.game = new core_1.Game(gameId, this.scenarioDefs, null);
+            // console.log("creating clientActorRegistry", this.clientScenarios)
+            this.clientActorRegistry = new ClientActorRegistry_1.ClientActorRegistry(this.game, this.scene, Object.values(this.clientScenarios));
             this.renderManager = new RenderManager_1.RenderManager();
             const { width, height } = this.renderManager.calculateCanvassize();
             this.cameraHandler = new CameraHandler_1.CameraHandler(new THREE.PerspectiveCamera(60, width / height, 0.1, 12000));
             this.cameraHandler.init(this.scenarioDefs);
             this.inputHandler = new InputHandler_1.InputHandler(this.sock, document, this.clientScenarios);
             this.inputHandler.init();
+            if (this.canvasUIElementsManager) {
+                this.renderManager.addCanvas2D(new this.canvasUIElementsManager(width, height, this.cameraHandler.getCamera()));
+            }
             this.renderManager.init(this.scene, this.cameraHandler);
         });
         this.sock.on("disconnect", () => {
@@ -81,22 +88,35 @@ class GameClient {
             this.sock.disconnect();
         }
     }
+    setUrl(url) {
+        this.url = url;
+    }
     onSocketGameEvents(events) {
         if (typeof events === "undefined" || events.length === 0) {
             return;
         }
-        // @todo: refactor into polymorphic gameEventResolver.resolve()
+        const scenarioName = this.game.getScenario().getName();
         events.forEach((event) => {
+            // @todo: refactor into polymorphic gameEventResolver.resolve()
+            if (scenarioName) {
+                this.clientScenarios[scenarioName].resolveRemoteGameEvent(event);
+            }
             // console.log(event)
-            if (event.label === 'gameCollision') {
-                AudioManager_1.AudioManager.getInstance().play(event.value);
+            /*if (event.label === 'gameCollision') {
+              AudioManager.play(event.value)
+              if (event.value.indexOf("-aignore") > -1) {
+                //console.log("should draw ignore")
+                EventHandler.publish('client:aIgnoreApplied', event.position)
+              }
             }
+      
             if (event.label === 'playerLostLive') {
-                core_2.EventHandler.publish('client:playerLostLive', event.value);
+              EventHandler.publish('client:playerLostLive', event.value)
             }
+      
             if (event.label === 'swingMiss') {
-                core_2.EventHandler.publish('client:swingMiss', event.position);
-            }
+              EventHandler.publish('client:swingMiss', event.position)
+            }*/
         });
     }
     clientScenarioChange(status) {
@@ -113,10 +133,17 @@ class GameClient {
             scenarioDef.initScene(this.scene);
         }
         if (typeof this.clientScenarios[scenarioDef.name] !== "undefined") {
+            core_2.EventHandler.publish('client:cleanUIComponents');
             const cliScenarioDef = this.clientScenarios[scenarioDef.name];
             (_a = cliScenarioDef.uiComps) === null || _a === void 0 ? void 0 : _a.forEach((comp) => {
                 core_2.EventHandler.publish('client:addUIComponent', comp);
             });
+            // @todo: clean clientManagers and instantiate new ones
+            if (typeof cliScenarioDef.clientStepManagers !== "undefined") {
+                cliScenarioDef.clientStepManagers.forEach((clientManager) => {
+                    this.clientStepManagers.push(new clientManager(this.scene, this.clientActorRegistry));
+                });
+            }
         }
         if (typeof scenarioDef.opts.lockScreen !== "undefined" && scenarioDef.opts.lockScreen === true) {
             core_2.EventHandler.publish('client:lockScreen');
@@ -126,6 +153,7 @@ class GameClient {
         }
     }
     onSocketStatus(status) {
+        var _a;
         status = JSON.parse(core_3.NetworkUtils.decodeString(status));
         // console.log("onSocketStatus", status)
         this.onSocketGameEvents(status.events);
@@ -139,12 +167,19 @@ class GameClient {
             this.processRemoteActorObj(remoteObj);
         });
         this.cameraHandler.updateCamera();
+        (_a = this.clientStepManagers) === null || _a === void 0 ? void 0 : _a.forEach((clientStepManager) => {
+            clientStepManager.update();
+        });
         this.cleanupOldActorsObj(status);
     }
     onSocketDiff(status) {
+        var _a;
         status = JSON.parse(core_3.NetworkUtils.decodeString(status));
         // console.log("onSocketDiff", status)
         this.onSocketGameEvents(status.events);
+        if (status.type !== this.game.getScenarioName()) {
+            this.clientScenarioChange(status);
+        }
         if (typeof status.state === "undefined" || status.state.length === 0) {
             return;
         }
@@ -157,6 +192,9 @@ class GameClient {
             });
         }
         this.cameraHandler.updateCamera();
+        (_a = this.clientStepManagers) === null || _a === void 0 ? void 0 : _a.forEach((clientStepManager) => {
+            clientStepManager.update();
+        });
     }
     cleanupOldActorsObj(status) {
         if (status.state.length < this.clientActorRegistry.getArr().length) {
@@ -241,7 +279,10 @@ class GameClient {
         if (cliActor) {
             this.cameraHandler.followSubject(cliActor.getActor(), cliActor.getMesh());
             core_2.EventHandler.publish('attachAudioListener', cliActor.getMesh());
+            //this three events shoyld be the same, only one
             core_2.EventHandler.publish('client:primaryActorTypeAdded', cliActor.getActor().name);
+            core_2.EventHandler.publish('client:primaryActorAdded', cliActor.getActor());
+            core_2.EventHandler.publish('client:primaryClientActorAdded', cliActor);
         }
         else {
             // tslint:disable-next-line:no-console

@@ -5,9 +5,10 @@ const ClientActorFactory_1 = require("./ClientActorFactory");
 const ClientMultipleActor_1 = require("./ClientMultipleActor");
 const core_1 = require("@cubic-eng/core");
 class ClientActorRegistry {
-    constructor(game, scene) {
+    constructor(game, scene, clientDefs) {
         this.scene = scene;
         this.clientActors = [];
+        this.clientActorFactory = new ClientActorFactory_1.ClientActorFactory(clientDefs);
     }
     findById(id) {
         //console.log('getById', id, this.clientActors);
@@ -15,7 +16,7 @@ class ClientActorRegistry {
     }
     create(actor) {
         //let cliActor = ClientActorFactory.createClientActor(actor)
-        let cliActor = ClientActorFactory_1.ClientActorFactory.createClientActorType(actor);
+        let cliActor = this.clientActorFactory.createClientActorType(actor);
         this.clientActors.push(cliActor);
         return new Promise((resolve) => {
             cliActor.createMesh((child) => {

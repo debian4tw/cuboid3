@@ -77,7 +77,7 @@ class CameraHandler {
     }
     init(scenarios) {
         // tslint:disable-next-line:no-console
-        console.log("init cameraHandler");
+        // console.log("init cameraHandler", )
         this.registerStrategies(scenarios);
         this.setDefaultCamera();
         this.attachEvents();

@@ -14,3 +14,4 @@ __exportStar(require("./AssetManager"), exports);
 __exportStar(require("./AudioManager"), exports);
 __exportStar(require("./FontManager"), exports);
 __exportStar(require("./RenderManager"), exports);
+__exportStar(require("./ICanvasUIElementsManager"), exports);

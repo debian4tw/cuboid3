@@ -1,11 +1,13 @@
 import { CameraHandler } from "../CameraHandler";
 import * as THREE from "three";
+import { ICanvasUIElementsManager } from ".";
 export declare class RenderManager {
     private renderer;
     private cameraHandler;
     private scene;
     private orbitControlsEnabled;
     private inGameUiElements;
+    private canvasUIElementsManager;
     renderCanvas: boolean;
     constructor();
     init(scene: THREE.Scene, cameraHandler: CameraHandler): void;
@@ -21,4 +23,5 @@ export declare class RenderManager {
         height: number;
     };
     clearThreeScene(obj: any): void;
+    addCanvas2D(canvas2DManager: ICanvasUIElementsManager): void;
 }

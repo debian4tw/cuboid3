@@ -59,10 +59,12 @@ class RenderManager {
         this.renderer.setSize(width, height);
     }
     onWindowResize() {
+        var _a;
         const { width, height } = this.calculateCanvassize();
         this.renderer.setSize(width, height);
         this.cameraHandler.getCamera().aspect = width / height;
         this.cameraHandler.getCamera().updateProjectionMatrix();
+        (_a = this.canvasUIElementsManager) === null || _a === void 0 ? void 0 : _a.setDimensions(width, height);
     }
     initCanvas() {
         const { width, height } = this.calculateCanvassize();
@@ -111,6 +113,10 @@ class RenderManager {
         this.renderer.render(this.scene, this.cameraHandler.getCamera());
         // console.log("calls", this.renderer.info.render.calls );
         // console.log("triangles", this.renderer.info.render.triangles );
+        if (this.canvasUIElementsManager) {
+            this.canvasUIElementsManager.updateUIElements();
+            this.renderer.render(this.canvasUIElementsManager.sceneHUD, this.canvasUIElementsManager.cameraHUD);
+        }
         // this.stats.update();
     }
     limitLoop(fn, fpsArg) {
@@ -139,25 +145,17 @@ class RenderManager {
         }(0));
     }
     calculateCanvassize() {
-        /*const headerElem = document.getElementById("header")!
-        // const gameStatusEleme = document.getElementById("game-status")
-        const windowHeight = window.innerHeight
-        const rendererHeight = windowHeight - headerElem?.clientHeight
-    
-        const playerInfoElem = document.getElementById("players-info")!
-        const sidebarAdContainer = document.getElementById("ad-container")!
-        const windowWidth = window.innerWidth
-    
-        // tslint:disable-next-line:no-console
-        console.log("Renderer dimensions", windowWidth, windowHeight)
-        const rendererWidth = windowWidth - playerInfoElem?.clientWidth - sidebarAdContainer?.clientWidth
-        // tslint:disable-next-line:no-console
-        console.log("rendererWidth rendererHeight", rendererWidth, rendererHeight)
-        */
-        const container = document.getElementById('game-container');
+        const headerElem = document.getElementById("header");
+        //const gameStatusEleme = document.getElementById("game-status")
+        const windowHeight = window.innerHeight;
+        const rendererHeight = windowHeight - (headerElem === null || headerElem === void 0 ? void 0 : headerElem.clientHeight);
+        const playerInfoElem = document.getElementById("players-info");
+        const sidebarAdContainer = document.getElementById("ad-container");
+        const windowWidth = window.innerWidth;
+        const rendererWidth = windowWidth - (playerInfoElem === null || playerInfoElem === void 0 ? void 0 : playerInfoElem.clientWidth) - (sidebarAdContainer === null || sidebarAdContainer === void 0 ? void 0 : sidebarAdContainer.clientWidth);
         return {
-            width: (container === null || container === void 0 ? void 0 : container.clientWidth) || 800,
-            height: (container === null || container === void 0 ? void 0 : container.clientHeight) || 600
+            width: rendererWidth,
+            height: rendererHeight
         };
     }
     clearThreeScene(obj) {
@@ -177,8 +175,13 @@ class RenderManager {
                     obj.material[prop].dispose();
                 }
             });
-            obj.material.dispose();
+            if (typeof obj.material.dispose === 'function') {
+                obj.material.dispose();
+            }
         }
+    }
+    addCanvas2D(canvas2DManager) {
+        this.canvasUIElementsManager = canvas2DManager;
     }
 }
 exports.RenderManager = RenderManager;

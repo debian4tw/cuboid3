@@ -5,7 +5,8 @@ import { IClientActor } from ".";
 export declare class ClientActorRegistry {
     private clientActors;
     private scene;
-    constructor(game: Game, scene: THREE.Scene);
+    private clientActorFactory;
+    constructor(game: Game, scene: THREE.Scene, clientDefs: any[]);
     findById(id: string): IClientActor | undefined;
     create(actor: IActor): Promise<IClientActor>;
     clean(): void;

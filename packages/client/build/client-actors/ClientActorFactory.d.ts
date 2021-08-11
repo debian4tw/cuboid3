@@ -1,5 +1,9 @@
 import { IActor } from '@cubic-eng/core';
-import { IClientActor } from './IClientActor';
+import { ClientActorType } from '@cubic-eng/core';
+import { IClientActor, IClientActorConstructor } from './IClientActor';
 export declare class ClientActorFactory {
-    static createClientActorType(actor: IActor): IClientActor;
+    cliActors: Map<ClientActorType, IClientActorConstructor>;
+    constructor(clientDefs: any[]);
+    createClientActorType(actor: IActor): IClientActor;
+    registerClientActorType(label: ClientActorType, cliActor: IClientActorConstructor): void;
 }
