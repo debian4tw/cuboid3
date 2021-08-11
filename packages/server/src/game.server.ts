@@ -1,4 +1,4 @@
-import { Game } from '@cubic-eng/core';
+import { Game, IGameHooksClass } from '@cubic-eng/core';
 import { IScenarioDefinition } from '@cubic-eng/core';
 import { Random, NetworkUtils } from '@cubic-eng/core';
 import {EventHandler} from '@cubic-eng/core'
@@ -19,8 +19,9 @@ export class GameServer {
   private publicGamesManager: PublicGamesManager
   private network: INetworkAdapter
   private processedFrames: number
+  gameHooksClass: IGameHooksClass
 
-  constructor(io: SocketIO.Server, gameDefs: IScenarioDefinition[]) {
+  constructor(io: SocketIO.Server, gameDefs: IScenarioDefinition[], gameHooks: IGameHooksClass) {
     // tslint:disable-next-line:no-console
     console.log('Starting cubic-eng game server: version', process.env.npm_package_version)
     this.gameDefs = gameDefs
@@ -28,6 +29,7 @@ export class GameServer {
     this.publicGamesManager = new PublicGamesManager()
     this.processedFrames = 0
     this.network = new SocketIONetworkAdapter(io)
+    this.gameHooksClass = gameHooks
 
     this.attachEvents()
 
@@ -165,7 +167,7 @@ export class GameServer {
   createGame(gameId: string) {
     // tslint:disable-next-line:no-console
     console.log('createGame from engv2', gameId)
-    const game = new Game(gameId, this.gameDefs)
+    const game = new Game(gameId, this.gameDefs, this.gameHooksClass)
     this.games.push(game)
 
     return game
@@ -269,11 +271,14 @@ export class GameServer {
         const gameId = Random.getRandomInt(50000,1000).toString()
         joinGame = this.createGame(gameId)
         this.publicGamesManager.addGame(joinGame)
+
+        joinGame.onGameCreate()
         // joinGame.getScenario().addBot(0, joinGame.getScenario().getSpawnLocationManager().getNextAvailable())
         // joinGame.getScenario().addBot(1, joinGame.getScenario().getSpawnLocationManager().getNextAvailable())
       } else {
                 // remove bot
-        joinGame.getScenario().removeBot()
+          joinGame.onPlayerConnect()
+        //joinGame.getScenario().removeBot()
       }
     }
 
@@ -281,7 +286,7 @@ export class GameServer {
             // this.games.push(joinGame)
       this.network.joinToRoom(socket, joinGame.getId())
       joinGame.addPlayer(socket.id, data.name)
-
+     
             // @todo: send full msg, as scenarioStatus will be a diff
       this.network.sendToRoom(joinGame.getId(), 'gameStatus', joinGame.getState())
 
@@ -361,6 +366,7 @@ export class GameServer {
       // socket.leaveAll()
       game.removePlayer(socket.id);
       if (game.getPlayersAmount() > 0) {
+        game.onPlayerDisconnect()
         EventHandler.publish('gameStateChanged', game.getId())
       } else {
         this.removeGame(game.getId())
@@ -371,6 +377,8 @@ export class GameServer {
 
   removeGame(gameId: string) {
     this.publicGamesManager.removeGame(gameId)
+    const game = this.findGameById(gameId)
+    game?.beforeRemove()
     this.games = this.games.filter(game => game.getId() !== gameId)
   }
 }

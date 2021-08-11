@@ -9,7 +9,7 @@ const SocketIONetworkAdapter_1 = require("./SocketIONetworkAdapter");
 // tslint:disable-next-line:no-var-requires
 const { performance } = require("perf_hooks");
 class GameServer {
-    constructor(io, gameDefs) {
+    constructor(io, gameDefs, gameHooks) {
         // tslint:disable-next-line:no-console
         console.log('Starting cubic-eng game server: version', process.env.npm_package_version);
         this.gameDefs = gameDefs;
@@ -17,6 +17,7 @@ class GameServer {
         this.publicGamesManager = new PublicGames_manager_1.PublicGamesManager();
         this.processedFrames = 0;
         this.network = new SocketIONetworkAdapter_1.SocketIONetworkAdapter(io);
+        this.gameHooksClass = gameHooks;
         this.attachEvents();
         setInterval(() => {
             this.iterateGames();
@@ -137,7 +138,7 @@ class GameServer {
     createGame(gameId) {
         // tslint:disable-next-line:no-console
         console.log('createGame from engv2', gameId);
-        const game = new core_1.Game(gameId, this.gameDefs);
+        const game = new core_1.Game(gameId, this.gameDefs, this.gameHooksClass);
         this.games.push(game);
         return game;
     }
@@ -229,12 +230,14 @@ class GameServer {
                 const gameId = core_2.Random.getRandomInt(50000, 1000).toString();
                 joinGame = this.createGame(gameId);
                 this.publicGamesManager.addGame(joinGame);
+                joinGame.onGameCreate();
                 // joinGame.getScenario().addBot(0, joinGame.getScenario().getSpawnLocationManager().getNextAvailable())
                 // joinGame.getScenario().addBot(1, joinGame.getScenario().getSpawnLocationManager().getNextAvailable())
             }
             else {
                 // remove bot
-                joinGame.getScenario().removeBot();
+                joinGame.onPlayerConnect();
+                //joinGame.getScenario().removeBot()
             }
         }
         if (joinGame !== undefined) {
@@ -308,6 +311,7 @@ class GameServer {
             // socket.leaveAll()
             game.removePlayer(socket.id);
             if (game.getPlayersAmount() > 0) {
+                game.onPlayerDisconnect();
                 core_3.EventHandler.publish('gameStateChanged', game.getId());
             }
             else {
@@ -317,6 +321,8 @@ class GameServer {
     }
     removeGame(gameId) {
         this.publicGamesManager.removeGame(gameId);
+        const game = this.findGameById(gameId);
+        game === null || game === void 0 ? void 0 : game.beforeRemove();
         this.games = this.games.filter(game => game.getId() !== gameId);
     }
 }

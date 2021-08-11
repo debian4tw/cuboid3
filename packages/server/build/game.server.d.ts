@@ -1,5 +1,5 @@
 /// <reference types="socket.io" />
-import { Game } from '@cubic-eng/core';
+import { Game, IGameHooksClass } from '@cubic-eng/core';
 import { IScenarioDefinition } from '@cubic-eng/core';
 export declare class GameServer {
     private gameDefs;
@@ -7,7 +7,8 @@ export declare class GameServer {
     private publicGamesManager;
     private network;
     private processedFrames;
-    constructor(io: SocketIO.Server, gameDefs: IScenarioDefinition[]);
+    gameHooksClass: IGameHooksClass;
+    constructor(io: SocketIO.Server, gameDefs: IScenarioDefinition[], gameHooks: IGameHooksClass);
     private attachEvents;
     onGameStateChanged(gameId: string): void;
     onPlayerLostLive(gameId: string, roleLabel: string): void;

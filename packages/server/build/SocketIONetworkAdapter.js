@@ -16,8 +16,10 @@ class SocketIONetworkAdapter {
         this.io.to(gameId).emit(eventName, data);
     }
     sendToSocketId(socketId, eventName, data) {
+        var _a;
         // this.io.sockets.connected[socketId].emit('primaryActorAdded', {actorId: actorId})
-        this.io.sockets.connected[socketId].emit(eventName, data);
+        // console.log("sendToSocketId", eventName, data)
+        (_a = this.io.sockets.connected[socketId]) === null || _a === void 0 ? void 0 : _a.emit(eventName, data);
     }
     joinToRoom(socket, gameId) {
         socket.join(gameId);

@@ -23,7 +23,8 @@ export class SocketIONetworkAdapter implements INetworkAdapter {
 
   sendToSocketId(socketId: string, eventName: string, data: object | undefined) {
     // this.io.sockets.connected[socketId].emit('primaryActorAdded', {actorId: actorId})
-    this.io.sockets.connected[socketId].emit(eventName, data)
+    // console.log("sendToSocketId", eventName, data)
+    this.io.sockets.connected[socketId]?.emit(eventName, data)
   }
 
   joinToRoom(socket: SocketIO.Socket, gameId: string) {
