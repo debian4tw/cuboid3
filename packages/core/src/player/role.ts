@@ -2,6 +2,7 @@ import {Actor} from '../actor/Actor';
 import { Player } from './player'
 import { IActor } from '../actor/IActor';
 import { ISpawnLocationDef } from '../scenario/SpawnLocation.manager';
+import { IScenario } from '../scenario';
 
 export class Role {
     player: Player
@@ -62,22 +63,30 @@ export class Role {
         })
     }
 
-    addCommands(actor: Actor) {
+    addCommands(actor: Actor, scenario: IScenario) {
         this.roleCommands.forEach((roleCommand: any) => {
             if (roleCommand.type === actor.name) {
                 //console.log('adding command: ', roleCommand)
                 let label = roleCommand.label 
                 let method = roleCommand.method
-                if (typeof actor[method] === "undefined") {
-                    throw(`Role:addCommands: command ${label}, actor ${actor.name} does not have method ${method}`)
+                let behavior = roleCommand.behavior
+                //console.log("command has behavior", label, behavior)
+                if (typeof roleCommand['behavior'] !== "undefined") {
+                    this.addBehavior(scenario, roleCommand)
+                    return
                 } else {
-                    if (typeof roleCommand.value !== "undefined") {
-                        this.commands[label] = function(v: any) { actor[method](v) }
+                    if (typeof actor[method] === "undefined") {
+                        throw(`Role:addCommands: command ${label}, actor ${actor.name} does not have method ${method}`)
                     } else {
-                        this.commands[label] = function() { actor[method]() }
+                        if (typeof roleCommand.value !== "undefined") {
+                            this.commands[label] = function(v: any) { actor[method](v) }
+                        } else {
+                            this.commands[label] = function() { actor[method]() }
+                        }
+    
                     }
-
                 }
+
                 //console.log(this.commands)
             }
         })
@@ -98,6 +107,15 @@ export class Role {
         } else {
             console.log('Role:runCommand: command not found', command, value);
             //console.log('Role:actors:', this.actors);
+        }
+    }
+
+    addBehavior(scenario: IScenario, roleCommand: any) {
+        //console.log("Add Behavior", roleCommand)
+        const label = roleCommand.label
+        const behavior = roleCommand.behavior
+        this.commands[label] = (val = false) => {
+            behavior(scenario, this, val)
         }
     }
 
