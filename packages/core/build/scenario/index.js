@@ -15,5 +15,7 @@ __exportStar(require("./SpawnLocation.manager"), exports);
 __exportStar(require("./ICameraStrategy"), exports);
 __exportStar(require("./IScenario"), exports);
 __exportStar(require("./IScenarioDefinition"), exports);
+__exportStar(require("./IScenarioComponent"), exports);
 __exportStar(require("./Scenario"), exports);
 __exportStar(require("./SpawnLocations"), exports);
+__exportStar(require("./ScenarioHooks"), exports);

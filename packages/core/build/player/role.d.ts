@@ -2,6 +2,7 @@ import { Actor } from '../actor/Actor';
 import { Player } from './player';
 import { IActor } from '../actor/IActor';
 import { ISpawnLocationDef } from '../scenario/SpawnLocation.manager';
+import { IScenario } from '../scenario';
 export declare class Role {
     player: Player;
     commands: any;
@@ -18,6 +19,7 @@ export declare class Role {
     setPrimaryActorId(id: string): void;
     getPrimaryActorId(): string;
     respawn(location: ISpawnLocationDef): void;
-    addCommands(actor: Actor): void;
+    addCommands(actor: Actor, scenario: IScenario): void;
     runCommand(command: string, value?: any): void;
+    addBehavior(scenario: IScenario, roleCommand: any): void;
 }

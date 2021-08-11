@@ -24,10 +24,12 @@
     "@cubic-eng/g-physics": "^0.5.10",
     "@types/es6-shim": "^0.31.37",
     "@types/uuid": "^7.0.0",
+    "base64id": "^1.0.0",
     "three": "^0.124.0",
     "uuid": "^7.0.2"
   },
   "devDependencies": {
+    "@types/base64id": "^2.0.0",
     "@types/jest": "^25.1.4",
     "jest": "^25.3.0",
     "jest-transform-stub": "^2.0.0",

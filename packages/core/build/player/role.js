@@ -41,21 +41,29 @@ class Role {
             }
         });
     }
-    addCommands(actor) {
+    addCommands(actor, scenario) {
         this.roleCommands.forEach((roleCommand) => {
             if (roleCommand.type === actor.name) {
                 //console.log('adding command: ', roleCommand)
                 let label = roleCommand.label;
                 let method = roleCommand.method;
-                if (typeof actor[method] === "undefined") {
-                    throw (`Role:addCommands: command ${label}, actor ${actor.name} does not have method ${method}`);
+                let behavior = roleCommand.behavior;
+                //console.log("command has behavior", label, behavior)
+                if (typeof roleCommand['behavior'] !== "undefined") {
+                    this.addBehavior(scenario, roleCommand);
+                    return;
                 }
                 else {
-                    if (typeof roleCommand.value !== "undefined") {
-                        this.commands[label] = function (v) { actor[method](v); };
+                    if (typeof actor[method] === "undefined") {
+                        throw (`Role:addCommands: command ${label}, actor ${actor.name} does not have method ${method}`);
                     }
                     else {
-                        this.commands[label] = function () { actor[method](); };
+                        if (typeof roleCommand.value !== "undefined") {
+                            this.commands[label] = function (v) { actor[method](v); };
+                        }
+                        else {
+                            this.commands[label] = function () { actor[method](); };
+                        }
                     }
                 }
                 //console.log(this.commands)
@@ -79,6 +87,14 @@ class Role {
             console.log('Role:runCommand: command not found', command, value);
             //console.log('Role:actors:', this.actors);
         }
+    }
+    addBehavior(scenario, roleCommand) {
+        //console.log("Add Behavior", roleCommand)
+        const label = roleCommand.label;
+        const behavior = roleCommand.behavior;
+        this.commands[label] = (val = false) => {
+            behavior(scenario, this, val);
+        };
     }
 }
 exports.Role = Role;

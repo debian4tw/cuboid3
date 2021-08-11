@@ -1,15 +1,18 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Game = void 0;
+const base64id_1 = __importDefault(require("base64id"));
 const Scenario_1 = require("../scenario/Scenario");
 const EventHandler_1 = require("../event/EventHandler");
 const GameEventBus_1 = require("../event/GameEventBus");
 const player_1 = require("../player/player");
 class Game {
-    constructor(id, importedScenarios) {
+    constructor(id, importedScenarios, gameHooksClass) {
         this.scenarios = {};
         this.scenariosNameMap = {};
-        console.log("*****v2 eng creating game");
         this.id = id;
         this.gamePlayers = [];
         this.registerScenarios(importedScenarios);
@@ -17,6 +20,10 @@ class Game {
         this.switchInterval = false;
         this.gameEventBus = new GameEventBus_1.GameEventBus();
         this.attachEvents();
+        if (gameHooksClass) {
+            this.gameHooks = new gameHooksClass(this);
+            this.configuredSwitchLoop = this.gameHooks.startScenarioSwitchLoop;
+        }
     }
     registerScenarios(importedScenarios) {
         importedScenarios.forEach((scenarioDefinition) => {
@@ -38,7 +45,10 @@ class Game {
         // placeholder
     }
     getPlayersAmount() {
-        return this.gamePlayers.length;
+        //return this.gamePlayers.length
+        const reducer = (accumulator, currentPlayer) => accumulator + (currentPlayer.isBotPlayer() ? 0 : 1);
+        let playersAmount = this.gamePlayers.reduce(reducer, 0);
+        return playersAmount;
     }
     getPlayers() {
         return this.gamePlayers;
@@ -49,6 +59,7 @@ class Game {
     resetLives() {
         this.gamePlayers.forEach(player => {
             player.lives = 5;
+            player.resetScore();
         });
         // console.log('resetLives', this.id, this.gamePlayers);
         EventHandler_1.EventHandler.publish('gameStateChanged', this.id);
@@ -95,16 +106,14 @@ class Game {
         return null;
     }
     startScenarioSwitchLoop() {
-        console.log("eng game start scenarioswitch", this.id);
-        const switchToId = 0;
-        clearInterval(this.switchInterval);
-        this.setScenario(7).init(this.getPlayers(), this.id);
-        setTimeout(() => {
-            console.log("players", this.getPlayers());
-            console.log("triggering roleSelected");
-            this.getScenario().roleSelected(this.gamePlayers[0], 'axer');
-        }, 8000);
-        this.resetLives();
+        this.configuredSwitchLoop(this);
+        /*console.log("eng game start scenarioswitch", this.id)
+        const switchToId = 0
+        clearInterval(this.switchInterval)
+    
+        this.setScenario(7).init(this.getPlayers(), this.id)
+    
+        this.resetLives()*/
         // console.log('starting startScenarioSwitchLoop')
         /*this.switchInterval = setInterval(() => {
             if (this.getScenarioName() == 'empty') {
@@ -120,9 +129,9 @@ class Game {
             this.setScenario(switchToId).init(this.getPlayers(), this.id)
         },25000);*/
     }
-    addPlayer(socketId, playerName) {
-        // socket.join(this.id)
-        const player = new player_1.Player(socketId, playerName);
+    addPlayer(socketId, playerName, isBot = false) {
+        //socket.join(this.id)
+        const player = new player_1.Player(socketId, playerName, isBot);
         this.gamePlayers.push(player);
         if (this.scenario !== null) {
             this.scenario.addPlayer(player);
@@ -153,7 +162,8 @@ class Game {
             state.push(player.serialize());
         });
         return {
-            createdAt: Date.now(),
+            createdAt: this.createdAt,
+            timeLimit: this.timeLimit,
             state
         };
     }
@@ -203,6 +213,42 @@ class Game {
     }
     onScenarioEvent(socketId, data) {
         this.scenario.onEvent(socketId, data);
+    }
+    setCreatedAt(createdAt) {
+        this.createdAt = new Date(createdAt);
+    }
+    setTimeLimit(timeLimit) {
+        this.timeLimit = timeLimit;
+    }
+    setSwitchInterval(switchInterval) {
+        clearInterval(this.switchInterval);
+        this.switchInterval = switchInterval;
+    }
+    beforeRemove() {
+        clearInterval(this.switchInterval);
+    }
+    getBotPlayers() {
+        return this.gamePlayers.filter(player => player.isBotPlayer());
+    }
+    addBot(botName) {
+        this.addPlayer(base64id_1.default.generateId(), botName, true);
+    }
+    removeBot() {
+        const bot = this.gamePlayers.find(player => player.isBotPlayer());
+        if (!bot) {
+            return;
+        }
+        this.removePlayer(bot.getId());
+    }
+    //@todo: hooks, moght be mooved somewhere else
+    onPlayerConnect() {
+        this.gameHooks.onClientConnect(this);
+    }
+    onPlayerDisconnect() {
+        this.gameHooks.onClientDisconnect(this);
+    }
+    onGameCreate() {
+        this.gameHooks.onGameCreate(this);
     }
 }
 exports.Game = Game;

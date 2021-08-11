@@ -7,6 +7,8 @@ import { IRoleManager } from '../role/IRoleManager';
 import { SpawnLocationManager } from './SpawnLocation.manager';
 import { ActorIdService } from './ActorIdService';
 import { IScenarioDefinition } from './IScenarioDefinition';
+import { ScenarioHooks } from './';
+import { IScenarioComponent } from './IScenarioComponent';
 export declare class Scenario implements IScenario {
     name: string;
     actors: IActor[];
@@ -20,6 +22,8 @@ export declare class Scenario implements IScenario {
     actorIdService: ActorIdService;
     removedActorsBuffer: string[];
     events: Map<string, (scenario: Scenario, socketId: string, data: any) => void>;
+    scenarioHooks: ScenarioHooks;
+    components: Map<string, IScenarioComponent>;
     constructor(scenarioDef: IScenarioDefinition);
     init(players: any[], gameId: string): void;
     addBot(index: number, spawn: any): void;
@@ -61,4 +65,6 @@ export declare class Scenario implements IScenario {
         eventName: string;
         data: any;
     }): void;
+    getComponent(componentName: string): IScenarioComponent | undefined;
+    addComponent(componentName: string, component: IScenarioComponent): void;
 }

@@ -10,7 +10,11 @@ export declare class Game {
     scenarios: any;
     scenariosNameMap: any;
     gameEventBus: GameEventBus;
-    constructor(id: string, importedScenarios: IScenarioDefinition[]);
+    createdAt: Date;
+    timeLimit: number;
+    configuredSwitchLoop: any;
+    private gameHooks;
+    constructor(id: string, importedScenarios: IScenarioDefinition[], gameHooksClass?: any);
     registerScenarios(importedScenarios: IScenarioDefinition[]): void;
     getPlayersIds(): any;
     getRegisteredScenarios(): any;
@@ -27,12 +31,13 @@ export declare class Game {
     getScenario(): IScenario;
     getScenarioName(): string | null;
     startScenarioSwitchLoop(): void;
-    addPlayer(socketId: string, playerName: string): void;
+    addPlayer(socketId: string, playerName: string, isBot?: boolean): void;
     removePlayer(socketId: string): void;
     onPlayerCommand(playerId: string, command: string, value?: any): void;
     getId(): string;
     getState(): {
-        createdAt: number;
+        createdAt: Date;
+        timeLimit: number;
         state: any;
     };
     setGameState(state: any): void;
@@ -40,4 +45,14 @@ export declare class Game {
     getScenarioDiffState(): any;
     setState(state: any): void;
     onScenarioEvent(socketId: string, data: any): void;
+    setCreatedAt(createdAt: Date): void;
+    setTimeLimit(timeLimit: number): void;
+    setSwitchInterval(switchInterval: any): void;
+    beforeRemove(): void;
+    getBotPlayers(): Player[];
+    addBot(botName: string): void;
+    removeBot(): void;
+    onPlayerConnect(): void;
+    onPlayerDisconnect(): void;
+    onGameCreate(): void;
 }

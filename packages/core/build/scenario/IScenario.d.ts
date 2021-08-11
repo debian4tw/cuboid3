@@ -3,6 +3,7 @@ import { Player } from '../player/player';
 import { Role } from '../player/role';
 import { IActor } from "../actor/IActor";
 import { SpawnLocationManager } from "./SpawnLocation.manager";
+import { IScenarioComponent } from "./IScenarioComponent";
 export interface IScenario {
     update(): void;
     update2(): void;
@@ -36,4 +37,6 @@ export interface IScenario {
     getSpawnLocationManager(): SpawnLocationManager;
     getDiffState(): object;
     onEvent(socketId: string, data: any): void;
+    getComponent(componentName: string): IScenarioComponent | undefined;
+    addComponent(componentName: string, component: IScenarioComponent): void;
 }

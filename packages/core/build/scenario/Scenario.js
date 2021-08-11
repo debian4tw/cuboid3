@@ -8,6 +8,7 @@ const SpawnLocation_manager_1 = require("./SpawnLocation.manager");
 const SpawnLocations_1 = require("./SpawnLocations");
 const util_1 = require("../util");
 const ActorIdService_1 = require("./ActorIdService");
+const _1 = require("./");
 const botActors = [];
 class Scenario {
     constructor(scenarioDef) {
@@ -31,6 +32,12 @@ class Scenario {
         }
         else {
             this.collisionManager = new Collision_manager_1.CollisionManager(this, scenarioDef.collisions);
+        }
+        if (scenarioDef.scenarioHooks) {
+            this.scenarioHooks = new scenarioDef.scenarioHooks(this);
+        }
+        else {
+            this.scenarioHooks = new _1.ScenarioHooks(this);
         }
         if (typeof scenarioDef.events !== "undefined") {
             scenarioDef.events.forEach((ev) => {
@@ -84,11 +91,13 @@ class Scenario {
     update() {
         this.actors.forEach((actor) => {
             actor.update();
+            this.scenarioHooks.afterUpdate(actor);
         });
     }
     update2() {
         for (let i = 0, length = this.actors.length; i < length; i++) {
             this.actors[i].update();
+            this.scenarioHooks.afterUpdate(this.actors[i]);
         }
     }
     updateCollisions() {
@@ -185,7 +194,7 @@ class Scenario {
         // @todo: actor factory
         // console.log('addRoleActor', configActorForRole)
         const actor = new configActorForRole.type(configActorForRole.x, configActorForRole.y, this.actorIdService.getNextActorId(), configActorForRole.z || 0);
-        role.addCommands(actor);
+        role.addCommands(actor, this);
         role.actors.push(actor);
         actor.setLabel(configActorForRole.label);
         if (typeof configActorForRole.color !== "undefined") {
@@ -250,7 +259,7 @@ class Scenario {
         // console.log('processed actors getstate in: (ms)', performance.now() - start3)
         return {
             // gameId: this.gameId,
-            // type: this.name,
+            type: this.name,
             // players: this.roleManager.getScenarioPlayers(),
             state,
             removed: this.getRemovedActorList()
@@ -348,6 +357,18 @@ class Scenario {
         const event = this.events.get(data.eventName);
         if (typeof event !== "undefined") {
             event(this, socketId, data.data);
+        }
+    }
+    getComponent(componentName) {
+        var _a;
+        return (_a = this.components) === null || _a === void 0 ? void 0 : _a.get(componentName);
+    }
+    addComponent(componentName, component) {
+        if (typeof this.components === "undefined") {
+            this.components = new Map();
+        }
+        if (componentName && component) {
+            this.components.set(componentName, component);
         }
     }
 }

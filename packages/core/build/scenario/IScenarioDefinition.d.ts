@@ -1,5 +1,6 @@
 import { ICollisionManagerClass } from "../collision/ICollisionManager";
 import { IRoleManagerClass } from "../role/IRoleManager";
+import { IScenarioHooksClass } from "./ScenarioHooks";
 export interface IScenarioDefinition {
     id: number;
     name: string;
@@ -15,4 +16,5 @@ export interface IScenarioDefinition {
     initScene(scene: THREE.Scene): void;
     events?: any;
     uiComps?: any;
+    scenarioHooks?: IScenarioHooksClass | undefined;
 }

@@ -29,9 +29,9 @@ class RoleTypeManager {
         // this.addRole(player)
     }
     roleSelected(player, roleName) {
-        console.log("RoleType:roleSelected");
-        console.log(player, roleName);
-        console.log(this.scenario.getGameId());
+        // console.log("RoleType:roleSelected")
+        // console.log(player, roleName)
+        // console.log(this.scenario.getGameId())
         this.addRole(player, roleName);
         EventHandler_1.EventHandler.publish('gameStateChanged', this.scenario.getGameId());
     }
