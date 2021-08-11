@@ -1,6 +1,7 @@
 import { ICollisionManagerClass } from "../collision/ICollisionManager";
 import { IRoleManagerClass } from "../role/IRoleManager";
 import { ICameraStrategy } from "./ICameraStrategy";
+import { ScenarioHooks, IScenarioHooksClass } from "./ScenarioHooks";
 
 export interface IScenarioDefinition {
   id: number,
@@ -21,4 +22,6 @@ export interface IScenarioDefinition {
 
   events?: any
   uiComps?: any
+
+  scenarioHooks?: IScenarioHooksClass | undefined
 }

@@ -19,7 +19,8 @@ import {spawnLocations} from './SpawnLocations'
 import { NetworkUtils } from '../util';
 import { ActorIdService } from './ActorIdService';
 import { IScenarioDefinition } from './IScenarioDefinition';
-
+import { ScenarioHooks } from './'
+import { IScenarioComponent } from './IScenarioComponent';
 
 const botActors: any[] =[]
 
@@ -40,6 +41,9 @@ export class Scenario implements IScenario {
   removedActorsBuffer: string[]
 
   events: Map<string, (scenario: Scenario, socketId: string, data: any) => void>
+
+  scenarioHooks: ScenarioHooks
+  components: Map<string, IScenarioComponent>
 
   constructor(scenarioDef: IScenarioDefinition) {
     this.actors = []
@@ -67,12 +71,18 @@ export class Scenario implements IScenario {
       this.collisionManager = new CollisionManager(this, scenarioDef.collisions)
     }
 
+    if (scenarioDef.scenarioHooks) {
+      this.scenarioHooks = new scenarioDef.scenarioHooks(this)
+    } else {
+      this.scenarioHooks = new ScenarioHooks(this)
+    }
+
     if (typeof scenarioDef.events !== "undefined") {
       scenarioDef.events.forEach((ev: any) => {
         this.events.set(ev.eventName,ev.callback)
       })
     }
-        // this.setName(scenarioDef.name)
+    // this.setName(scenarioDef.name)
   }
 
   public init(players: any[], gameId: string) {
@@ -127,12 +137,14 @@ export class Scenario implements IScenario {
   update() {
     this.actors.forEach((actor) => {
       actor.update();
+      this.scenarioHooks.afterUpdate(actor)
     })
   }
 
   update2() {
     for(let i=0,length=this.actors.length;i<length;i++) {
       this.actors[i].update();
+      this.scenarioHooks.afterUpdate(this.actors[i])
     }
   }
 
@@ -250,7 +262,7 @@ export class Scenario implements IScenario {
             configActorForRole.z || 0
         )
 
-    role.addCommands(actor)
+    role.addCommands(actor, this)
     role.actors.push(actor)
     actor.setLabel(configActorForRole.label);
 
@@ -333,7 +345,7 @@ export class Scenario implements IScenario {
 
     return {
             // gameId: this.gameId,
-            // type: this.name,
+      type: this.name,
             // players: this.roleManager.getScenarioPlayers(),
       state,
       removed: this.getRemovedActorList()
@@ -446,6 +458,19 @@ export class Scenario implements IScenario {
     const event = this.events.get(data.eventName)
     if (typeof event !== "undefined") {
       event(this, socketId, data.data)
+    }
+  }
+
+  getComponent(componentName: string) {
+    return this.components?.get(componentName)
+  }
+
+  addComponent(componentName: string, component: IScenarioComponent) {
+    if (typeof this.components === "undefined") {
+      this.components = new Map()
+    }
+    if (componentName && component) {
+      this.components.set(componentName, component)
     }
   }
 
