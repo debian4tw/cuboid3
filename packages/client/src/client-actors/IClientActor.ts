@@ -1,4 +1,4 @@
-import { IActor } from '@cubic-eng/core';
+import { Actor, IActor } from '@cubic-eng/core';
 
 export interface IClientActor {
 
@@ -17,5 +17,8 @@ export interface IClientActor {
   getActor(): IActor
 
   getMesh(): any
+}
 
+export interface IClientActorConstructor {
+  new(actor: Actor): IClientActor
 }

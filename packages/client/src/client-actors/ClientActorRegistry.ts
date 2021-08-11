@@ -11,12 +11,14 @@ import { EventHandler } from "@cubic-eng/core";
 
 export class ClientActorRegistry {
 
-  private clientActors : IClientActor[];
-  private scene: THREE.Scene;
+  private clientActors : IClientActor[]
+  private scene: THREE.Scene
+  private clientActorFactory: ClientActorFactory
 
-  constructor(game: Game, scene: THREE.Scene) {
-    this.scene = scene;
-    this.clientActors = [];
+  constructor(game: Game, scene: THREE.Scene, clientDefs: any[]) {
+    this.scene = scene
+    this.clientActors = []
+    this.clientActorFactory = new ClientActorFactory(clientDefs)
   }
 
   findById(id: string): IClientActor | undefined {
@@ -26,7 +28,7 @@ export class ClientActorRegistry {
 
   create(actor: IActor): Promise<IClientActor> {
     //let cliActor = ClientActorFactory.createClientActor(actor)
-    let cliActor = ClientActorFactory.createClientActorType(actor)
+    let cliActor = this.clientActorFactory.createClientActorType(actor)
     this.clientActors.push(cliActor)
 
     return new Promise((resolve) => {

@@ -12,6 +12,7 @@ import {InputHandler} from './InputHandler'
 import {CameraHandler} from './CameraHandler'
 import {AudioManager} from './managers/AudioManager'
 import { RenderManager } from "./managers/RenderManager"
+import { ICanvasUIElementsManager } from "./managers";
 
 export class GameClient {
   private sock : SocketIOClient.Socket;
@@ -21,25 +22,34 @@ export class GameClient {
   private inputHandler: InputHandler
   private cameraHandler: CameraHandler
   private renderManager: RenderManager
+  private canvasUIElementsManager: new(width: number, height: number, camera: THREE.PerspectiveCamera) => ICanvasUIElementsManager
   // private audioManager: any
   // private effect: any
+
+  clientStepManagers: any[];
+
   private url: string
   scenarioDefs: IScenarioDefinition[]
 
   clientScenarios: any = {}
 
-  constructor(url: string, scenarioDefs: IScenarioDefinition[]) {
+  constructor(url: string, scenarioDefs: IScenarioDefinition[], clientDefs: any) {
     this.url = url
     this.scenarioDefs = scenarioDefs
+    this.clientStepManagers = []
     // tslint:disable-next-line:no-console
     console.log('%c CubicEngine Started','color: white;font-weight:bold;background-color: black; padding:10px;')
-    this.registerClientScenarios([])
+    this.registerClientScenarios(clientDefs)
   }
 
   public registerClientScenarios(importedScenarios: any[]) {
     importedScenarios.forEach((scenarioDefinition: any) => {
       this.clientScenarios[scenarioDefinition.name] = scenarioDefinition
     })
+  }
+
+  public setCanvasUIElementsManager(canvasUIElementsManager: new(width: number, height: number, camera: THREE.PerspectiveCamera) => ICanvasUIElementsManager) {
+    this.canvasUIElementsManager = canvasUIElementsManager
   }
 
   connect(name: string, gameId: any) {
@@ -67,8 +77,13 @@ export class GameClient {
 
       this.scene = new THREE.Scene();
 
-      this.game = new Game(gameId, this.scenarioDefs);
-      this.clientActorRegistry = new ClientActorRegistry(this.game, this.scene);
+      this.game = new Game(gameId, this.scenarioDefs, null);
+      // console.log("creating clientActorRegistry", this.clientScenarios)
+      this.clientActorRegistry = new ClientActorRegistry(
+        this.game,
+        this.scene,
+        Object.values(this.clientScenarios)
+      );
 
       this.renderManager = new RenderManager()
       const {width, height} = this.renderManager.calculateCanvassize()
@@ -80,7 +95,10 @@ export class GameClient {
 
       this.inputHandler = new InputHandler(this.sock, document, this.clientScenarios)
       this.inputHandler.init()
-
+      
+      if (this.canvasUIElementsManager) {
+        this.renderManager.addCanvas2D(new this.canvasUIElementsManager(width, height, this.cameraHandler.getCamera()))
+      }
       this.renderManager.init(this.scene, this.cameraHandler)
     })
 
@@ -95,17 +113,30 @@ export class GameClient {
     }
   }
 
+  setUrl(url : string) {
+    this.url = url
+  }
 
   onSocketGameEvents(events: GameEvent[]) {
     if (typeof events === "undefined" || events.length === 0) {
       return
     }
 
-    // @todo: refactor into polymorphic gameEventResolver.resolve()
+    const scenarioName = this.game.getScenario().getName()
+
+    
     events.forEach((event) => {
+      // @todo: refactor into polymorphic gameEventResolver.resolve()
+      if (scenarioName) {
+        this.clientScenarios[scenarioName].resolveRemoteGameEvent(event)
+      }
       // console.log(event)
-      if (event.label === 'gameCollision') {
-        AudioManager.getInstance().play(event.value)
+      /*if (event.label === 'gameCollision') {
+        AudioManager.play(event.value)
+        if (event.value.indexOf("-aignore") > -1) {
+          //console.log("should draw ignore")
+          EventHandler.publish('client:aIgnoreApplied', event.position)
+        }
       }
 
       if (event.label === 'playerLostLive') {
@@ -114,8 +145,7 @@ export class GameClient {
 
       if (event.label === 'swingMiss') {
         EventHandler.publish('client:swingMiss', event.position)
-      }
-
+      }*/
     })
   }
 
@@ -137,14 +167,22 @@ export class GameClient {
     }
 
     if (typeof this.clientScenarios[scenarioDef.name] !== "undefined") {
+      EventHandler.publish('client:cleanUIComponents')
       const cliScenarioDef = this.clientScenarios[scenarioDef.name]
       cliScenarioDef.uiComps?.forEach((comp: any) => {
-        EventHandler.publish(
-          'client:addUIComponent',
-          comp
-        )
+        EventHandler.publish('client:addUIComponent', comp)
       })
+      // @todo: clean clientManagers and instantiate new ones
+      if (typeof cliScenarioDef.clientStepManagers !== "undefined") {
+        cliScenarioDef.clientStepManagers.forEach((clientManager: any) => {
+          this.clientStepManagers.push(
+            new clientManager(this.scene, this.clientActorRegistry)
+          )
+        })
+      }
     }
+
+
 
     if (typeof scenarioDef.opts.lockScreen !== "undefined" && scenarioDef.opts.lockScreen === true) {
       EventHandler.publish('client:lockScreen')
@@ -170,6 +208,9 @@ export class GameClient {
     })
 
     this.cameraHandler.updateCamera()
+    this.clientStepManagers?.forEach((clientStepManager: any) => {
+      clientStepManager.update()
+    })
     this.cleanupOldActorsObj(status)
   }
 
@@ -177,9 +218,15 @@ export class GameClient {
     status = JSON.parse(NetworkUtils.decodeString(status))
     // console.log("onSocketDiff", status)
     this.onSocketGameEvents(status.events)
+
+    if (status.type !== this.game.getScenarioName()) {
+      this.clientScenarioChange(status)
+    }
+
     if (typeof status.state === "undefined" || status.state.length === 0) {
       return
     }
+
     status.state.forEach((remoteObj : any) => {
       this.processRemoteActorDiffObj(remoteObj)
     })
@@ -190,6 +237,9 @@ export class GameClient {
       })
     }
     this.cameraHandler.updateCamera()
+    this.clientStepManagers?.forEach((clientStepManager: any) => {
+      clientStepManager.update()
+    })
   }
 
   cleanupOldActorsObj(status: any) {
@@ -291,7 +341,11 @@ export class GameClient {
     if (cliActor) {
       this.cameraHandler.followSubject(cliActor.getActor() ,cliActor.getMesh())
       EventHandler.publish('attachAudioListener', cliActor.getMesh())
+
+      //this three events shoyld be the same, only one
       EventHandler.publish('client:primaryActorTypeAdded', cliActor.getActor().name)
+      EventHandler.publish('client:primaryActorAdded', cliActor.getActor())
+      EventHandler.publish('client:primaryClientActorAdded', cliActor)
     } else {
       // tslint:disable-next-line:no-console
       console.log('onPrimaryActorAdded: actor not found', actorId)
