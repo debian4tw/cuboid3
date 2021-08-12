@@ -320,6 +320,7 @@ class GameServer {
         }
     }
     removeGame(gameId) {
+        console.log("removing game", gameId);
         this.publicGamesManager.removeGame(gameId);
         const game = this.findGameById(gameId);
         game === null || game === void 0 ? void 0 : game.beforeRemove();

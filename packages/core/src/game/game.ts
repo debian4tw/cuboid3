@@ -270,11 +270,13 @@ export class Game {
   }
 
   setSwitchInterval(switchInterval: any) {
+    clearTimeout(this.switchInterval)
     clearInterval(this.switchInterval)
     this.switchInterval = switchInterval
   }
 
   beforeRemove() {
+    clearTimeout(this.switchInterval)
     clearInterval(this.switchInterval)
   }
 

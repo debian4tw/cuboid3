@@ -376,6 +376,7 @@ export class GameServer {
   }
 
   removeGame(gameId: string) {
+    console.log("removing game", gameId)
     this.publicGamesManager.removeGame(gameId)
     const game = this.findGameById(gameId)
     game?.beforeRemove()
