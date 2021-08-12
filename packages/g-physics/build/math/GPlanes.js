@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GPlanes = void 0;
+/* eslint-disable no-unused-vars */
 var GPlanes;
 (function (GPlanes) {
     GPlanes[GPlanes["XZ"] = 0] = "XZ";

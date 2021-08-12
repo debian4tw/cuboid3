@@ -1,40 +1,40 @@
-import { GVector3 } from "../math/GMath";
-import { GParticleContact } from "./GParticleContact";
+// import { GVector3 } from '../math/GMath'
+import { GParticleContact } from './GParticleContact'
 
 export class ParticleContactResolver {
-
   private iterations: number
 
-  constructor(iterations: number) {
+  // eslint-disable-next-line no-useless-constructor
+  constructor (iterations: number) {
 
   }
 
-  setIterations(iterations: number) {
+  setIterations (iterations: number) {
     this.iterations = iterations
   }
 
-  resolveContacts(contactArray: [GParticleContact], numContacts: number, duration: number) {
-    let i: number;
+  resolveContacts (contactArray: [GParticleContact], numContacts: number, duration: number) {
+    let i: number
 
-    let iterationsUsed = 0;
-    while(iterationsUsed < this.iterations) {
+    let iterationsUsed = 0
+    while (iterationsUsed < this.iterations) {
       // Find the contact with the largest closing velocity;
-      const REAL_MAX = 10000000;
-      let max = REAL_MAX;
-      let maxIndex = numContacts;
+      const REAL_MAX = 10000000
+      let max = REAL_MAX
+      let maxIndex = numContacts
       for (i = 0; i < numContacts; i++) {
-        let sepVel = contactArray[i].calculateSeparatingVelocity();
+        const sepVel = contactArray[i].calculateSeparatingVelocity()
         if (sepVel < max && (sepVel < 0 || contactArray[i].penetration > 0)) {
-          max = sepVel;
-          maxIndex = i;
+          max = sepVel
+          maxIndex = i
         }
       }
 
       // Do we have anything worth resolving?
-      if (maxIndex == numContacts) break;
+      if (maxIndex === numContacts) break
 
       // Resolve this contact
-      contactArray[maxIndex].resolve(duration);
+      contactArray[maxIndex].resolve(duration)
 
       // Update the interpenetrations for all particles
       /*
@@ -56,7 +56,7 @@ export class ParticleContactResolver {
       }
       */
 
-        iterationsUsed++;
+      iterationsUsed++
     }
   }
 }

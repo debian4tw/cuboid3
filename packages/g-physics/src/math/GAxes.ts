@@ -1,3 +1,4 @@
 export enum GAxes {
-  X,Y,Z
+  // eslint-disable-next-line no-unused-vars
+  X, Y, Z
 }

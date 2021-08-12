@@ -2,7 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GMatrix3 = void 0;
 class GMatrix3 {
+    // eslint-disable-next-line no-useless-constructor
     constructor() {
+        // placeholder
     }
     multiplyMatrix(m) {
         return [
@@ -26,8 +28,8 @@ class GMatrix3 {
         const t6 = m.data[2] * m.data[6];
         // Calculate the determinant.
         const det = (t1 * m.data[8] - t2 * m.data[7] - t3 * m.data[8] + t4 * m.data[7] + t5 * m.data[5] - t6 * m.data[4]);
-        // Make sure the determinant is non-zero. 
-        if (det == 0) {
+        // Make sure the determinant is non-zero.
+        if (det === 0) {
             return;
         }
         const invd = 1 / det;

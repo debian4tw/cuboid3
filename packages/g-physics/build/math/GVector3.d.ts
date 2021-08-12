@@ -1,9 +1,9 @@
+import { GPoint3 } from './GPoint3';
 export declare enum Axis {
     X = 0,
     Y = 1,
     Z = 2
 }
-import { GPoint3 } from './GPoint3';
 export declare class GVector3 {
     x: number;
     y: number;

@@ -1,24 +1,23 @@
+import { GPoint3 } from './GPoint3'
+
 export enum Axis {
-  X,Y,Z
+  // eslint-disable-next-line no-unused-vars
+  X, Y, Z
 }
 
-import {GPoint3} from './GPoint3'
-
-
 export class GVector3 {
-
   public x: number
   public y: number
-  public z: number 
+  public z: number
   private precision = 100000
 
-  constructor(x: number, y: number, z: number) {
+  constructor (x: number, y: number, z: number) {
     this.x = x
     this.y = y
     this.z = z
   }
 
-  copy() {
+  copy () {
     return new GVector3(this.x, this.y, this.z)
   }
 
@@ -28,7 +27,7 @@ export class GVector3 {
     this.z = z
   }
 
-  serialize(): GPoint3 {
+  serialize (): GPoint3 {
     return {
       x: this.x,
       y: this.y,
@@ -36,7 +35,7 @@ export class GVector3 {
     }
   }
 
-  subtract(vec: GVector3): GVector3 {
+  subtract (vec: GVector3): GVector3 {
     this.x -= vec.x
     this.y -= vec.y
     this.z -= vec.z
@@ -44,7 +43,7 @@ export class GVector3 {
     return this
   }
 
-  add(vec: GVector3): GVector3 {
+  add (vec: GVector3): GVector3 {
     this.x += vec.x
     this.y += vec.y
     this.z += vec.z
@@ -52,37 +51,36 @@ export class GVector3 {
     return this
   }
 
-  addScalar(scalar: number) {
+  addScalar (scalar: number) {
     this.x += scalar
     this.y += scalar
     this.z += scalar
 
-    return this;
+    return this
   }
 
-
-  addScaledVector(vector: GVector3, scale: number) {
+  addScaledVector (vector: GVector3, scale: number) {
     this.x += (vector.x * scale)
     this.y += (vector.y * scale)
     this.z += (vector.z * scale)
-    
-    //this.x += Math.round(((vector.x * scale) + Number.EPSILON) * 1000) / 1000
-    //this.y += Math.round(((vector.y * scale) + Number.EPSILON) * 1000) / 1000
-    //this.z += Math.round(((vector.z * scale) + Number.EPSILON) * 1000) / 1000
 
-    //Math.round(((vector.x * scale) + Number.EPSILON) * 100) / 100
+    // this.x += Math.round(((vector.x * scale) + Number.EPSILON) * 1000) / 1000
+    // this.y += Math.round(((vector.y * scale) + Number.EPSILON) * 1000) / 1000
+    // this.z += Math.round(((vector.z * scale) + Number.EPSILON) * 1000) / 1000
+
+    // Math.round(((vector.x * scale) + Number.EPSILON) * 100) / 100
     this.x = Math.round(((this.x) + Number.EPSILON) * this.precision) / this.precision
     this.y = Math.round(((this.y) + Number.EPSILON) * this.precision) / this.precision
     this.z = Math.round(((this.z) + Number.EPSILON) * this.precision) / this.precision
   }
 
-  multiply(vec: GVector3) {
+  multiply (vec: GVector3) {
     this.x *= vec.x
     this.y *= vec.y
     this.z *= vec.z
   }
 
-  multiplyScalar(scalar: number) {
+  multiplyScalar (scalar: number) {
     this.x *= scalar
     this.y *= scalar
     this.z *= scalar
@@ -94,7 +92,7 @@ export class GVector3 {
     return this
   }
 
-  divideScalar(scalar: number) {
+  divideScalar (scalar: number) {
     this.x /= scalar
     this.y /= scalar
     this.z /= scalar
@@ -106,15 +104,15 @@ export class GVector3 {
     return this
   }
 
-  magnitude() : number {
-    let mag = Math.sqrt(Math.pow(this.x,2) + Math.pow(this.y,2) + Math.pow(this.z,2))
-    //console.log('magnitude', this.x, this.y, this.z, mag)
+  magnitude () : number {
+    let mag = Math.sqrt(Math.pow(this.x, 2) + Math.pow(this.y, 2) + Math.pow(this.z, 2))
+    // console.log('magnitude', this.x, this.y, this.z, mag)
     mag = Math.round(((mag) + Number.EPSILON) * this.precision) / this.precision
     return mag
   }
 
-  normalize(): GVector3 {
-    //@todo: maybe return other thing instead of 0
+  normalize (): GVector3 {
+    // @todo: maybe return other thing instead of 0
     if (this.magnitude() === 0) {
       this.x = 0
       this.y = 0
@@ -123,40 +121,39 @@ export class GVector3 {
     } else {
       return this.multiplyScalar(1 / this.magnitude())
     }
-
   }
 
-  calculateAngleWithVector(vec: GVector3) {
-    let res = Math.acos(this.dotProduct(vec)/(this.magnitude()* vec.magnitude()))
-    res = res *  ( 180 / Math.PI)
+  calculateAngleWithVector (vec: GVector3) {
+    let res = Math.acos(this.dotProduct(vec) / (this.magnitude() * vec.magnitude()))
+    res = res * (180 / Math.PI)
     return Math.round((res + Number.EPSILON) * 100) / 100
   }
 
-  calculateAngleOnPlaneXZ(vec: GVector3) {
-    let normA = this.copy().normalize()
-    let normB = vec.copy().normalize()
-    //console.log("normalized", normA, normB)
+  calculateAngleOnPlaneXZ (vec: GVector3) {
+    const normA = this.copy().normalize()
+    const normB = vec.copy().normalize()
+    // console.log("normalized", normA, normB)
 
-    let angle = ( 180 / Math.PI ) * (Math.atan2(normA.x, normA.z) - Math.atan2(normB.x, normB.z))
+    let angle = (180 / Math.PI) * (Math.atan2(normA.x, normA.z) - Math.atan2(normB.x, normB.z))
     if (angle < -180) {
       angle += 360
     }
-    return angle;
+    return angle
   }
 
-  dotProduct(vec: GVector3): number {
+  dotProduct (vec: GVector3): number {
     return this.x * vec.x + this.y * vec.y + this.z * vec.z
   }
 
-  crossProduct(vec: GVector3) {
+  crossProduct (vec: GVector3) {
     return new GVector3(
-      Math.round(((this.y* vec.z - this.z * vec.y) + Number.EPSILON) * 100) / 100,
+      Math.round(((this.y * vec.z - this.z * vec.y) + Number.EPSILON) * 100) / 100,
       Math.round(((this.z * vec.x - this.x * vec.z) + Number.EPSILON) * 100) / 100,
       Math.round(((this.x * vec.y - this.y * vec.x) + Number.EPSILON) * 100) / 100
     )
   }
 
-  angleOnAxis(axis: Axis) {
+  angleOnAxis (axis: Axis) {
     switch (axis) {
       case Axis.Z:
         return Math.atan(this.y / this.x) * (180 / Math.PI)
@@ -167,45 +164,44 @@ export class GVector3 {
     }
   }
 
-
-  rotate3D(angle: number, axis: Axis) {
-    switch(axis) {
-      case Axis.Z: 
+  rotate3D (angle: number, axis: Axis) {
+    switch (axis) {
+      case Axis.Z:
         return this.rotateOnZ(angle)
 
       case Axis.X:
         return this.rotateOnX(angle)
 
-      case Axis.Y: 
+      case Axis.Y:
         return this.rotateOnY(angle)
     }
   }
 
-  rotateOnZ(angle: number) {
-    let radAng = angle * Math.PI / 180
+  rotateOnZ (angle: number) {
+    const radAng = angle * Math.PI / 180
 
-    let x =  this.x * Math.cos(radAng) - this.y * Math.sin(radAng)
-    let y = this.x * Math.sin(radAng) + this.y * Math.cos(radAng)
+    const x = this.x * Math.cos(radAng) - this.y * Math.sin(radAng)
+    const y = this.x * Math.sin(radAng) + this.y * Math.cos(radAng)
 
     this.x = Math.round((x + Number.EPSILON) * 100) / 100
     this.y = Math.round((y + Number.EPSILON) * 100) / 100
   }
 
-  rotateOnX(angle: number) {
-    let radAng = angle * Math.PI / 180
+  rotateOnX (angle: number) {
+    const radAng = angle * Math.PI / 180
 
-    let y =  this.y * Math.cos(radAng) - this.z * Math.sin(radAng)
-    let z = this.y * Math.sin(radAng) + this.z * Math.cos(radAng)
+    const y = this.y * Math.cos(radAng) - this.z * Math.sin(radAng)
+    const z = this.y * Math.sin(radAng) + this.z * Math.cos(radAng)
 
     this.y = Math.round((y + Number.EPSILON) * 100) / 100
     this.z = Math.round((z + Number.EPSILON) * 100) / 100
   }
 
-  rotateOnY(angle: number) {
-    let radAng = angle * Math.PI / 180
+  rotateOnY (angle: number) {
+    const radAng = angle * Math.PI / 180
 
-    let x =  this.x * Math.cos(radAng) + this.z * Math.sin(radAng)
-    let z = -1 * this.x * Math.sin(radAng) + this.z * Math.cos(radAng)
+    const x = this.x * Math.cos(radAng) + this.z * Math.sin(radAng)
+    const z = -1 * this.x * Math.sin(radAng) + this.z * Math.cos(radAng)
 
     this.x = Math.round((x + Number.EPSILON) * 100) / 100
     this.z = Math.round((z + Number.EPSILON) * 100) / 100
