@@ -1,10 +1,10 @@
-import { GRotationCoords } from '@cubic-eng/g-physics';
+import { GRotationCoords } from '@cuboid3/g-physics';
 import { IActor } from './IActor';
 import { Rectangle3 } from './Actor';
-import { Shape } from '@cubic-eng/g-physics';
-import { GVector3 } from '@cubic-eng/g-physics';
+import { Shape } from '@cuboid3/g-physics';
+import { GVector3 } from '@cuboid3/g-physics';
 import { ActorComponent } from './components/ActorComponent';
-import { GBox4 } from '@cubic-eng/g-physics';
+import { GBox4 } from '@cuboid3/g-physics';
 import { ClientActorType } from './ClientActorType';
 export declare class Actor4 implements IActor {
     [key: string]: any;

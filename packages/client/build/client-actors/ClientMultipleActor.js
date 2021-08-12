@@ -23,7 +23,7 @@ exports.ClientMultipleActor = void 0;
 const THREE = __importStar(require("three"));
 const ClientActor_1 = require("./ClientActor");
 const GeometryFactory_1 = require("./GeometryFactory");
-const g_physics_1 = require("@cubic-eng/g-physics");
+const g_physics_1 = require("@cuboid3/g-physics");
 class ClientMultipleActor extends ClientActor_1.ClientActor {
     constructor(actor) {
         super(actor);

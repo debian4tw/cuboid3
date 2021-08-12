@@ -20,7 +20,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GeometryFactory = void 0;
-const g_physics_1 = require("@cubic-eng/g-physics");
+const g_physics_1 = require("@cuboid3/g-physics");
 const THREE = __importStar(require("three"));
 class GeometryFactory {
     static createGeometry(shape, rect) {

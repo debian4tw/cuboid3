@@ -1,4 +1,4 @@
-import { Actor, IActor } from '@cubic-eng/core';
+import { Actor, IActor } from '@cuboid3/core';
 export interface IClientActor {
     id: string;
     update(): void;

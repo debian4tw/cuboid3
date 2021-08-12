@@ -2,7 +2,7 @@
 //cone sound
 //distance
 import * as THREE from "three";
-import {EventHandler} from '@cubic-eng/core'
+import {EventHandler} from '@cuboid3/core'
 
 class AudioManager {
 

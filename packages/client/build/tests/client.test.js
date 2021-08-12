@@ -22,7 +22,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const THREE = __importStar(require("three"));
 const ClientActorRegistry_1 = require("../client-actors/ClientActorRegistry");
 //import {ShipActor, BulletActor, FleetActor, BarrierActor} from '../../scenarios/space/actors';
-const core_1 = require("@cubic-eng/core");
+const core_1 = require("@cuboid3/core");
 let game = new core_1.Game('323', [], null);
 game.setScenario(1);
 let scene = new THREE.Scene();

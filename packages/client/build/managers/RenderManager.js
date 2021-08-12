@@ -21,7 +21,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RenderManager = void 0;
 const OrbitControls_js_1 = require("three/examples/jsm/controls/OrbitControls.js");
-const core_1 = require("@cubic-eng/core");
+const core_1 = require("@cuboid3/core");
 const THREE = __importStar(require("three"));
 // import Stats from 'three/examples/jsm/libs/stats.module.js';
 class RenderManager {

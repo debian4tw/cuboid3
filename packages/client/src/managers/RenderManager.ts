@@ -1,6 +1,6 @@
 import { CameraHandler } from "../CameraHandler";
 import { OrbitControls as THREEOrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
-import { EventHandler } from "@cubic-eng/core";
+import { EventHandler } from "@cuboid3/core";
 import * as THREE from "three";
 import { ICanvasUIElementsManager } from ".";
 // import Stats from 'three/examples/jsm/libs/stats.module.js';

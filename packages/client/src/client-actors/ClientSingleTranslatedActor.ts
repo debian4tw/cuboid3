@@ -1,9 +1,9 @@
 import * as THREE from "three";
-import { Actor } from '@cubic-eng/core';
+import { Actor } from '@cuboid3/core';
 import { ClientActor} from './ClientActor';
 import { MeshPhongMaterial } from "three";
 import {GeometryFactory} from './GeometryFactory'
-import { IActor } from "@cubic-eng/core";
+import { IActor } from "@cuboid3/core";
 export class ClientSingleTranslatedActor extends ClientActor{
 
 

@@ -1,4 +1,4 @@
-import { GVector3 } from "../math/GMath";
+import { GVector3 } from '../math/GMath';
 export declare enum GBox3Vertex {
     RUF = 0,
     RDF = 1,

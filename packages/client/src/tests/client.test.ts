@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { ClientActorRegistry } from '../client-actors/ClientActorRegistry';
 //import {ShipActor, BulletActor, FleetActor, BarrierActor} from '../../scenarios/space/actors';
-import {Game} from '@cubic-eng/core';
+import {Game} from '@cuboid3/core';
 
 let game = new Game('323', [], null);
 game.setScenario(1);

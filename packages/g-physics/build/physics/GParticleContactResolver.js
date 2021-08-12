@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ParticleContactResolver = void 0;
 class ParticleContactResolver {
+    // eslint-disable-next-line no-useless-constructor
     constructor(iterations) {
     }
     setIterations(iterations) {
@@ -16,14 +17,14 @@ class ParticleContactResolver {
             let max = REAL_MAX;
             let maxIndex = numContacts;
             for (i = 0; i < numContacts; i++) {
-                let sepVel = contactArray[i].calculateSeparatingVelocity();
+                const sepVel = contactArray[i].calculateSeparatingVelocity();
                 if (sepVel < max && (sepVel < 0 || contactArray[i].penetration > 0)) {
                     max = sepVel;
                     maxIndex = i;
                 }
             }
             // Do we have anything worth resolving?
-            if (maxIndex == numContacts)
+            if (maxIndex === numContacts)
                 break;
             // Resolve this contact
             contactArray[maxIndex].resolve(duration);

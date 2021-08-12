@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import {Shape} from '@cubic-eng/g-physics'
+import {Shape} from '@cuboid3/g-physics'
 import { ClientActorType } from './ClientActorType';
 import {IActor} from './IActor'
 export interface Rotation{x: number, y: number, z: number}

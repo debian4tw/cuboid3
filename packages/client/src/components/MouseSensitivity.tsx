@@ -1,5 +1,5 @@
 import React,{ FC, useState } from "react";
-import { EventHandler } from '@cubic-eng/core';
+import { EventHandler } from '@cuboid3/core';
 
 export const MouseSensitivity: FC = () => {
 

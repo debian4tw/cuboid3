@@ -1,4 +1,4 @@
-import {EventHandler} from '@cubic-eng/core'
+import {EventHandler} from '@cuboid3/core'
 
 export class InputHandler {
 

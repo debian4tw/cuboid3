@@ -1,9 +1,9 @@
 import * as THREE from "three";
 
-import {EventHandler} from '@cubic-eng/core'
-import {ICameraStrategy} from '@cubic-eng/core'
-import { IActor } from "@cubic-eng/core";
-import { IScenarioDefinition } from "@cubic-eng/core";
+import {EventHandler} from '@cuboid3/core'
+import {ICameraStrategy} from '@cuboid3/core'
+import { IActor } from "@cuboid3/core";
+import { IScenarioDefinition } from "@cuboid3/core";
 
 export class CameraHandler {
 

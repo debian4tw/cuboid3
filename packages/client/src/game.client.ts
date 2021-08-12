@@ -1,11 +1,11 @@
 import * as io from "socket.io-client";
 import * as THREE from "three";
 
-import {Game} from '@cubic-eng/core';
-import {EventHandler} from '@cubic-eng/core'
-import { NetworkUtils } from "@cubic-eng/core";
-import { GameEvent } from "@cubic-eng/core";
-import { IScenarioDefinition } from "@cubic-eng/core";
+import {Game} from '@cuboid3/core';
+import {EventHandler} from '@cuboid3/core'
+import { NetworkUtils } from "@cuboid3/core";
+import { GameEvent } from "@cuboid3/core";
+import { IScenarioDefinition } from "@cuboid3/core";
 
 import { ClientActorRegistry } from './client-actors/ClientActorRegistry';
 import {InputHandler} from './InputHandler'

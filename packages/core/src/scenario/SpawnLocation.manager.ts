@@ -1,4 +1,4 @@
-import { Axis } from "@cubic-eng/g-physics";
+import { Axis } from "@cuboid3/g-physics";
 import { Random } from "../util";
 import { IScenario } from "./IScenario";
 

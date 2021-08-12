@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.InputHandler = void 0;
-const core_1 = require("@cubic-eng/core");
+const core_1 = require("@cuboid3/core");
 class InputHandler {
     constructor(socket, document, clientScenarioDefs) {
         this.sock = socket;

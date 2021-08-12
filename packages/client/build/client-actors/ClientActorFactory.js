@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ClientActorFactory = void 0;
-const core_1 = require("@cubic-eng/core");
+const core_1 = require("@cuboid3/core");
 const _1 = require(".");
 class ClientActorFactory {
     constructor(clientDefs) {

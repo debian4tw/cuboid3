@@ -1,4 +1,4 @@
-import { IActor } from '@cubic-eng/core';
+import { IActor } from '@cuboid3/core';
 import * as THREE from "three";
 import { IClientActor } from '.';
 export declare class ClientActor implements IClientActor {

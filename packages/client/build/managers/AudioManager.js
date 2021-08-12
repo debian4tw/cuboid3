@@ -24,7 +24,7 @@ exports.AudioManager = void 0;
 //cone sound
 //distance
 const THREE = __importStar(require("three"));
-const core_1 = require("@cubic-eng/core");
+const core_1 = require("@cuboid3/core");
 class AudioManager {
     constructor() {
         this.basePath = '/public/audio/';

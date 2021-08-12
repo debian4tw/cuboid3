@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { ClientActor } from './ClientActor';
-import { IActor } from "@cubic-eng/core";
+import { IActor } from "@cuboid3/core";
 export declare class ClientSingleTranslatedActor extends ClientActor {
     id: string;
     isMultiple: boolean;

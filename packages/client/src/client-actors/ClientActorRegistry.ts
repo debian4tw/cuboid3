@@ -2,12 +2,12 @@ import * as THREE from "three";
 import { ClientActor } from './ClientActor';
 
 import {ClientActorFactory} from './ClientActorFactory'
-import {Actor} from '@cubic-eng/core'
-import { Game } from '@cubic-eng/core';
-import { IActor } from "@cubic-eng/core";
+import {Actor} from '@cuboid3/core'
+import { Game } from '@cuboid3/core';
+import { IActor } from "@cuboid3/core";
 import { IClientActor } from ".";
 import { ClientMultipleActor } from "./ClientMultipleActor";
-import { EventHandler } from "@cubic-eng/core";
+import { EventHandler } from "@cuboid3/core";
 
 export class ClientActorRegistry {
 

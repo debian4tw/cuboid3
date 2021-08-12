@@ -1,9 +1,9 @@
-import {GBox3, GBox3Vertex, GRotationCoords} from '@cubic-eng/g-physics'
+import {GBox3, GBox3Vertex, GRotationCoords} from '@cuboid3/g-physics'
 import {IActor} from './IActor'
 import {Actor, Rectangle3} from './Actor'
 import { v4 as uuidv4 } from 'uuid';
-import { Shape } from '@cubic-eng/g-physics'
-import { GVector3 } from '@cubic-eng/g-physics';
+import { Shape } from '@cuboid3/g-physics'
+import { GVector3 } from '@cuboid3/g-physics';
 import { ActorComponent } from './components/ActorComponent';
 import { ClientActorType } from './ClientActorType';
 

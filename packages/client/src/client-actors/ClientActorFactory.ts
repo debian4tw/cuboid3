@@ -1,7 +1,7 @@
-import {Actor} from '@cubic-eng/core'
-import {IActor} from '@cubic-eng/core'
-import {Actor3} from '@cubic-eng/core'
-import {ClientActorType} from '@cubic-eng/core'
+import {Actor} from '@cuboid3/core'
+import {IActor} from '@cuboid3/core'
+import {Actor3} from '@cuboid3/core'
+import {ClientActorType} from '@cuboid3/core'
 import {
   ClientActor,
   ClientMultipleActor,

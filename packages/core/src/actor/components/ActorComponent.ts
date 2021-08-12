@@ -1,4 +1,4 @@
-import { GBox3 } from "@cubic-eng/g-physics";
+import { GBox3 } from "@cuboid3/g-physics";
 import { Actor3 } from "../Actor3";
 import { IActorComponent } from "./IActorComponent";
 

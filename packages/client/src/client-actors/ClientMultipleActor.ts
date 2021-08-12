@@ -1,9 +1,9 @@
 import * as THREE from "three";
-import { Actor, Rectangle3 } from '@cubic-eng/core';
+import { Actor, Rectangle3 } from '@cuboid3/core';
 import { ClientActor} from './ClientActor';
 
 import {GeometryFactory} from './GeometryFactory'
-import { Shape } from "@cubic-eng/g-physics";
+import { Shape } from "@cuboid3/g-physics";
 import { IClientActor } from "./IClientActor";
 
 export class ClientMultipleActor extends ClientActor implements IClientActor{

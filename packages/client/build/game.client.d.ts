@@ -1,6 +1,6 @@
 import * as THREE from "three";
-import { GameEvent } from "@cubic-eng/core";
-import { IScenarioDefinition } from "@cubic-eng/core";
+import { GameEvent } from "@cuboid3/core";
+import { IScenarioDefinition } from "@cuboid3/core";
 import { ICanvasUIElementsManager } from "./managers";
 export declare class GameClient {
     private sock;

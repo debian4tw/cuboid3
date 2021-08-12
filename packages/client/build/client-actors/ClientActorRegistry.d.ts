@@ -1,6 +1,6 @@
 import * as THREE from "three";
-import { Game } from '@cubic-eng/core';
-import { IActor } from "@cubic-eng/core";
+import { Game } from '@cuboid3/core';
+import { IActor } from "@cuboid3/core";
 import { IClientActor } from ".";
 export declare class ClientActorRegistry {
     private clientActors;

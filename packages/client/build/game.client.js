@@ -22,9 +22,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.GameClient = void 0;
 const io = __importStar(require("socket.io-client"));
 const THREE = __importStar(require("three"));
-const core_1 = require("@cubic-eng/core");
-const core_2 = require("@cubic-eng/core");
-const core_3 = require("@cubic-eng/core");
+const core_1 = require("@cuboid3/core");
+const core_2 = require("@cuboid3/core");
+const core_3 = require("@cuboid3/core");
 const ClientActorRegistry_1 = require("./client-actors/ClientActorRegistry");
 const InputHandler_1 = require("./InputHandler");
 const CameraHandler_1 = require("./CameraHandler");
@@ -97,26 +97,9 @@ class GameClient {
         }
         const scenarioName = this.game.getScenario().getName();
         events.forEach((event) => {
-            // @todo: refactor into polymorphic gameEventResolver.resolve()
             if (scenarioName) {
                 this.clientScenarios[scenarioName].resolveRemoteGameEvent(event);
             }
-            // console.log(event)
-            /*if (event.label === 'gameCollision') {
-              AudioManager.play(event.value)
-              if (event.value.indexOf("-aignore") > -1) {
-                //console.log("should draw ignore")
-                EventHandler.publish('client:aIgnoreApplied', event.position)
-              }
-            }
-      
-            if (event.label === 'playerLostLive') {
-              EventHandler.publish('client:playerLostLive', event.value)
-            }
-      
-            if (event.label === 'swingMiss') {
-              EventHandler.publish('client:swingMiss', event.position)
-            }*/
         });
     }
     clientScenarioChange(status) {

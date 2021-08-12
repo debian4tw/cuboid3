@@ -1,7 +1,7 @@
 import * as THREE from "three";
-import { ICameraStrategy } from '@cubic-eng/core';
-import { IActor } from "@cubic-eng/core";
-import { IScenarioDefinition } from "@cubic-eng/core";
+import { ICameraStrategy } from '@cuboid3/core';
+import { IActor } from "@cuboid3/core";
+import { IScenarioDefinition } from "@cuboid3/core";
 export declare class CameraHandler {
     private camera;
     private followedMesh;

@@ -1,6 +1,6 @@
 import {ISpawnLocationDef, SpawnLocationManager} from '../scenario/SpawnLocation.manager'
 
-import { Axis } from '@cubic-eng/g-physics'
+import { Axis } from '@cuboid3/g-physics'
 
 import {spawnLocations} from '../scenario/SpawnLocations'
 

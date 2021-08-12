@@ -1,5 +1,5 @@
-import { GVector3 } from "../math/GMath";
-import { GParticle } from "./GParticle";
+import { GVector3 } from '../math/GMath';
+import { GParticle } from './GParticle';
 export declare class GParticleContact {
     /**
     * Holds the particles that are involved in the contact. The

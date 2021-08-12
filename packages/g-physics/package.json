@@ -1,5 +1,5 @@
 {
-  "name": "@cubic-eng/g-physics",
+  "name": "@cuboid3/g-physics",
   "version": "0.5.10",
   "description": "Physics library part of 3D Cubic Engine",
   "main": "build/index.js",

@@ -221,10 +221,12 @@ class Game {
         this.timeLimit = timeLimit;
     }
     setSwitchInterval(switchInterval) {
+        clearTimeout(this.switchInterval);
         clearInterval(this.switchInterval);
         this.switchInterval = switchInterval;
     }
     beforeRemove() {
+        clearTimeout(this.switchInterval);
         clearInterval(this.switchInterval);
     }
     getBotPlayers() {

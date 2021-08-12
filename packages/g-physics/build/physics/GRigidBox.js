@@ -13,6 +13,7 @@ var GBox3Vertex;
     GBox3Vertex[GBox3Vertex["LDB"] = 7] = "LDB";
 })(GBox3Vertex = exports.GBox3Vertex || (exports.GBox3Vertex = {}));
 class GRigidBox {
+    // eslint-disable-next-line no-useless-constructor
     constructor() {
     }
 }

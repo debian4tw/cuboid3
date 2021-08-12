@@ -1,9 +1,9 @@
-import { Game, IGameHooksClass } from '@cubic-eng/core';
-import { IScenarioDefinition } from '@cubic-eng/core';
-import { Random, NetworkUtils } from '@cubic-eng/core';
-import {EventHandler} from '@cubic-eng/core'
+import { Game, IGameHooksClass } from '@cuboid3/core';
+import { IScenarioDefinition } from '@cuboid3/core';
+import { Random, NetworkUtils } from '@cuboid3/core';
+import {EventHandler} from '@cuboid3/core'
 
-import {GPoint3} from '@cubic-eng/g-physics'
+import {GPoint3} from '@cuboid3/g-physics'
 
 import { PublicGamesManager} from "./PublicGames.manager"
 import { SocketIONetworkAdapter } from './SocketIONetworkAdapter'
@@ -23,7 +23,7 @@ export class GameServer {
 
   constructor(io: SocketIO.Server, gameDefs: IScenarioDefinition[], gameHooks: IGameHooksClass) {
     // tslint:disable-next-line:no-console
-    console.log('Starting cubic-eng game server: version', process.env.npm_package_version)
+    console.log('Starting cuboid3 game server: version', process.env.npm_package_version)
     this.gameDefs = gameDefs
     this.games = [];
     this.publicGamesManager = new PublicGamesManager()

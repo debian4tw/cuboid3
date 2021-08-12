@@ -1,4 +1,4 @@
-import { Shape } from '@cubic-eng/g-physics';
+import { Shape } from '@cuboid3/g-physics';
 import { ClientActorType } from './ClientActorType';
 import { IActorMultipleSerializedState, IActorSerializedState } from './IActorSerializedState';
 export interface IActor {

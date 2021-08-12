@@ -1,5 +1,5 @@
-import { Actor } from '@cubic-eng/core';
-import { IActor } from '@cubic-eng/core';
+import { Actor } from '@cuboid3/core';
+import { IActor } from '@cuboid3/core';
 
 import * as THREE from "three";
 import { IClientActor } from '.';

@@ -21,7 +21,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MouseSensitivity = void 0;
 const react_1 = __importStar(require("react"));
-const core_1 = require("@cubic-eng/core");
+const core_1 = require("@cuboid3/core");
 exports.MouseSensitivity = () => {
     const [sensitivity, setSensitivity] = react_1.useState(1);
     const requestSetCameraParams = (sensi) => {

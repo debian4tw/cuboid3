@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ClientActorRegistry = void 0;
 const ClientActorFactory_1 = require("./ClientActorFactory");
 const ClientMultipleActor_1 = require("./ClientMultipleActor");
-const core_1 = require("@cubic-eng/core");
+const core_1 = require("@cuboid3/core");
 class ClientActorRegistry {
     constructor(game, scene, clientDefs) {
         this.scene = scene;

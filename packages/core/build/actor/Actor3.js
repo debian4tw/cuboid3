@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Actor3 = void 0;
 const uuid_1 = require("uuid");
-const g_physics_1 = require("@cubic-eng/g-physics");
-const g_physics_2 = require("@cubic-eng/g-physics");
+const g_physics_1 = require("@cuboid3/g-physics");
+const g_physics_2 = require("@cuboid3/g-physics");
 class Actor3 {
     constructor(box, id = null) {
         this.name = 'Actor3';

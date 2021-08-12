@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = require("@cubic-eng/core");
+const core_1 = require("@cuboid3/core");
 describe('only one instance', function () {
     let handler1 = core_1.EventHandler;
     let handler2 = core_1.EventHandler;

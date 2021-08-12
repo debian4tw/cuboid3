@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Actor = void 0;
 const uuid_1 = require("uuid");
-const g_physics_1 = require("@cubic-eng/g-physics");
+const g_physics_1 = require("@cuboid3/g-physics");
 const ClientActorType_1 = require("./ClientActorType");
 class Actor {
     constructor(x, y, id = null, z = 0) {

@@ -1,6 +1,6 @@
 /// <reference types="socket.io" />
-import { Game, IGameHooksClass } from '@cubic-eng/core';
-import { IScenarioDefinition } from '@cubic-eng/core';
+import { Game, IGameHooksClass } from '@cuboid3/core';
+import { IScenarioDefinition } from '@cuboid3/core';
 export declare class GameServer {
     private gameDefs;
     private games;

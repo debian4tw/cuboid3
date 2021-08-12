@@ -1,5 +1,5 @@
 {
-  "name": "@cubic-eng/server",
+  "name": "@cuboid3/server",
   "version": "0.5.10",
   "description": "3D Game Engine for Node and the browser",
   "main": "build/index.js",
@@ -22,8 +22,6 @@
   "author": "debian4tw",
   "license": "ISC",
   "dependencies": {
-    "@cubic-eng/core": "^0.5.10",
-    "@cubic-eng/g-physics": "^0.5.10",
     "@types/es6-shim": "^0.31.37",
     "@types/socket.io": "^1.4.38",
     "dotenv": "^8.2.0",

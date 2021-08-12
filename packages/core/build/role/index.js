@@ -12,4 +12,3 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./IRoleManager"), exports);
 __exportStar(require("./Role.manager"), exports);
-__exportStar(require("./RoleType.manager"), exports);

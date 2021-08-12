@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CollisionSystem = void 0;
-//import {Actor} from '../../game/actor/Actor'
+/* eslint-disable camelcase */
+// import {Actor} from '../../game/actor/Actor'
 const GVector2_1 = require("../math/GVector2");
 class CollisionSystem {
     static chance(chancePercent) {
@@ -33,17 +34,16 @@ class CollisionSystem {
     }
     static AABBCollided(A, B) {
         // The sides of the rectangle angles
-        let leftA, leftB, rightA, rightB, topA, topB, bottomA, bottomB;
         // Calculate the sides of rectangle A
-        leftA = A.x;
-        rightA = A.x + A.w;
-        topA = A.y;
-        bottomA = A.y + A.h;
+        const leftA = A.x;
+        const rightA = A.x + A.w;
+        const topA = A.y;
+        const bottomA = A.y + A.h;
         // Calculate the sides of rectangle B
-        leftB = B.x;
-        rightB = B.x + B.w;
-        topB = B.y;
-        bottomB = B.y + B.h;
+        const leftB = B.x;
+        const rightB = B.x + B.w;
+        const topB = B.y;
+        const bottomB = B.y + B.h;
         // Here we have the actual function that checks for a collision.
         // First thing the function does is take in the SDL_rectangles and calculate their sides.
         // If any of the sides from A are outside of B
@@ -64,17 +64,16 @@ class CollisionSystem {
     }
     static AABBCollidedOnXZ(A, B) {
         // The sides of the rectangle angles
-        let leftA, leftB, rightA, rightB, topA, topB, bottomA, bottomB;
         // Calculate the sides of rectangle A
-        leftA = A.x;
-        rightA = A.x + A.w;
-        topA = A.z;
-        bottomA = A.z + A.d;
+        const leftA = A.x;
+        const rightA = A.x + A.w;
+        const topA = A.z;
+        const bottomA = A.z + A.d;
         // Calculate the sides of rectangle B
-        leftB = B.x;
-        rightB = B.x + B.w;
-        topB = B.z;
-        bottomB = B.z + B.d;
+        const leftB = B.x;
+        const rightB = B.x + B.w;
+        const topB = B.z;
+        const bottomB = B.z + B.d;
         // Here we have the actual function that checks for a collision.
         // First thing the function does is take in the SDL_rectangles and calculate their sides.
         // If any of the sides from A are outside of B
@@ -103,13 +102,15 @@ class CollisionSystem {
             new GVector2_1.GVector2((rect1.getTopLeft().y - rect1.getBottomLeft().y) * -1, rect1.getTopLeft().x - rect1.getBottomLeft().x)
         ];
         for (let i = 0; i < axisProy.length; i++) {
-            let min_r1 = Infinity, max_r1 = -Infinity;
+            let min_r1 = Infinity;
+            let max_r1 = -Infinity;
             rect1.getVerticesArray().forEach((v) => {
                 const proyected = v.dotProduct(axisProy[i]);
                 min_r1 = Math.min(min_r1, proyected);
                 max_r1 = Math.max(max_r1, proyected);
             });
-            let min_r2 = Infinity, max_r2 = -Infinity;
+            let min_r2 = Infinity;
+            let max_r2 = -Infinity;
             rect2.getVerticesArray().forEach((v) => {
                 const proyected = v.dotProduct(axisProy[i]);
                 min_r2 = Math.min(min_r2, proyected);

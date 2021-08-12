@@ -1,4 +1,4 @@
-import { GPoint3 } from "@cubic-eng/g-physics";
+import { GPoint3 } from "@cuboid3/g-physics";
 export interface GameEvent {
     label: string;
     position: GPoint3;

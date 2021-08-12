@@ -1,4 +1,4 @@
-import {EventHandler} from '@cubic-eng/core'
+import {EventHandler} from '@cuboid3/core'
 
 describe('only one instance', function() {
   let handler1 = EventHandler

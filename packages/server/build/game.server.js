@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GameServer = void 0;
-const core_1 = require("@cubic-eng/core");
-const core_2 = require("@cubic-eng/core");
-const core_3 = require("@cubic-eng/core");
+const core_1 = require("@cuboid3/core");
+const core_2 = require("@cuboid3/core");
+const core_3 = require("@cuboid3/core");
 const PublicGames_manager_1 = require("./PublicGames.manager");
 const SocketIONetworkAdapter_1 = require("./SocketIONetworkAdapter");
 // tslint:disable-next-line:no-var-requires
@@ -11,7 +11,7 @@ const { performance } = require("perf_hooks");
 class GameServer {
     constructor(io, gameDefs, gameHooks) {
         // tslint:disable-next-line:no-console
-        console.log('Starting cubic-eng game server: version', process.env.npm_package_version);
+        console.log('Starting cuboid3 game server: version', process.env.npm_package_version);
         this.gameDefs = gameDefs;
         this.games = [];
         this.publicGamesManager = new PublicGames_manager_1.PublicGamesManager();

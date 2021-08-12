@@ -11,7 +11,7 @@ class GParticle {
         this.damping = 0.9;
     }
     copy() {
-        let part = new GParticle();
+        const part = new GParticle();
         part.setPosition(this.getPosition().x, this.getPosition().y, this.getPosition().z);
         part.setMass(this.getMass());
         return part;
@@ -20,17 +20,17 @@ class GParticle {
         if (this.inverseMass <= 0) {
             return;
         }
-        if (duration > 0 === false) {
+        if (duration <= 0) {
             return;
         }
-        //-calc acceleration
-        let resultingAcc = this.acceleration.copy();
+        // -calc acceleration
+        const resultingAcc = this.acceleration.copy();
         resultingAcc.addScaledVector(this.forceAccum, this.inverseMass);
-        //-calc velocity
-        //this.velocity.multiplyScalar(Math.pow(this.damping, duration))
-        let initialVelocity = this.velocity.copy();
+        // -calc velocity
+        // this.velocity.multiplyScalar(Math.pow(this.damping, duration))
+        const initialVelocity = this.velocity.copy();
         this.velocity.addScaledVector(resultingAcc, duration);
-        //-calc position
+        // -calc position
         this.position.addScaledVector(initialVelocity.add(this.velocity).divideScalar(2), duration);
         this.clearAccumulator();
     }

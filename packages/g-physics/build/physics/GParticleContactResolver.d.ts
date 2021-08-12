@@ -1,4 +1,4 @@
-import { GParticleContact } from "./GParticleContact";
+import { GParticleContact } from './GParticleContact';
 export declare class ParticleContactResolver {
     private iterations;
     constructor(iterations: number);

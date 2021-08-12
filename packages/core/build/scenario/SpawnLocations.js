@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.spawnLocations = void 0;
-const g_physics_1 = require("@cubic-eng/g-physics");
+const g_physics_1 = require("@cuboid3/g-physics");
 exports.spawnLocations = [
     // 0
     {

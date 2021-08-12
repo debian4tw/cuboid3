@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { Actor } from '@cubic-eng/core';
+import { Actor } from '@cuboid3/core';
 import { ClientActor } from './ClientActor';
 import { IClientActor } from "./IClientActor";
 export declare class ClientMultipleActor extends ClientActor implements IClientActor {

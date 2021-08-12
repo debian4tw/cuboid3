@@ -1,4 +1,4 @@
-import { Game } from "@cubic-eng/core";
+import { Game } from "@cuboid3/core";
 export class PublicGamesManager {
   private games: Game[]
   private maxPlayers =  4

@@ -1,11 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CollisionSAT2 = void 0;
+/* eslint-disable camelcase */
 const GVector2_1 = require("../math/GVector2");
 class CollisionSAT2 {
     static rectanglesCollideSATOnXY(rect1, rect2) {
-        return CollisionSAT2.checkRectangleOverlapSATOnXY(rect1, rect2)
-            && CollisionSAT2.checkRectangleOverlapSATOnXY(rect2, rect1);
+        return CollisionSAT2.checkRectangleOverlapSATOnXY(rect1, rect2) &&
+            CollisionSAT2.checkRectangleOverlapSATOnXY(rect2, rect1);
     }
     static checkRectangleOverlapSATOnXY(rect1, rect2) {
         const axisProy = [
@@ -16,17 +17,18 @@ class CollisionSAT2 {
             let min_r1 = Infinity;
             let max_r1 = -Infinity;
             rect1.getVerticesArray().forEach((v) => {
-                let proyected = v.dotProduct(axisProy[i]);
+                const proyected = v.dotProduct(axisProy[i]);
                 min_r1 = Math.min(min_r1, proyected);
                 max_r1 = Math.max(max_r1, proyected);
             });
-            let min_r2 = Infinity, max_r2 = -Infinity;
+            let min_r2 = Infinity;
+            let max_r2 = -Infinity;
             rect2.getVerticesArray().forEach((v) => {
-                let proyected = v.dotProduct(axisProy[i]);
+                const proyected = v.dotProduct(axisProy[i]);
                 min_r2 = Math.min(min_r2, proyected);
                 max_r2 = Math.max(max_r2, proyected);
             });
-            //console.log('MinMax', min_r1,max_r1, min_r2, max_r2)
+            // console.log('MinMax', min_r1,max_r1, min_r2, max_r2)
             if (!(max_r2 >= min_r1 && max_r1 >= min_r2)) {
                 return false;
             }
