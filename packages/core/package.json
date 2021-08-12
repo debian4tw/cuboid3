@@ -1,7 +1,7 @@
 {
   "name": "@cuboid3/core",
   "version": "0.5.10",
-  "description": "3D Game Engine for Node and the browser",
+  "description": "Core Library part of Cuboid3, 3D Game Engine for Node and the browser",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "files": [
@@ -18,10 +18,17 @@
     "locs-all": "find ./src ./client-src ./scenarios ./game ./g-physics -name '*.ts' -o -name '*.handlebars' -o -name '*.tsx' | xargs wc -l | grep 'total'",
     "link": "npm link ../g-physics"
   },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/debian4tw/cuboid3.git",
+    "directory": "packages/core"
+  },
   "keywords": [],
   "author": "debian4tw",
   "license": "ISC",
   "dependencies": {
+    "@cuboid3/g-physics": "^0.5.10",
     "@types/es6-shim": "^0.31.37",
     "@types/uuid": "^7.0.0",
     "base64id": "^1.0.0",
