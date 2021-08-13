@@ -123,12 +123,14 @@ export class GameClient {
     }
 
     const scenarioName = this.game.getScenario().getName()
-
-    events.forEach((event) => {
-      if (scenarioName) {
+    if (scenarioName && 
+        typeof this.clientScenarios[scenarioName] !=="undefined" && 
+        typeof this.clientScenarios[scenarioName].resolveRemoteGameEvent !== "undefined"
+    ) {
+      events.forEach((event) => {
         this.clientScenarios[scenarioName].resolveRemoteGameEvent(event)
-      }
-    })
+      })
+    }
   }
 
   clientScenarioChange(status: any) {
