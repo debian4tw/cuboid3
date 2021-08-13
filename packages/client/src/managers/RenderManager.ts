@@ -161,16 +161,23 @@ export class RenderManager {
 
 
   public calculateCanvassize() {
-    const headerElem = document.getElementById("header")
+    //const headerElem = document.getElementById("header")
     //const gameStatusEleme = document.getElementById("game-status")
-    const windowHeight = window.innerHeight
-    const rendererHeight = windowHeight - headerElem?.clientHeight!
+    //const windowHeight = window.innerHeight
+    //const rendererHeight = windowHeight - (headerElem?.clientHeight || 0)
 
-    const playerInfoElem = document.getElementById("players-info")
-    const sidebarAdContainer = document.getElementById("ad-container")
-    const windowWidth = window.innerWidth
+    //const playerInfoElem = document.getElementById("players-info")
+    //const sidebarAdContainer = document.getElementById("ad-container")
+    //const windowWidth = window.innerWidth
+    //const rendererWidth = windowWidth - playerInfoElem?.clientWidth! - sidebarAdContainer?.clientWidth! 
 
-    const rendererWidth = windowWidth - playerInfoElem?.clientWidth! - sidebarAdContainer?.clientWidth! 
+    const container = document.getElementById("game-container")
+    if (!container) {
+      console.log("missing game-container div")
+    }
+
+    const rendererWidth = container?.clientWidth || 0;
+    const rendererHeight = container?.clientHeight || 0;
 
     return {
       width: rendererWidth,
