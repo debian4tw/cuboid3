@@ -18,7 +18,6 @@
     "locs-total": "echo g-physics && find ./g-physics -name '*.ts' -o -name '*.tsx' | xargs wc -l | grep 'total' && echo server && find ./src -name '*.ts' -o -name '*.handlebars' | xargs wc -l | grep 'total' && echo client && find ./client-src -name '*.ts' -o -name '*.tsx' -o -name '*.scss' -o -name '*.css' | xargs wc -l | grep 'total' && echo game && find ./game -name '*.ts' -o -name '*.tsx' | xargs wc -l | grep 'total' && echo scenarios && find ./scenarios -name '*.ts' -o -name '*.tsx' | xargs wc -l | grep 'total' && echo all && find ./src ./client-src ./scenarios ./game ./g-physics -name '*.ts' -o -name '*.handlebars' -o -name '*.tsx' -o -name '*.scss' -o -name '*.css' | xargs wc -l | grep 'total'",
     "locs-all": "find ./src ./client-src ./scenarios ./game ./g-physics -name '*.ts' -o -name '*.handlebars' -o -name '*.tsx' | xargs wc -l | grep 'total'"
   },
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/debian4tw/cuboid3.git",
