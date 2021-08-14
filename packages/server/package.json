@@ -1,6 +1,6 @@
 {
   "name": "@cuboid3/server",
-  "version": "0.5.12",
+  "version": "0.5.13",
   "description": "Server package, part of Cuboid3 Engine",
   "main": "build/index.js",
   "types": "build/index.d.ts",

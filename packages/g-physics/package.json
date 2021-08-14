@@ -1,6 +1,6 @@
 {
   "name": "@cuboid3/g-physics",
-  "version": "0.5.12",
+  "version": "0.5.13",
   "description": "Physics library part of Cuboid3 Engine",
   "main": "build/index.js",
   "types": "build/index.d.ts",
