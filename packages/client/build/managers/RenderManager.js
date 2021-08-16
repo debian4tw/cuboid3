@@ -145,17 +145,22 @@ class RenderManager {
         }(0));
     }
     calculateCanvassize() {
-        //const headerElem = document.getElementById("header")
-        //const gameStatusEleme = document.getElementById("game-status")
-        //const windowHeight = window.innerHeight
-        //const rendererHeight = windowHeight - (headerElem?.clientHeight || 0)
-        //const playerInfoElem = document.getElementById("players-info")
-        //const sidebarAdContainer = document.getElementById("ad-container")
-        //const windowWidth = window.innerWidth
-        //const rendererWidth = windowWidth - playerInfoElem?.clientWidth! - sidebarAdContainer?.clientWidth! 
+        /*const headerElem = document.getElementById("header")
+        const gameStatusEleme = document.getElementById("game-status")
+        const windowHeight = window.innerHeight
+        const rendererHeight = windowHeight - (headerElem?.clientHeight || 0)
+    
+        const playerInfoElem = document.getElementById("players-info")
+        const sidebarAdContainer = document.getElementById("ad-container")
+        const windowWidth = window.innerWidth
+        const rendererWidth = windowWidth - playerInfoElem?.clientWidth! - sidebarAdContainer?.clientWidth!
+        */
         const container = document.getElementById("game-container");
         if (!container) {
             console.log("missing game-container div");
+        }
+        else {
+            console.log(container, container.clientWidth, container.clientHeight);
         }
         const rendererWidth = (container === null || container === void 0 ? void 0 : container.clientWidth) || 0;
         const rendererHeight = (container === null || container === void 0 ? void 0 : container.clientHeight) || 0;
