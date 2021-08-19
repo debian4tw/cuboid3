@@ -10,6 +10,9 @@ export class ScenarioHooks {
   afterUpdate(actor: IActor) {
 
   }
+
+  init() {
+  }
 }
 
 export interface IScenarioHooksClass {

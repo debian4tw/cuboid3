@@ -400,7 +400,7 @@ export class Scenario implements IScenario {
     }
     this.roleManager.getScenarioPlayers()
     for (const [key, value] of (Object as any).entries(this.roleManager.getRoles())) {
-            // console.log(key, value);
+      // console.log(key, value);
       const player = value.getPlayer()
       if (typeof player.team !== "undefined") {
         // console.log('count team live')

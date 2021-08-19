@@ -6,5 +6,7 @@ class ScenarioHooks {
     }
     afterUpdate(actor) {
     }
+    init() {
+    }
 }
 exports.ScenarioHooks = ScenarioHooks;

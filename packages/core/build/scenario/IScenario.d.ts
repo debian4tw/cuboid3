@@ -39,4 +39,5 @@ export interface IScenario {
     onEvent(socketId: string, data: any): void;
     getComponent(componentName: string): IScenarioComponent | undefined;
     addComponent(componentName: string, component: IScenarioComponent): void;
+    onTeamWon(team: number): void;
 }

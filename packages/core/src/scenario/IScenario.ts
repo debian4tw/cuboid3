@@ -52,4 +52,6 @@ export interface IScenario {
   getComponent(componentName: string): IScenarioComponent | undefined
 
   addComponent(componentName: string, component: IScenarioComponent): void
+
+  onTeamWon(team: number): void
 }

@@ -16,7 +16,7 @@ class Game {
         this.id = id;
         this.gamePlayers = [];
         this.registerScenarios(importedScenarios);
-        this.scenario = this.setScenario(1); // empty scenario
+        this.scenario = this.setScenario(4); // empty scenario
         this.switchInterval = false;
         this.gameEventBus = new GameEventBus_1.GameEventBus();
         this.attachEvents();
