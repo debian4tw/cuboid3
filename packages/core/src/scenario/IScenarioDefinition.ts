@@ -1,6 +1,7 @@
 import { ICollisionManagerClass } from "../collision/ICollisionManager";
 import { IRoleManagerClass } from "../role/IRoleManager";
 import { ICameraStrategy } from "./ICameraStrategy";
+import { ISpawnLocationDef, ISpawnLocationManagerClass } from "./ISpawnLocationManager";
 import { ScenarioHooks, IScenarioHooksClass } from "./ScenarioHooks";
 
 export interface IScenarioDefinition {
@@ -15,13 +16,16 @@ export interface IScenarioDefinition {
   roleCommands: any,
   cameraStrategy: any
 
-  roleManager?: IRoleManagerClass | undefined
-  collisionManager?: ICollisionManagerClass | undefined
+  roleManager?: IRoleManagerClass
+  collisionManager?: ICollisionManagerClass
+
+  spawnLocationManager?: ISpawnLocationManagerClass
+  spawnLocations?: ISpawnLocationDef[]
 
   initScene(scene: THREE.Scene): void
 
   events?: any
   uiComps?: any
 
-  scenarioHooks?: IScenarioHooksClass | undefined
+  scenarioHooks?: IScenarioHooksClass
 }

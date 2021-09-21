@@ -12,6 +12,15 @@ export class ScenarioHooks {
   }
 
   init() {
+
+  }
+
+  onDestroy() {
+
+  }
+
+  checkWinCondition() {
+
   }
 }
 

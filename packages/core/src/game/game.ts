@@ -91,8 +91,12 @@ export class Game {
       throw new Error((`scenarioId ${scenarioId} not found`))
     }
 
+    if (this.scenario) {
+      this.scenario.destroy()
+    }
+
     const scenarioDefinition = this.scenarios[scenarioId]
-        // @todo validate scenarioDefinition and throw explaining error message
+    // @todo validate scenarioDefinition and throw explaining error message
     this.scenario = new Scenario(scenarioDefinition)
 
     this.onScenarioChange()
@@ -278,6 +282,7 @@ export class Game {
   beforeRemove() {
     clearTimeout(this.switchInterval)
     clearInterval(this.switchInterval)
+    this.scenario?.destroy()
   }
 
   public getBotPlayers() {

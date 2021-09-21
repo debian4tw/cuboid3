@@ -2,7 +2,7 @@ import { Actor } from "../actor/Actor";
 import { Player } from '../player/player'
 import { Role } from '../player/role'
 import { IActor } from "../actor/IActor";
-import { SpawnLocationManager } from "./SpawnLocation.manager";
+import { ISpawnLocationManager } from "./ISpawnLocationManager";
 import { IScenarioComponent } from "./IScenarioComponent";
 
 export interface IScenario {
@@ -26,6 +26,7 @@ export interface IScenario {
   findRoleByLabel(roleLabel: string): Role
   findRoleById(roleId: string): Role
   init(players: any[], gameId: string): void
+  destroy(): void
 
   removeActorByLabel(label: string): void
   findActorByLabel(label: string): IActor | undefined
@@ -43,7 +44,7 @@ export interface IScenario {
   removeBot(): void
 
   respawnActorByLabel(actorLabel: string): void
-  getSpawnLocationManager(): SpawnLocationManager
+  getSpawnLocationManager(): ISpawnLocationManager | undefined
 
   getDiffState(): object
 
