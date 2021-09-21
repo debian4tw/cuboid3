@@ -55,7 +55,7 @@ export class AssetManager {
     })
   }
 
-  public async loadModelAsync(fileName: string){
+  public async loadModelAsync(fileName: string) {
     return new Promise<THREE.Mesh>((resolve, reject) => {
       if (typeof this.loadedAssets[fileName] !== "undefined") {
         resolve(this.cloneFBXWithAnims(this.loadedAssets[fileName]))

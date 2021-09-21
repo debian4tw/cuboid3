@@ -214,26 +214,31 @@ export class GameServer {
       const emitTime = performance.now() - start3
 
       const totalTime = performance.now() - start
+
+      /*
       if(totalTime > 4) {
-                // "\x1b[31m",
-                // console.log("LongF", totalTime, updateTime, collisionsTime, statusTime, emitTime)
+        // "\x1b[31m",
+        // console.log("LongF", totalTime, updateTime, collisionsTime, statusTime, emitTime)
       } else {
-                // console.log(totalTime, updateTime, collisionsTime, statusTime, emitTime)
+        // console.log(totalTime, updateTime, collisionsTime, statusTime, emitTime)
       }
+      */
     });
 
-        /*this.processedFrames++
-        if (this.processedFrames > 60) {
-            this.processedFrames = 0
-            try {
-                if (global.gc) {
-                    //global.gc();
-                    //global.gc(true);
-                }
-            } catch (e) {
-                process.exit();
+    /*
+    this.processedFrames++
+    if (this.processedFrames > 60) {
+        this.processedFrames = 0
+        try {
+            if (global.gc) {
+                //global.gc();
+                //global.gc(true);
             }
-        }*/
+        } catch (e) {
+            process.exit();
+        }
+    }
+    */
   }
 
 
@@ -273,8 +278,6 @@ export class GameServer {
         this.publicGamesManager.addGame(joinGame)
 
         joinGame.onGameCreate()
-        // joinGame.getScenario().addBot(0, joinGame.getScenario().getSpawnLocationManager().getNextAvailable())
-        // joinGame.getScenario().addBot(1, joinGame.getScenario().getSpawnLocationManager().getNextAvailable())
       } else {
                 // remove bot
           joinGame.onPlayerConnect()
@@ -323,8 +326,10 @@ export class GameServer {
       const game = this.findGame(socket)
       if (game) {
         const role = game.getScenario().findRoleById(socket.id)
-        const location = game.getScenario().getSpawnLocationManager().getNextAvailable()
-        role?.respawn(location)
+        const location = game.getScenario().getSpawnLocationManager()?.getNextAvailable()
+        if (location) {
+          role?.respawn(location)
+        }
       }
     })
 

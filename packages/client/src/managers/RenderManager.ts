@@ -50,7 +50,7 @@ export class RenderManager {
     })
 
     EventHandler.subscribe('RemoveInGameUiElement', (mesh: THREE.Mesh) => {
-      this.inGameUiElements.filter((m) => m !== mesh)
+      this.inGameUiElements = this.inGameUiElements.filter((m) => m !== mesh)
     })
   }
 
