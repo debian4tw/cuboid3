@@ -1,5 +1,6 @@
-import { ISpawnLocationDef } from ".";
 import { Axis } from "@cuboid3/g-physics";
+import { ISpawnLocationDef } from "./ISpawnLocationManager";
+
 
 export const spawnLocations: ISpawnLocationDef[] = [
   // 0

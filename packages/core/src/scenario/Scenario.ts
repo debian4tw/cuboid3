@@ -15,12 +15,13 @@ import { CollisionManager } from '../collision/Collision.manager';
 
 
 import { SpawnLocationManager } from './SpawnLocation.manager';
-import {spawnLocations} from './SpawnLocations'
+//import {spawnLocations} from './SpawnLocations'
 import { NetworkUtils } from '../util';
 import { ActorIdService } from './ActorIdService';
 import { IScenarioDefinition } from './IScenarioDefinition';
 import { ScenarioHooks } from './'
 import { IScenarioComponent } from './IScenarioComponent';
+import { ISpawnLocationManager } from './ISpawnLocationManager';
 
 const botActors: any[] =[]
 
@@ -35,7 +36,7 @@ export class Scenario implements IScenario {
 
   collisionManager: ICollisionManager
   roleManager: IRoleManager
-  spawnLocationManager: SpawnLocationManager
+  spawnLocationManager: ISpawnLocationManager
   actorIdService: ActorIdService
 
   removedActorsBuffer: string[]
@@ -54,7 +55,6 @@ export class Scenario implements IScenario {
     this.configRoleActors = scenarioDef.roleActors
     this.actorRepository = scenarioDef.actors
 
-    this.spawnLocationManager = new SpawnLocationManager(spawnLocations)
     this.actorIdService = new ActorIdService()
 
     this.events = new Map()
@@ -77,6 +77,14 @@ export class Scenario implements IScenario {
       this.scenarioHooks = new ScenarioHooks(this)
     }
 
+    if (scenarioDef.spawnLocations) {
+      if (scenarioDef.spawnLocationManager) {
+        this.spawnLocationManager = new scenarioDef.spawnLocationManager(scenarioDef.spawnLocations)
+      } else {
+        this.spawnLocationManager = new SpawnLocationManager(scenarioDef.spawnLocations)
+      }
+    }
+
     if (typeof scenarioDef.events !== "undefined") {
       scenarioDef.events.forEach((ev: any) => {
         this.events.set(ev.eventName,ev.callback)
@@ -89,6 +97,11 @@ export class Scenario implements IScenario {
     this.gameId = gameId
     this.collisionManager.init(this.gameId)
     this.roleManager.init(players)
+    this.scenarioHooks.init()
+  }
+
+  public destroy() {
+    this.scenarioHooks.onDestroy()
   }
 
   addBot(index: number, spawn: any) {
@@ -189,7 +202,7 @@ export class Scenario implements IScenario {
   }
 
   addEnvActor(envActor: any) {
-        // @todo: actor factory
+    // @todo: actor factory
     const act = new envActor.type(...envActor.params);
     act.setLabel(envActor.label);
     act.setId(this.actorIdService.getNextActorId())
@@ -205,7 +218,7 @@ export class Scenario implements IScenario {
     }
 
     if (typeof envActor.orientation !== "undefined") {
-            // console.log('envActor.orientation', envActor.orientation);
+      // console.log('envActor.orientation', envActor.orientation);
       act.setOrientation(envActor.orientation)
     }
 
@@ -280,7 +293,6 @@ export class Scenario implements IScenario {
     }
 
     if (typeof configActorForRole.orientation !== "undefined") {
-            // console.log('actorForRole.orientation', actorForRole.orientation);
       actor.setOrientation(configActorForRole.orientation)
     }
 

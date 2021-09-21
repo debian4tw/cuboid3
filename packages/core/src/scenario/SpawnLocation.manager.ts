@@ -1,28 +1,11 @@
-import { Axis } from "@cuboid3/g-physics";
 import { Random } from "../util";
-import { IScenario } from "./IScenario";
+import {
+  ISpawnLocationManager,
+  ISpawnLocationSlot,
+  ISpawnLocationDef
+} from "./ISpawnLocationManager";
 
-// import { spawnLocations} from './SpawnLocations'
-
-export interface ISpawnLocationDef {
-  loc: {x: number, y: number, z: number}
-  rot: {angle: number, axis: Axis}
-}
-
-interface ISpawnLocationSlot {
-  slot: ISpawnLocationDef,
-  busy: boolean
-}
-
-const b: ISpawnLocationSlot = {
-  slot: {
-    loc: {x:1,y:1, z: 1},
-    rot: {angle: 1, axis: Axis.Y},
-  },
-  busy: true,
-}
-
-export class SpawnLocationManager {
+export class SpawnLocationManager implements ISpawnLocationManager{
 
   spawnLocations: ISpawnLocationSlot[]
   spawnLocationsCount: number
@@ -61,7 +44,6 @@ export class SpawnLocationManager {
     }
     return loc
   }
-
 
   getSlots() {
     return this.spawnLocations

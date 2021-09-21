@@ -1,5 +1,5 @@
-import {ISpawnLocationDef, SpawnLocationManager} from '../scenario/SpawnLocation.manager'
-
+import { SpawnLocationManager} from '../scenario/SpawnLocation.manager'
+import { ISpawnLocationDef } from '../scenario/ISpawnLocationManager'
 import { Axis } from '@cuboid3/g-physics'
 
 import {spawnLocations} from '../scenario/SpawnLocations'
