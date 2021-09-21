@@ -5,5 +5,5 @@ export * from './IScenario';
 export * from './IScenarioDefinition';
 export * from './IScenarioComponent';
 export * from './Scenario';
-export * from './SpawnLocations';
+export * from './ISpawnLocationManager';
 export * from './ScenarioHooks';

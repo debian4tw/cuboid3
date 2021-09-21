@@ -8,5 +8,9 @@ class ScenarioHooks {
     }
     init() {
     }
+    onDestroy() {
+    }
+    checkWinCondition() {
+    }
 }
 exports.ScenarioHooks = ScenarioHooks;

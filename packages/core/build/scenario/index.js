@@ -17,5 +17,5 @@ __exportStar(require("./IScenario"), exports);
 __exportStar(require("./IScenarioDefinition"), exports);
 __exportStar(require("./IScenarioComponent"), exports);
 __exportStar(require("./Scenario"), exports);
-__exportStar(require("./SpawnLocations"), exports);
+__exportStar(require("./ISpawnLocationManager"), exports);
 __exportStar(require("./ScenarioHooks"), exports);

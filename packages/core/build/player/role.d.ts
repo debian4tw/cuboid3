@@ -1,7 +1,7 @@
 import { Actor } from '../actor/Actor';
 import { Player } from './player';
 import { IActor } from '../actor/IActor';
-import { ISpawnLocationDef } from '../scenario/SpawnLocation.manager';
+import { ISpawnLocationDef } from '../scenario/ISpawnLocationManager';
 import { IScenario } from '../scenario';
 export declare class Role {
     player: Player;

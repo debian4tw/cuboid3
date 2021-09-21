@@ -68,6 +68,9 @@ class Game {
         if (typeof this.scenarios[scenarioId] === "undefined") {
             throw new Error((`scenarioId ${scenarioId} not found`));
         }
+        if (this.scenario) {
+            this.scenario.destroy();
+        }
         const scenarioDefinition = this.scenarios[scenarioId];
         // @todo validate scenarioDefinition and throw explaining error message
         this.scenario = new Scenario_1.Scenario(scenarioDefinition);
@@ -226,8 +229,10 @@ class Game {
         this.switchInterval = switchInterval;
     }
     beforeRemove() {
+        var _a;
         clearTimeout(this.switchInterval);
         clearInterval(this.switchInterval);
+        (_a = this.scenario) === null || _a === void 0 ? void 0 : _a.destroy();
     }
     getBotPlayers() {
         return this.gamePlayers.filter(player => player.isBotPlayer());

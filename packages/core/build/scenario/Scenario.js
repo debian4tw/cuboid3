@@ -5,7 +5,7 @@ const EventHandler_1 = require("../event/EventHandler");
 const Role_manager_1 = require("../role/Role.manager");
 const Collision_manager_1 = require("../collision/Collision.manager");
 const SpawnLocation_manager_1 = require("./SpawnLocation.manager");
-const SpawnLocations_1 = require("./SpawnLocations");
+//import {spawnLocations} from './SpawnLocations'
 const util_1 = require("../util");
 const ActorIdService_1 = require("./ActorIdService");
 const _1 = require("./");
@@ -18,7 +18,6 @@ class Scenario {
         this.configEnvActors = scenarioDef.envActors;
         this.configRoleActors = scenarioDef.roleActors;
         this.actorRepository = scenarioDef.actors;
-        this.spawnLocationManager = new SpawnLocation_manager_1.SpawnLocationManager(SpawnLocations_1.spawnLocations);
         this.actorIdService = new ActorIdService_1.ActorIdService();
         this.events = new Map();
         if (scenarioDef.roleManager) {
@@ -39,6 +38,14 @@ class Scenario {
         else {
             this.scenarioHooks = new _1.ScenarioHooks(this);
         }
+        if (scenarioDef.spawnLocations) {
+            if (scenarioDef.spawnLocationManager) {
+                this.spawnLocationManager = new scenarioDef.spawnLocationManager(scenarioDef.spawnLocations);
+            }
+            else {
+                this.spawnLocationManager = new SpawnLocation_manager_1.SpawnLocationManager(scenarioDef.spawnLocations);
+            }
+        }
         if (typeof scenarioDef.events !== "undefined") {
             scenarioDef.events.forEach((ev) => {
                 this.events.set(ev.eventName, ev.callback);
@@ -50,6 +57,10 @@ class Scenario {
         this.gameId = gameId;
         this.collisionManager.init(this.gameId);
         this.roleManager.init(players);
+        this.scenarioHooks.init();
+    }
+    destroy() {
+        this.scenarioHooks.onDestroy();
     }
     addBot(index, spawn) {
         if (botActors.length === 0) {
@@ -209,7 +220,6 @@ class Scenario {
             });
         }
         if (typeof configActorForRole.orientation !== "undefined") {
-            // console.log('actorForRole.orientation', actorForRole.orientation);
             actor.setOrientation(configActorForRole.orientation);
         }
         if (typeof configActorForRole.z !== "undefined") {

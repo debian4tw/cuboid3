@@ -52,7 +52,7 @@ class RenderManager {
             this.inGameUiElements.push(mesh);
         });
         core_1.EventHandler.subscribe('RemoveInGameUiElement', (mesh) => {
-            this.inGameUiElements.filter((m) => m !== mesh);
+            this.inGameUiElements = this.inGameUiElements.filter((m) => m !== mesh);
         });
     }
     setSize(width, height) {

@@ -1,20 +1,5 @@
-import { Axis } from "@cuboid3/g-physics";
-export interface ISpawnLocationDef {
-    loc: {
-        x: number;
-        y: number;
-        z: number;
-    };
-    rot: {
-        angle: number;
-        axis: Axis;
-    };
-}
-interface ISpawnLocationSlot {
-    slot: ISpawnLocationDef;
-    busy: boolean;
-}
-export declare class SpawnLocationManager {
+import { ISpawnLocationManager, ISpawnLocationSlot, ISpawnLocationDef } from "./ISpawnLocationManager";
+export declare class SpawnLocationManager implements ISpawnLocationManager {
     spawnLocations: ISpawnLocationSlot[];
     spawnLocationsCount: number;
     busyTime: number;
@@ -23,4 +8,3 @@ export declare class SpawnLocationManager {
     private getFreeSlot;
     getSlots(): ISpawnLocationSlot[];
 }
-export {};

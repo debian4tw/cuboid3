@@ -176,15 +176,17 @@ class GameServer {
             this.network.sendToRoom(game.getId(), 'scenarioDiff', core_2.NetworkUtils.encodeString(JSON.stringify(status)));
             const emitTime = performance.now() - start3;
             const totalTime = performance.now() - start;
-            if (totalTime > 4) {
-                // "\x1b[31m",
-                // console.log("LongF", totalTime, updateTime, collisionsTime, statusTime, emitTime)
+            /*
+            if(totalTime > 4) {
+              // "\x1b[31m",
+              // console.log("LongF", totalTime, updateTime, collisionsTime, statusTime, emitTime)
+            } else {
+              // console.log(totalTime, updateTime, collisionsTime, statusTime, emitTime)
             }
-            else {
-                // console.log(totalTime, updateTime, collisionsTime, statusTime, emitTime)
-            }
+            */
         });
-        /*this.processedFrames++
+        /*
+        this.processedFrames++
         if (this.processedFrames > 60) {
             this.processedFrames = 0
             try {
@@ -195,7 +197,8 @@ class GameServer {
             } catch (e) {
                 process.exit();
             }
-        }*/
+        }
+        */
     }
     deleteGame(gameId) {
         //
@@ -231,8 +234,6 @@ class GameServer {
                 joinGame = this.createGame(gameId);
                 this.publicGamesManager.addGame(joinGame);
                 joinGame.onGameCreate();
-                // joinGame.getScenario().addBot(0, joinGame.getScenario().getSpawnLocationManager().getNextAvailable())
-                // joinGame.getScenario().addBot(1, joinGame.getScenario().getSpawnLocationManager().getNextAvailable())
             }
             else {
                 // remove bot
@@ -270,11 +271,14 @@ class GameServer {
         });
         // @todo: scenarioEvent - ok
         socket.on('respawn', () => {
+            var _a;
             const game = this.findGame(socket);
             if (game) {
                 const role = game.getScenario().findRoleById(socket.id);
-                const location = game.getScenario().getSpawnLocationManager().getNextAvailable();
-                role === null || role === void 0 ? void 0 : role.respawn(location);
+                const location = (_a = game.getScenario().getSpawnLocationManager()) === null || _a === void 0 ? void 0 : _a.getNextAvailable();
+                if (location) {
+                    role === null || role === void 0 ? void 0 : role.respawn(location);
+                }
             }
         });
         socket.on('scenarioEvent', (data) => {

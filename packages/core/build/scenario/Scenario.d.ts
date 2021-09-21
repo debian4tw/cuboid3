@@ -4,11 +4,11 @@ import { Player } from '../player/player';
 import { Role } from '../player/role';
 import { ICollisionManager } from '../collision/ICollisionManager';
 import { IRoleManager } from '../role/IRoleManager';
-import { SpawnLocationManager } from './SpawnLocation.manager';
 import { ActorIdService } from './ActorIdService';
 import { IScenarioDefinition } from './IScenarioDefinition';
 import { ScenarioHooks } from './';
 import { IScenarioComponent } from './IScenarioComponent';
+import { ISpawnLocationManager } from './ISpawnLocationManager';
 export declare class Scenario implements IScenario {
     name: string;
     actors: IActor[];
@@ -18,7 +18,7 @@ export declare class Scenario implements IScenario {
     actorRepository: any;
     collisionManager: ICollisionManager;
     roleManager: IRoleManager;
-    spawnLocationManager: SpawnLocationManager;
+    spawnLocationManager: ISpawnLocationManager;
     actorIdService: ActorIdService;
     removedActorsBuffer: string[];
     events: Map<string, (scenario: Scenario, socketId: string, data: any) => void>;
@@ -26,6 +26,7 @@ export declare class Scenario implements IScenario {
     components: Map<string, IScenarioComponent>;
     constructor(scenarioDef: IScenarioDefinition);
     init(players: any[], gameId: string): void;
+    destroy(): void;
     addBot(index: number, spawn: any): void;
     removeBot(): void;
     getName(): string;
@@ -59,7 +60,7 @@ export declare class Scenario implements IScenario {
     checkWinCondition(): void;
     onTeamWon(team: number): void;
     getGameId(): string;
-    getSpawnLocationManager(): SpawnLocationManager;
+    getSpawnLocationManager(): ISpawnLocationManager;
     respawnActorByLabel(actorLabel: string): void;
     onEvent(socketId: string, data: {
         eventName: string;
