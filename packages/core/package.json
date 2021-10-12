@@ -1,6 +1,6 @@
 {
   "name": "@cuboid3/core",
-  "version": "0.5.15",
+  "version": "0.5.16",
   "description": "Core Library part of Cuboid3, 3D Game Engine for Node and the browser",
   "main": "build/index.js",
   "types": "build/index.d.ts",
