@@ -4,6 +4,7 @@ import { Role } from '../player/role'
 import { IActor } from "../actor/IActor";
 import { ISpawnLocationManager } from "./ISpawnLocationManager";
 import { IScenarioComponent } from "./IScenarioComponent";
+import { IRoleManager } from "..";
 
 export interface IScenario {
 
@@ -55,4 +56,6 @@ export interface IScenario {
   addComponent(componentName: string, component: IScenarioComponent): void
 
   onTeamWon(team: number): void
+
+  getRoleManager(): IRoleManager
 }

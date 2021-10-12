@@ -404,39 +404,8 @@ export class Scenario implements IScenario {
   }
 
   public checkWinCondition() {
-
-        // console.log('check win condition')
-    const teamLives: any = {
-      1: 0,
-      2: 0
-    }
-    this.roleManager.getScenarioPlayers()
-    for (const [key, value] of (Object as any).entries(this.roleManager.getRoles())) {
-      // console.log(key, value);
-      const player = value.getPlayer()
-      if (typeof player.team !== "undefined") {
-        // console.log('count team live')
-        teamLives[player.team]+= player.getLives()
-      } else {
-        // @todo: no teams for now it means FFA so there is no win cond
-        // later on this should be configurable by scenario
-        return
-      }
-    }
-    /*this.gamePlayers.forEach((player: Player) => {
-        //this.getScenario()
-        if (typeof player.team !== "undefined") {
-            console.log('count team live')
-            teamLives[player.team]+= player.getLives()
-        }
-    })*/
-    // @todo: move to some other place
-    if(teamLives[1] === 0) {
-      this.onTeamWon(2)
-    }
-    if (teamLives[2] === 0) {
-      this.onTeamWon(1)
-    }
+    // console.log('check win condition')
+    this.scenarioHooks.checkWinCondition()
   }
 
   onTeamWon(team: number) {
@@ -484,6 +453,10 @@ export class Scenario implements IScenario {
     if (componentName && component) {
       this.components.set(componentName, component)
     }
+  }
+
+  getRoleManager() {
+    return this.roleManager
   }
 
 }
