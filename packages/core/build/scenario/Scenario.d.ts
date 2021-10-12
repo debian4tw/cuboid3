@@ -68,4 +68,5 @@ export declare class Scenario implements IScenario {
     }): void;
     getComponent(componentName: string): IScenarioComponent | undefined;
     addComponent(componentName: string, component: IScenarioComponent): void;
+    getRoleManager(): IRoleManager;
 }
