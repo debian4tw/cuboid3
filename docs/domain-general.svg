@@ -1,0 +1,1973 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4f, 2020-05-01)"
+   sodipodi:docname="Domain-General.svg"
+   id="svg1729"
+   height="708"
+   width="724"
+   version="1.1">
+  <metadata
+     id="metadata1733">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     inkscape:current-layer="g1727"
+     inkscape:window-maximized="1"
+     inkscape:window-y="0"
+     inkscape:window-x="0"
+     inkscape:cy="331.1929"
+     inkscape:cx="345.66563"
+     inkscape:zoom="0.55152979"
+     showgrid="false"
+     id="namedview1731"
+     inkscape:window-height="778"
+     inkscape:window-width="1280"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <defs
+     id="defs833" />
+  <g
+     id="g1727">
+    <g
+       id="g1029"
+       transform="translate(-78,-38) scale(1,1)">
+      <rect
+         id="rect1027"
+         opacity="0.2"
+         height="96"
+         width="128"
+         y="55"
+         x="95"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1033"
+       transform="translate(-78,-38) scale(1,1)">
+      <rect
+         id="rect1031"
+         height="96"
+         width="128"
+         y="48"
+         x="88"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1037"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1035"
+         stroke-miterlimit="10"
+         d="M 88 48 L 216 48 L 216 144 L 88 144 L 88 48 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1041"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1039"
+         stroke-miterlimit="10"
+         d="M 88 73 L 216 73"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1049"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1047">
+        <path
+           id="path1043"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1045"
+           y="67.5"
+           x="115.155029296875"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">GameServer</text>
+      </g>
+    </g>
+    <g
+       id="g1057"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1055">
+        <path
+           id="path1051"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1053"
+           y="90.5"
+           x="93"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">maxGames</text>
+      </g>
+    </g>
+    <g
+       id="g1061"
+       transform="translate(-78,-38) scale(1,1)">
+      <rect
+         id="rect1059"
+         opacity="0.2"
+         height="48"
+         width="72.2353515625"
+         y="79"
+         x="527"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1065"
+       transform="translate(-78,-38) scale(1,1)">
+      <rect
+         id="rect1063"
+         height="48"
+         width="72.2353515625"
+         y="72"
+         x="520"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1069"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1067"
+         stroke-miterlimit="10"
+         d="M 520 72 L 592.2353515625 72 L 592.2353515625 120 L 520 120 L 520 72 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1073"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1071"
+         stroke-miterlimit="10"
+         d="M 520 97 L 592.2353515625 97"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1081"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1079">
+        <path
+           id="path1075"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1077"
+           y="91.5"
+           x="536.246337890625"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">Socket</text>
+      </g>
+    </g>
+    <g
+       id="g1089"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1087">
+        <path
+           id="path1083"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1085"
+           y="114.5"
+           x="525"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">id</text>
+      </g>
+    </g>
+    <g
+       id="g1093"
+       transform="translate(-78,-38) scale(1,1)">
+      <rect
+         id="rect1091"
+         opacity="0.2"
+         height="64"
+         width="92.10986328125"
+         y="71"
+         x="327"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1097"
+       transform="translate(-78,-38) scale(1,1)">
+      <rect
+         id="rect1095"
+         height="64"
+         width="92.10986328125"
+         y="64"
+         x="320"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1101"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1099"
+         stroke-miterlimit="10"
+         d="M 320 64 L 412.10986328125 64 L 412.10986328125 128 L 320 128 L 320 64 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1105"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1103"
+         stroke-miterlimit="10"
+         d="M 320 89 L 412.10986328125 89"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1113"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1111">
+        <path
+           id="path1107"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1109"
+           y="83.5"
+           x="327.0390625"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">SocketServer</text>
+      </g>
+    </g>
+    <g
+       id="g1117"
+       transform="translate(-78,-38) scale(1,1)">
+      <rect
+         id="rect1115"
+         opacity="0.2"
+         height="64"
+         width="80"
+         y="271"
+         x="119"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1121"
+       transform="translate(-78,-38) scale(1,1)">
+      <rect
+         id="rect1119"
+         height="64"
+         width="80"
+         y="264"
+         x="112"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1125"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1123"
+         stroke-miterlimit="10"
+         d="M 112 264 L 192 264 L 192 328 L 112 328 L 112 264 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1129"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1127"
+         stroke-miterlimit="10"
+         d="M 112 289 L 192 289"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1137"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1135">
+        <path
+           id="path1131"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1133"
+           y="283.5"
+           x="134.299560546875"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">Game</text>
+      </g>
+    </g>
+    <g
+       id="g1145"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1143">
+        <path
+           id="path1139"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1141"
+           y="306.5"
+           x="117"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">id</text>
+      </g>
+    </g>
+    <g
+       id="g1149"
+       transform="translate(-78,-38) scale(1,1)">
+      <rect
+         id="rect1147"
+         opacity="0.2"
+         height="80"
+         width="88"
+         y="479"
+         x="111"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1153"
+       transform="translate(-78,-38) scale(1,1)">
+      <rect
+         id="rect1151"
+         height="80"
+         width="88"
+         y="472"
+         x="104"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1157"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1155"
+         stroke-miterlimit="10"
+         d="M 104 472 L 192 472 L 192 552 L 104 552 L 104 472 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1161"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1159"
+         stroke-miterlimit="10"
+         d="M 104 497 L 192 497"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1169"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1167">
+        <path
+           id="path1163"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1165"
+           y="491.5"
+           x="122.345947265625"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">Scenario</text>
+      </g>
+    </g>
+    <g
+       id="g1177"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1175">
+        <path
+           id="path1171"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1173"
+           y="514.5"
+           x="109"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">id</text>
+      </g>
+    </g>
+    <g
+       id="g1185"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1183">
+        <path
+           id="path1179"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1181"
+           y="529.5"
+           x="109"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">name</text>
+      </g>
+    </g>
+    <g
+       id="g1189"
+       transform="translate(-78,-38) scale(1,1)">
+      <rect
+         id="rect1187"
+         opacity="0.2"
+         height="77"
+         width="72.2353515625"
+         y="263"
+         x="527"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1193"
+       transform="translate(-78,-38) scale(1,1)">
+      <rect
+         id="rect1191"
+         height="77"
+         width="72.2353515625"
+         y="256"
+         x="520"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1197"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1195"
+         stroke-miterlimit="10"
+         d="M 520 256 L 592.2353515625 256 L 592.2353515625 333 L 520 333 L 520 256 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1201"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1199"
+         stroke-miterlimit="10"
+         d="M 520 281 L 592.2353515625 281"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1209"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1207">
+        <path
+           id="path1203"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1205"
+           y="275.5"
+           x="537.693603515625"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">Player</text>
+      </g>
+    </g>
+    <g
+       id="g1217"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1215">
+        <path
+           id="path1211"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1213"
+           y="298.5"
+           x="525"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">name</text>
+      </g>
+    </g>
+    <g
+       id="g1225"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1223">
+        <path
+           id="path1219"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1221"
+           y="313.5"
+           x="525"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">lives</text>
+      </g>
+    </g>
+    <g
+       id="g1233"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1231">
+        <path
+           id="path1227"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1229"
+           y="328.5"
+           x="525"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">isBot</text>
+      </g>
+    </g>
+    <g
+       id="g1237"
+       transform="translate(-78,-38) scale(1,1)">
+      <rect
+         id="rect1235"
+         opacity="0.2"
+         height="64"
+         width="72"
+         y="487"
+         x="527"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1241"
+       transform="translate(-78,-38) scale(1,1)">
+      <rect
+         id="rect1239"
+         height="64"
+         width="72"
+         y="480"
+         x="520"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1245"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1243"
+         stroke-miterlimit="10"
+         d="M 520 480 L 592 480 L 592 544 L 520 544 L 520 480 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1249"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1247"
+         stroke-miterlimit="10"
+         d="M 520 505 L 592 505"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1257"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1255">
+        <path
+           id="path1251"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1253"
+           y="499.5"
+           x="542.6318359375"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">Role</text>
+      </g>
+    </g>
+    <g
+       id="g1261"
+       transform="translate(-78,-38) scale(1,1)">
+      <rect
+         id="rect1259"
+         opacity="0.2"
+         height="96"
+         width="88"
+         y="647"
+         x="287"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1265"
+       transform="translate(-78,-38) scale(1,1)">
+      <rect
+         id="rect1263"
+         height="96"
+         width="88"
+         y="640"
+         x="280"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1269"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1267"
+         stroke-miterlimit="10"
+         d="M 280 640 L 368 640 L 368 736 L 280 736 L 280 640 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1273"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1271"
+         stroke-miterlimit="10"
+         d="M 280 665 L 368 665"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1281"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1279">
+        <path
+           id="path1275"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1277"
+           y="659.5"
+           x="308.8291015625"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">Actor</text>
+      </g>
+    </g>
+    <g
+       id="g1289"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1287">
+        <path
+           id="path1283"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1285"
+           y="682.5"
+           x="285"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">id</text>
+      </g>
+    </g>
+    <g
+       id="g1297"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1295">
+        <path
+           id="path1291"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1293"
+           y="697.5"
+           x="285"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">position</text>
+      </g>
+    </g>
+    <g
+       id="g1305"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1303">
+        <path
+           id="path1299"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1301"
+           y="712.5"
+           x="285"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">shape</text>
+      </g>
+    </g>
+    <g
+       id="g1313"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1311">
+        <path
+           id="path1307"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1309"
+           y="727.5"
+           x="285"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">dimensions</text>
+      </g>
+    </g>
+    <g
+       id="g1317"
+       transform="translate(-78,-38) scale(1,1)">
+      <rect
+         id="rect1315"
+         opacity="0.2"
+         height="62"
+         width="88.853515625"
+         y="663"
+         x="519"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1321"
+       transform="translate(-78,-38) scale(1,1)">
+      <rect
+         id="rect1319"
+         height="62"
+         width="88.853515625"
+         y="656"
+         x="512"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1325"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1323"
+         stroke-miterlimit="10"
+         d="M 512 656 L 600.853515625 656 L 600.853515625 718 L 512 718 L 512 656 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1329"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1327"
+         stroke-miterlimit="10"
+         d="M 512 681 L 600.853515625 681"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1337"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1335">
+        <path
+           id="path1331"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1333"
+           y="675.5"
+           x="526.443603515625"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">Command</text>
+      </g>
+    </g>
+    <g
+       id="g1345"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1343">
+        <path
+           id="path1339"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1341"
+           y="698.5"
+           x="517"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">label</text>
+      </g>
+    </g>
+    <g
+       id="g1353"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1351">
+        <path
+           id="path1347"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1349"
+           y="713.5"
+           x="517"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">actorMethod</text>
+      </g>
+    </g>
+    <g
+       id="g1357"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1355"
+         stroke-miterlimit="10"
+         d="M 217 96 L 319 96"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1365"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1363">
+        <path
+           id="path1359"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1361"
+           y="87.5"
+           x="254.2958984375"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">uses</text>
+      </g>
+    </g>
+    <g
+       id="g1373"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1371">
+        <path
+           id="path1367"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1369"
+           y="114.5"
+           x="234.5"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">1</text>
+      </g>
+    </g>
+    <g
+       id="g1381"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1379">
+        <path
+           id="path1375"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1377"
+           y="114.5"
+           x="293.5"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">1</text>
+      </g>
+    </g>
+    <g
+       id="g1385"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1383"
+         stroke-miterlimit="10"
+         d="M 413 96 L 519 96"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1393"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1391">
+        <path
+           id="path1387"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1389"
+           y="114.5"
+           x="430.5"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">1</text>
+      </g>
+    </g>
+    <g
+       id="g1401"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1399">
+        <path
+           id="path1395"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1397"
+           y="114.5"
+           x="494.5"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">*</text>
+      </g>
+    </g>
+    <g
+       id="g1405"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1403"
+         stroke-miterlimit="10"
+         d="M 152 263 L 152 145"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1413"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1411">
+        <path
+           id="path1407"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1409"
+           y="247.5"
+           x="161.5"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">*</text>
+      </g>
+    </g>
+    <g
+       id="g1421"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1419">
+        <path
+           id="path1415"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1417"
+           y="172.5"
+           x="160.5"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">1</text>
+      </g>
+    </g>
+    <g
+       id="g1425"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1423"
+         stroke-miterlimit="10"
+         d="M 149 471 L 151 329"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1433"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1431">
+        <path
+           id="path1427"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1429"
+           y="403.5"
+           x="162.2958984375"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">uses</text>
+      </g>
+    </g>
+    <g
+       id="g1441"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1439">
+        <path
+           id="path1435"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1437"
+           y="455.5"
+           x="151.5"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">1..*</text>
+      </g>
+    </g>
+    <g
+       id="g1449"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1447">
+        <path
+           id="path1443"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1445"
+           y="356.5"
+           x="159.5"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">1</text>
+      </g>
+    </g>
+    <g
+       id="g1453"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1451"
+         stroke-miterlimit="10"
+         d="M 556 121 L 556 255"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1461"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1459">
+        <path
+           id="path1455"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1457"
+           y="193.5"
+           x="562.5"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">▼ becomes</text>
+      </g>
+    </g>
+    <g
+       id="g1465"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1463"
+         stroke-miterlimit="10"
+         d="M 556 334 L 556 479"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1473"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1471">
+        <path
+           id="path1467"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1469"
+           y="412.5"
+           x="559.5"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">▼ asumes</text>
+      </g>
+    </g>
+    <g
+       id="g1481"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1479">
+        <path
+           id="path1475"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1477"
+           y="361.5"
+           x="539.5"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">1</text>
+      </g>
+    </g>
+    <g
+       id="g1489"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1487">
+        <path
+           id="path1483"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1485"
+           y="463.5"
+           x="533.5"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">1..*</text>
+      </g>
+    </g>
+    <g
+       id="g1493"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1491"
+         stroke-miterlimit="10"
+         d="M 189 553 L 279 643"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1501"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1499">
+        <path
+           id="path1495"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1497"
+           y="583.5"
+           x="191.5"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">1</text>
+      </g>
+    </g>
+    <g
+       id="g1509"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1507">
+        <path
+           id="path1503"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1505"
+           y="642.5"
+           x="251.5"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">*</text>
+      </g>
+    </g>
+    <g
+       id="g1513"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1511"
+         stroke-miterlimit="10"
+         d="M 556 655 L 556 545"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1521"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1519">
+        <path
+           id="path1515"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1517"
+           y="639.5"
+           x="565.58544921875"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">*</text>
+      </g>
+    </g>
+    <g
+       id="g1529"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1527">
+        <path
+           id="path1523"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1525"
+           y="572.5"
+           x="564.5"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">1</text>
+      </g>
+    </g>
+    <g
+       id="g1533"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1531"
+         stroke-miterlimit="10"
+         d="M 193 296 L 519 294"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1541"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1539">
+        <path
+           id="path1535"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1537"
+           y="286.5"
+           x="314.731201171875"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">contains ▶</text>
+      </g>
+    </g>
+    <g
+       id="g1549"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1547">
+        <path
+           id="path1543"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1545"
+           y="314.5"
+           x="210.5"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">1</text>
+      </g>
+    </g>
+    <g
+       id="g1557"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1555">
+        <path
+           id="path1551"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1553"
+           y="312.5"
+           x="494.5"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">*</text>
+      </g>
+    </g>
+    <g
+       id="g1561"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1559"
+         stroke-miterlimit="10"
+         d="M 193 512 L 519 512"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1569"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1567">
+        <path
+           id="path1563"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1565"
+           y="503.5"
+           x="324.5"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">contains ▶</text>
+      </g>
+    </g>
+    <g
+       id="g1577"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1575">
+        <path
+           id="path1571"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1573"
+           y="530.5"
+           x="210.641357421875"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">1</text>
+      </g>
+    </g>
+    <g
+       id="g1585"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1583">
+        <path
+           id="path1579"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1581"
+           y="530.5"
+           x="487.5"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">1..*</text>
+      </g>
+    </g>
+    <g
+       id="g1589"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1587"
+         stroke-miterlimit="10"
+         d="M 369 688 L 511 687"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1597"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1595">
+        <path
+           id="path1591"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1593"
+           y="678.5"
+           x="388.915283203125"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">is controlled by ▶</text>
+      </g>
+    </g>
+    <g
+       id="g1605"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1603">
+        <path
+           id="path1599"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1601"
+           y="706.5"
+           x="386.5"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">1</text>
+      </g>
+    </g>
+    <g
+       id="g1613"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1611">
+        <path
+           id="path1607"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1609"
+           y="705.5"
+           x="486.5"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">*</text>
+      </g>
+    </g>
+    <g
+       id="g1617"
+       transform="translate(-78,-38) scale(1,1)">
+      <rect
+         id="rect1615"
+         opacity="0.2"
+         height="48"
+         width="64"
+         y="671"
+         x="119"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1621"
+       transform="translate(-78,-38) scale(1,1)">
+      <rect
+         id="rect1619"
+         height="48"
+         width="64"
+         y="664"
+         x="112"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1625"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1623"
+         stroke-miterlimit="10"
+         d="M 112 664 L 176 664 L 176 712 L 112 712 L 112 664 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1629"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1627"
+         stroke-miterlimit="10"
+         d="M 112 689 L 176 689"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1637"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1635">
+        <path
+           id="path1631"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1633"
+           y="683.5"
+           x="119.4345703125"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">Collision</text>
+      </g>
+    </g>
+    <g
+       id="g1641"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1639"
+         stroke-miterlimit="10"
+         d="M 177 688 L 279 688"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1645"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1643"
+         stroke-miterlimit="10"
+         d="M 147 553 L 145 663"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1653"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1651">
+        <path
+           id="path1647"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1649"
+           y="580.5"
+           x="130.641357421875"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">1</text>
+      </g>
+    </g>
+    <g
+       id="g1661"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1659">
+        <path
+           id="path1655"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1657"
+           y="647.5"
+           x="129.5"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">*</text>
+      </g>
+    </g>
+    <g
+       id="g1665"
+       transform="translate(-78,-38) scale(1,1)">
+      <rect
+         id="rect1663"
+         opacity="0.2"
+         height="48"
+         width="64"
+         y="79"
+         x="735"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1669"
+       transform="translate(-78,-38) scale(1,1)">
+      <rect
+         id="rect1667"
+         height="48"
+         width="64"
+         y="72"
+         x="728"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1673"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1671"
+         stroke-miterlimit="10"
+         d="M 728 72 L 792 72 L 792 120 L 728 120 L 728 72 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1677"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1675"
+         stroke-miterlimit="10"
+         d="M 728 97 L 792 97"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1685"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1683">
+        <path
+           id="path1679"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1681"
+           y="91.5"
+           x="743.3818359375"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">Client</text>
+      </g>
+    </g>
+    <g
+       id="g1689"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1687"
+         stroke-miterlimit="10"
+         d="M 593 96 L 727 96"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1697"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1695">
+        <path
+           id="path1691"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1693"
+           y="114.5"
+           x="610.5"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">1</text>
+      </g>
+    </g>
+    <g
+       id="g1705"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1703">
+        <path
+           id="path1699"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1701"
+           y="114.5"
+           x="701.5"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">1</text>
+      </g>
+    </g>
+    <g
+       id="g1709"
+       transform="translate(-78,-38) scale(1,1)">
+      <path
+         id="path1707"
+         stroke-miterlimit="10"
+         d="M 519 540 L 369 654"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1717"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1715">
+        <path
+           id="path1711"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1713"
+           y="549.5"
+           x="490.5"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">1</text>
+      </g>
+    </g>
+    <g
+       id="g1725"
+       transform="translate(-78,-38) scale(1,1)">
+      <g
+         id="g1723">
+        <path
+           id="path1719"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1721"
+           y="636.5"
+           x="375.5"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">*</text>
+      </g>
+    </g>
+  </g>
+</svg>

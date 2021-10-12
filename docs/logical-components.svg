@@ -1,0 +1,3127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4f, 2020-05-01)"
+   sodipodi:docname="Logical Components.svg"
+   id="svg2333"
+   height="812"
+   width="1284"
+   version="1.1">
+  <metadata
+     id="metadata2337">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     inkscape:current-layer="g2131"
+     inkscape:window-maximized="1"
+     inkscape:window-y="0"
+     inkscape:window-x="0"
+     inkscape:cy="406"
+     inkscape:cx="642"
+     inkscape:zoom="0.48130841"
+     showgrid="false"
+     id="namedview2335"
+     inkscape:window-height="778"
+     inkscape:window-width="1280"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <defs
+     id="defs833" />
+  <g
+     id="g2331">
+    <g
+       id="g1229"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1227"
+         opacity="0.2"
+         height="15"
+         width="124.79999999999995"
+         y="111"
+         x="639"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1233"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1231"
+         opacity="0.2"
+         height="106"
+         width="312"
+         y="125"
+         x="639"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1237"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1235"
+         height="105"
+         width="312"
+         y="119"
+         x="632"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1241"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1239"
+         stroke-miterlimit="10"
+         d="M 632 119 L 944 119 L 944 224 L 632 224 L 632 119 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1245"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1243"
+         height="15"
+         width="124.79999999999995"
+         y="104"
+         x="632"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1249"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1247"
+         stroke-miterlimit="10"
+         d="M 632 104 L 756.8 104 L 756.8 119 L 632 119 L 632 104 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1253"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1251"
+         height="106"
+         width="312"
+         y="118"
+         x="632"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1257"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1255"
+         stroke-miterlimit="10"
+         d="M 632 118 L 944 118 L 944 224 L 632 224 L 632 118 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1265"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g1263">
+        <path
+           id="path1259"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1261"
+           y="138.5"
+           x="768.85546875"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">Server</text>
+      </g>
+    </g>
+    <g
+       id="g1269"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1267"
+         opacity="0.2"
+         height="15"
+         width="128"
+         y="287"
+         x="639"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1273"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1271"
+         opacity="0.2"
+         height="178"
+         width="320"
+         y="301"
+         x="639"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1277"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1275"
+         height="177"
+         width="320"
+         y="295"
+         x="632"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1281"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1279"
+         stroke-miterlimit="10"
+         d="M 632 295 L 952 295 L 952 472 L 632 472 L 632 295 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1285"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1283"
+         height="15"
+         width="128"
+         y="280"
+         x="632"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1289"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1287"
+         stroke-miterlimit="10"
+         d="M 632 280 L 760 280 L 760 295 L 632 295 L 632 280 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1293"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1291"
+         height="178"
+         width="320"
+         y="294"
+         x="632"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1297"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1295"
+         stroke-miterlimit="10"
+         d="M 632 294 L 952 294 L 952 472 L 632 472 L 632 294 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1305"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g1303">
+        <path
+           id="path1299"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1301"
+           y="314.5"
+           x="763.095947265625"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">Scenarios</text>
+      </g>
+    </g>
+    <g
+       id="g1309"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1307"
+         opacity="0.2"
+         height="15"
+         width="86.4"
+         y="287"
+         x="31"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1313"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1311"
+         opacity="0.2"
+         height="290"
+         width="216"
+         y="301"
+         x="31"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1317"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1315"
+         height="289"
+         width="216"
+         y="295"
+         x="24"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1321"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1319"
+         stroke-miterlimit="10"
+         d="M 24 295 L 240 295 L 240 584 L 24 584 L 24 295 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1325"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1323"
+         height="15"
+         width="86.4"
+         y="280"
+         x="24"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1329"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1327"
+         stroke-miterlimit="10"
+         d="M 24 280 L 110.4 280 L 110.4 295 L 24 295 L 24 280 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1333"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1331"
+         height="290"
+         width="216"
+         y="294"
+         x="24"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1337"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1335"
+         stroke-miterlimit="10"
+         d="M 24 294 L 240 294 L 240 584 L 24 584 L 24 294 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1345"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g1343">
+        <path
+           id="path1339"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1341"
+           y="314.5"
+           x="102.385009765625"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Arial"
+           stroke="none"
+           fill="#000000">G-Physics</text>
+      </g>
+    </g>
+    <g
+       id="g1349"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1347"
+         opacity="0.2"
+         height="15"
+         width="188.8"
+         y="623"
+         x="31"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1353"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1351"
+         opacity="0.2"
+         height="178"
+         width="472"
+         y="637"
+         x="31"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1357"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1355"
+         height="177"
+         width="472"
+         y="631"
+         x="24"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1361"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1359"
+         stroke-miterlimit="10"
+         d="M 24 631 L 496 631 L 496 808 L 24 808 L 24 631 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1365"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1363"
+         height="15"
+         width="188.8"
+         y="616"
+         x="24"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1369"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1367"
+         stroke-miterlimit="10"
+         d="M 24 616 L 212.8 616 L 212.8 631 L 24 631 L 24 616 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1373"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1371"
+         height="178"
+         width="472"
+         y="630"
+         x="24"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1377"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1375"
+         stroke-miterlimit="10"
+         d="M 24 630 L 496 630 L 496 808 L 24 808 L 24 630 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1385"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g1383">
+        <path
+           id="path1379"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1381"
+           y="650.5"
+           x="243.3818359375"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Arial"
+           stroke="none"
+           fill="#000000">Client</text>
+      </g>
+    </g>
+    <g
+       id="g1389"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1387"
+         opacity="0.2"
+         height="15"
+         width="192"
+         y="95"
+         x="31"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1393"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1391"
+         opacity="0.2"
+         height="154"
+         width="480"
+         y="109"
+         x="31"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1397"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1395"
+         height="153"
+         width="480"
+         y="103"
+         x="24"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1401"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1399"
+         stroke-miterlimit="10"
+         d="M 24 103 L 504 103 L 504 256 L 24 256 L 24 103 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1405"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1403"
+         height="15"
+         width="192"
+         y="88"
+         x="24"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1409"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1407"
+         stroke-miterlimit="10"
+         d="M 24 88 L 216 88 L 216 103 L 24 103 L 24 88 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1413"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1411"
+         height="154"
+         width="480"
+         y="102"
+         x="24"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1417"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1415"
+         stroke-miterlimit="10"
+         d="M 24 102 L 504 102 L 504 256 L 24 256 L 24 102 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1425"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g1423">
+        <path
+           id="path1419"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1421"
+           y="122.5"
+           x="244.85546875"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Arial"
+           stroke="none"
+           fill="#000000">Server</text>
+      </g>
+    </g>
+    <g
+       id="g1429"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1427"
+         opacity="0.2"
+         height="15"
+         width="124.79999999999995"
+         y="559"
+         x="639"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1433"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1431"
+         opacity="0.2"
+         height="242"
+         width="312"
+         y="573"
+         x="639"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1437"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1435"
+         height="241"
+         width="312"
+         y="567"
+         x="632"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1441"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1439"
+         stroke-miterlimit="10"
+         d="M 632 567 L 944 567 L 944 808 L 632 808 L 632 567 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1445"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1443"
+         height="15"
+         width="124.79999999999995"
+         y="552"
+         x="632"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1449"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1447"
+         stroke-miterlimit="10"
+         d="M 632 552 L 756.8 552 L 756.8 567 L 632 567 L 632 552 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1453"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1451"
+         height="242"
+         width="312"
+         y="566"
+         x="632"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1457"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1455"
+         stroke-miterlimit="10"
+         d="M 632 566 L 944 566 L 944 808 L 632 808 L 632 566 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1465"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g1463">
+        <path
+           id="path1459"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1461"
+           y="586.5"
+           x="771.3818359375"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Arial"
+           stroke="none"
+           fill="#000000">Client</text>
+      </g>
+    </g>
+    <g
+       id="g1469"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1467"
+         opacity="0.2"
+         height="15"
+         width="102.39999999999998"
+         y="287"
+         x="279"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1473"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1471"
+         opacity="0.2"
+         height="290"
+         width="256"
+         y="301"
+         x="279"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1477"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1475"
+         height="289"
+         width="256"
+         y="295"
+         x="272"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1481"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1479"
+         stroke-miterlimit="10"
+         d="M 272 295 L 528 295 L 528 584 L 272 584 L 272 295 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1485"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1483"
+         height="15"
+         width="102.39999999999998"
+         y="280"
+         x="272"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1489"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1487"
+         stroke-miterlimit="10"
+         d="M 272 280 L 374.4 280 L 374.4 295 L 272 295 L 272 280 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1493"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1491"
+         height="290"
+         width="256"
+         y="294"
+         x="272"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1497"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1495"
+         stroke-miterlimit="10"
+         d="M 272 294 L 528 294 L 528 584 L 272 584 L 272 294 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1505"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g1503">
+        <path
+           id="path1499"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1501"
+           y="314.5"
+           x="385.911376953125"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Arial"
+           stroke="none"
+           fill="#000000">Core</text>
+      </g>
+    </g>
+    <g
+       id="g1509"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1507"
+         stroke-dasharray="3"
+         stroke-miterlimit="10"
+         d="M 293 205 L 335 335"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1513"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1511"
+         stroke-miterlimit="10"
+         d="M 327.8700308627595 326.6236320459284 L 335 335 L 335.8813370554442 324.0353638913687"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1517"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1515"
+         stroke-dasharray="3"
+         stroke-miterlimit="10"
+         d="M 327 695 L 341 381"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1521"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1519"
+         stroke-miterlimit="10"
+         d="M 344.752676723876 391.3400878819321 L 341 381 L 336.3419968996746 390.9650894184327"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1525"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1523"
+         stroke-dasharray="3"
+         stroke-miterlimit="10"
+         d="M 357 381 L 384 423"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1529"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1527"
+         stroke-miterlimit="10"
+         d="M 374.96350069461283 416.7277053398507 L 384 423 L 382.04541215076495 412.1750479751815"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1533"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1531"
+         stroke-dasharray="3"
+         stroke-miterlimit="10"
+         d="M 271 708 L 165 689"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1537"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1535"
+         stroke-miterlimit="10"
+         d="M 175.7459482099156 686.6495538572834 L 165 689 L 174.26054925583944 694.9365164431821"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1541"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1539"
+         stroke-dasharray="3"
+         stroke-miterlimit="10"
+         d="M 631 693 L 381 713"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1545"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1543"
+         stroke-miterlimit="10"
+         d="M 390.79462063971744 707.9934636200242 L 381 713 L 391.465998498032 716.3856868489559"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1549"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1547"
+         stroke-dasharray="3"
+         stroke-miterlimit="10"
+         d="M 271 731 L 201 748"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1553"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1551"
+         stroke-miterlimit="10"
+         d="M 209.88218199186468 741.5110214160167 L 201 748 L 211.86905187788946 749.6922503584716"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1557"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1555"
+         stroke-dasharray="3"
+         stroke-miterlimit="10"
+         d="M 287 377 L 241 394"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1561"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1559"
+         stroke-miterlimit="10"
+         d="M 249.07330318671583 386.52860283110556 L 241 394 L 251.99176303296497 394.4256118268385"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1565"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1563"
+         stroke-dasharray="3"
+         stroke-miterlimit="10"
+         d="M 727 182 L 341 182"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1569"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1567"
+         stroke-miterlimit="10"
+         d="M 351.16267485762415 177.790482243984 L 341 182 L 351.16267485762415 186.209517756016"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1573"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1571"
+         opacity="0.2"
+         height="44"
+         width="98.44091796875"
+         y="343"
+         x="305"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1577"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1575"
+         height="44"
+         width="98.44091796875"
+         y="336"
+         x="298"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1581"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1579"
+         stroke-miterlimit="10"
+         d="M 298 336 L 396.44091796875 336 L 396.44091796875 380 L 298 380 L 298 336 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1585"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1583"
+         height="10"
+         width="20"
+         y="343"
+         x="288"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1589"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1587"
+         stroke-miterlimit="10"
+         d="M 288 343 L 308 343 L 308 353 L 288 353 L 288 343 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1593"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1591"
+         height="10"
+         width="20"
+         y="363"
+         x="288"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1597"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1595"
+         stroke-miterlimit="10"
+         d="M 288 363 L 308 363 L 308 373 L 288 373 L 288 363 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1605"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g1603">
+        <path
+           id="path1599"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1601"
+           y="355.5"
+           x="334.52001953125"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Arial"
+           stroke="none"
+           fill="#000000">Game</text>
+      </g>
+    </g>
+    <g
+       id="g1609"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1607"
+         opacity="0.2"
+         height="44"
+         width="133.84814453125"
+         y="727"
+         x="697"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1613"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1611"
+         height="44"
+         width="133.84814453125"
+         y="720"
+         x="690"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1617"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1615"
+         stroke-miterlimit="10"
+         d="M 690 720 L 823.84814453125 720 L 823.84814453125 764 L 690 764 L 690 720 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1621"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1619"
+         height="10"
+         width="20"
+         y="727"
+         x="680"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1625"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1623"
+         stroke-miterlimit="10"
+         d="M 680 727 L 700 727 L 700 737 L 680 737 L 680 727 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1629"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1627"
+         height="10"
+         width="20"
+         y="747"
+         x="680"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1633"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1631"
+         stroke-miterlimit="10"
+         d="M 680 747 L 700 747 L 700 757 L 680 757 L 680 747 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1641"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g1639">
+        <path
+           id="path1635"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1637"
+           y="739.5"
+           x="708.089599609375"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Arial"
+           stroke="none"
+           fill="#000000">ReactComponents</text>
+      </g>
+    </g>
+    <g
+       id="g1645"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1643"
+         stroke-dasharray="3"
+         stroke-miterlimit="10"
+         d="M 231 182 L 181 183"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1649"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1647"
+         stroke-miterlimit="10"
+         d="M 191.07646941011092 178.58811103640411 L 181 183 L 191.24481645430896 187.0054632463075"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1653"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1651"
+         opacity="0.2"
+         height="62"
+         width="98.44091796875"
+         y="655"
+         x="73"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1657"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1655"
+         height="62"
+         width="98.44091796875"
+         y="648"
+         x="66"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1661"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1659"
+         stroke-miterlimit="10"
+         d="M 66 648 L 164.44091796875 648 L 164.44091796875 710 L 66 710 L 66 648 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1665"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1663"
+         height="10"
+         width="20"
+         y="655"
+         x="56"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1669"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1667"
+         stroke-miterlimit="10"
+         d="M 56 655 L 76 655 L 76 665 L 56 665 L 56 655 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1673"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1671"
+         height="10"
+         width="20"
+         y="675"
+         x="56"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1677"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1675"
+         stroke-miterlimit="10"
+         d="M 56 675 L 76 675 L 76 685 L 56 685 L 56 675 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1681"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1679"
+         stroke-miterlimit="10"
+         d="M 76 673 L 164.44091796875 673"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1689"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g1687">
+        <path
+           id="path1683"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1685"
+           y="667.5"
+           x="84.813232421875"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Arial"
+           stroke="none"
+           fill="#000000">3DRenderer</text>
+      </g>
+    </g>
+    <g
+       id="g1697"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g1695">
+        <path
+           id="path1691"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1693"
+           y="690.5"
+           x="81"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Arial"
+           stroke="none"
+           fill="#000000">+Three.js</text>
+      </g>
+    </g>
+    <g
+       id="g1705"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g1703">
+        <path
+           id="path1699"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1701"
+           y="705.5"
+           x="81"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Arial"
+           stroke="none"
+           fill="#000000">+Babylon.js</text>
+      </g>
+    </g>
+    <g
+       id="g1709"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1707"
+         opacity="0.2"
+         height="44"
+         width="98.44091796875"
+         y="703"
+         x="289"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1713"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1711"
+         height="44"
+         width="98.44091796875"
+         y="696"
+         x="282"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1717"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1715"
+         stroke-miterlimit="10"
+         d="M 282 696 L 380.44091796875 696 L 380.44091796875 740 L 282 740 L 282 696 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1721"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1719"
+         height="10"
+         width="20"
+         y="703"
+         x="272"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1725"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1723"
+         stroke-miterlimit="10"
+         d="M 272 703 L 292 703 L 292 713 L 272 713 L 272 703 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1729"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1727"
+         height="10"
+         width="20"
+         y="723"
+         x="272"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1733"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1731"
+         stroke-miterlimit="10"
+         d="M 272 723 L 292 723 L 292 733 L 272 733 L 272 723 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1741"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g1739">
+        <path
+           id="path1735"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1737"
+           y="715.5"
+           x="301.90185546875"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Arial"
+           stroke="none"
+           fill="#000000">GameClient</text>
+      </g>
+    </g>
+    <g
+       id="g1745"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1743"
+         opacity="0.2"
+         height="44"
+         width="98.44091796875"
+         y="343"
+         x="57"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1749"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1747"
+         height="44"
+         width="98.44091796875"
+         y="336"
+         x="50"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1753"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1751"
+         stroke-miterlimit="10"
+         d="M 50 336 L 148.44091796875 336 L 148.44091796875 380 L 50 380 L 50 336 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1757"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1755"
+         height="10"
+         width="20"
+         y="343"
+         x="40"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1761"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1759"
+         stroke-miterlimit="10"
+         d="M 40 343 L 60 343 L 60 353 L 40 353 L 40 343 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1765"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1763"
+         height="10"
+         width="20"
+         y="363"
+         x="40"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1769"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1767"
+         stroke-miterlimit="10"
+         d="M 40 363 L 60 363 L 60 373 L 40 373 L 40 363 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1777"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g1775">
+        <path
+           id="path1771"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1773"
+           y="355.5"
+           x="81.825927734375"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">Physics</text>
+      </g>
+    </g>
+    <g
+       id="g1781"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1779"
+         stroke-dasharray="3"
+         stroke-miterlimit="10"
+         d="M 94 381 L 94 519"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1785"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1783"
+         stroke-miterlimit="10"
+         d="M 89.79048224398402 508.83732514237585 L 94 519 L 98.20951775601598 508.83732514237585"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1789"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1787"
+         opacity="0.2"
+         height="44"
+         width="98.44091796875"
+         y="167"
+         x="249"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1793"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1791"
+         height="44"
+         width="98.44091796875"
+         y="160"
+         x="242"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1797"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1795"
+         stroke-miterlimit="10"
+         d="M 242 160 L 340.44091796875 160 L 340.44091796875 204 L 242 204 L 242 160 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1801"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1799"
+         height="10"
+         width="20"
+         y="167"
+         x="232"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1805"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1803"
+         stroke-miterlimit="10"
+         d="M 232 167 L 252 167 L 252 177 L 232 177 L 232 167 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1809"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1807"
+         height="10"
+         width="20"
+         y="187"
+         x="232"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1813"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1811"
+         stroke-miterlimit="10"
+         d="M 232 187 L 252 187 L 252 197 L 232 197 L 232 187 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1821"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g1819">
+        <path
+           id="path1815"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1817"
+           y="179.5"
+           x="259.37548828125"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Arial"
+           stroke="none"
+           fill="#000000">GameServer</text>
+      </g>
+    </g>
+    <g
+       id="g1825"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1823"
+         opacity="0.2"
+         height="62"
+         width="142"
+         y="743"
+         x="65"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1829"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1827"
+         height="62"
+         width="142"
+         y="736"
+         x="58"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1833"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1831"
+         stroke-miterlimit="10"
+         d="M 58 736 L 200 736 L 200 798 L 58 798 L 58 736 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1837"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1835"
+         height="10"
+         width="20"
+         y="743"
+         x="48"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1841"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1839"
+         stroke-miterlimit="10"
+         d="M 48 743 L 68 743 L 68 753 L 48 753 L 48 743 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1845"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1843"
+         height="10"
+         width="20"
+         y="763"
+         x="48"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1849"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1847"
+         stroke-miterlimit="10"
+         d="M 48 763 L 68 763 L 68 773 L 48 773 L 48 763 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1853"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1851"
+         stroke-miterlimit="10"
+         d="M 68 761 L 200 761"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1861"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g1859">
+        <path
+           id="path1855"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1857"
+           y="755.5"
+           x="97.510498046875"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Arial"
+           stroke="none"
+           fill="#000000">SocketClient</text>
+      </g>
+    </g>
+    <g
+       id="g1869"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g1867">
+        <path
+           id="path1863"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1865"
+           y="778.5"
+           x="73"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Arial"
+           stroke="none"
+           fill="#000000">+SocketIO.Client</text>
+      </g>
+    </g>
+    <g
+       id="g1877"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g1875">
+        <path
+           id="path1871"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1873"
+           y="793.5"
+           x="73"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Arial"
+           stroke="none"
+           fill="#000000">+WebSocket</text>
+      </g>
+    </g>
+    <g
+       id="g1881"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1879"
+         opacity="0.2"
+         height="15"
+         width="105.59999999999991"
+         y="319"
+         x="1031"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1885"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1883"
+         opacity="0.2"
+         height="218"
+         width="264"
+         y="333"
+         x="1031"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1889"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1887"
+         height="217"
+         width="264"
+         y="327"
+         x="1024"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1893"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1891"
+         stroke-miterlimit="10"
+         d="M 1024 327 L 1288 327 L 1288 544 L 1024 544 L 1024 327 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1897"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1895"
+         height="15"
+         width="105.59999999999991"
+         y="312"
+         x="1024"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1901"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1899"
+         stroke-miterlimit="10"
+         d="M 1024 312 L 1129.6 312 L 1129.6 327 L 1024 327 L 1024 312 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1905"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1903"
+         height="218"
+         width="264"
+         y="326"
+         x="1024"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1909"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1907"
+         stroke-miterlimit="10"
+         d="M 1024 326 L 1288 326 L 1288 544 L 1024 544 L 1024 326 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1917"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g1915">
+        <path
+           id="path1911"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1913"
+           y="346.5"
+           x="1146.60546875"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">Api</text>
+      </g>
+    </g>
+    <g
+       id="g1921"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1919"
+         stroke-dasharray="3"
+         stroke-miterlimit="10"
+         d="M 945 577 L 1111 469"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1925"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1923"
+         stroke-miterlimit="10"
+         d="M 1104.7771479495034 478.070618080243 L 1111 469 L 1100.1858835626801 471.0136746708664"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1929"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1927"
+         opacity="0.2"
+         height="44"
+         width="138.9453125"
+         y="431"
+         x="1089"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1933"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1931"
+         height="44"
+         width="138.9453125"
+         y="424"
+         x="1082"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1937"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1935"
+         stroke-miterlimit="10"
+         d="M 1082 424 L 1220.9453125 424 L 1220.9453125 468 L 1082 468 L 1082 424 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1941"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1939"
+         height="10"
+         width="20"
+         y="431"
+         x="1072"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1945"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1943"
+         stroke-miterlimit="10"
+         d="M 1072 431 L 1092 431 L 1092 441 L 1072 441 L 1072 431 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1949"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1947"
+         height="10"
+         width="20"
+         y="451"
+         x="1072"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1953"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1951"
+         stroke-miterlimit="10"
+         d="M 1072 451 L 1092 451 L 1092 461 L 1072 461 L 1072 451 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1961"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g1959">
+        <path
+           id="path1955"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1957"
+           y="443.5"
+           x="1099.397705078125"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">GameServer Finder</text>
+      </g>
+    </g>
+    <g
+       id="g1965"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1963"
+         opacity="0.2"
+         height="44"
+         width="133.84814453125"
+         y="367"
+         x="713"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g1969"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1967"
+         height="44"
+         width="133.84814453125"
+         y="360"
+         x="706"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1973"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1971"
+         stroke-miterlimit="10"
+         d="M 706 360 L 839.84814453125 360 L 839.84814453125 404 L 706 404 L 706 360 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1977"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1975"
+         height="10"
+         width="20"
+         y="367"
+         x="696"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1981"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1979"
+         stroke-miterlimit="10"
+         d="M 696 367 L 716 367 L 716 377 L 696 377 L 696 367 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1985"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1983"
+         height="10"
+         width="20"
+         y="387"
+         x="696"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g1989"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path1987"
+         stroke-miterlimit="10"
+         d="M 696 387 L 716 387 L 716 397 L 696 397 L 696 387 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g1997"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g1995">
+        <path
+           id="path1991"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text1993"
+           y="379.5"
+           x="725.171875"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Arial"
+           stroke="none"
+           fill="#000000">ScenarioDefinition</text>
+      </g>
+    </g>
+    <g
+       id="g2001"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect1999"
+         opacity="0.2"
+         height="44"
+         width="98.44091796875"
+         y="527"
+         x="57"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g2005"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect2003"
+         height="44"
+         width="98.44091796875"
+         y="520"
+         x="50"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g2009"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2007"
+         stroke-miterlimit="10"
+         d="M 50 520 L 148.44091796875 520 L 148.44091796875 564 L 50 564 L 50 520 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2013"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect2011"
+         height="10"
+         width="20"
+         y="527"
+         x="40"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g2017"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2015"
+         stroke-miterlimit="10"
+         d="M 40 527 L 60 527 L 60 537 L 40 537 L 40 527 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2021"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect2019"
+         height="10"
+         width="20"
+         y="547"
+         x="40"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g2025"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2023"
+         stroke-miterlimit="10"
+         d="M 40 547 L 60 547 L 60 557 L 40 557 L 40 547 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2033"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g2031">
+        <path
+           id="path2027"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text2029"
+           y="539.5"
+           x="89.77001953125"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Arial"
+           stroke="none"
+           fill="#000000">Math</text>
+      </g>
+    </g>
+    <g
+       id="g2037"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect2035"
+         opacity="0.2"
+         height="44"
+         width="98.44091796875"
+         y="167"
+         x="745"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g2041"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect2039"
+         height="44"
+         width="98.44091796875"
+         y="160"
+         x="738"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g2045"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2043"
+         stroke-miterlimit="10"
+         d="M 738 160 L 836.44091796875 160 L 836.44091796875 204 L 738 204 L 738 160 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2049"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect2047"
+         height="10"
+         width="20"
+         y="167"
+         x="728"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g2053"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2051"
+         stroke-miterlimit="10"
+         d="M 728 167 L 748 167 L 748 177 L 728 177 L 728 167 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2057"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect2055"
+         height="10"
+         width="20"
+         y="187"
+         x="728"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g2061"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2059"
+         stroke-miterlimit="10"
+         d="M 728 187 L 748 187 L 748 197 L 728 197 L 728 187 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2069"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g2067">
+        <path
+           id="path2063"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text2065"
+           y="179.5"
+           x="773.075927734375"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Arial"
+           stroke="none"
+           fill="#000000">Server</text>
+      </g>
+    </g>
+    <g
+       id="g2073"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect2071"
+         opacity="0.2"
+         height="62"
+         width="121.958984375"
+         y="159"
+         x="65"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g2077"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect2075"
+         height="62"
+         width="121.958984375"
+         y="152"
+         x="58"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g2081"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2079"
+         stroke-miterlimit="10"
+         d="M 58 152 L 179.958984375 152 L 179.958984375 214 L 58 214 L 58 152 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2085"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect2083"
+         height="10"
+         width="20"
+         y="159"
+         x="48"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g2089"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2087"
+         stroke-miterlimit="10"
+         d="M 48 159 L 68 159 L 68 169 L 48 169 L 48 159 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2093"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect2091"
+         height="10"
+         width="20"
+         y="179"
+         x="48"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g2097"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2095"
+         stroke-miterlimit="10"
+         d="M 48 179 L 68 179 L 68 189 L 48 189 L 48 179 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2101"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2099"
+         stroke-miterlimit="10"
+         d="M 68 177 L 179.958984375 177"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2109"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g2107">
+        <path
+           id="path2103"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text2105"
+           y="171.5"
+           x="84.963623046875"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Arial"
+           stroke="none"
+           fill="#000000">SocketServer</text>
+      </g>
+    </g>
+    <g
+       id="g2117"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g2115">
+        <path
+           id="path2111"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text2113"
+           y="194.5"
+           x="73"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Arial"
+           stroke="none"
+           fill="#000000">+SocketIO.Server</text>
+      </g>
+    </g>
+    <g
+       id="g2125"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g2123">
+        <path
+           id="path2119"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text2121"
+           y="209.5"
+           x="73"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="13px"
+           font-family="Arial"
+           stroke="none"
+           fill="#000000">+uWebSocket.js</text>
+      </g>
+    </g>
+    <g
+       id="g2133"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g2131">
+        <path
+           id="path2127"
+           stroke="none"
+           fill="none" />
+        <text
+           style="text-decoration:none;text-decoration-line:none"
+           id="text2129"
+           y="65"
+           x="181"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="28px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">Cuboid3 Engine</text>
+      </g>
+    </g>
+    <g
+       id="g2137"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect2135"
+         height="760"
+         width="0"
+         y="64"
+         x="576"
+         stroke="none"
+         fill="#3c3c3c" />
+    </g>
+    <g
+       id="g2141"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2139"
+         stroke-miterlimit="10"
+         d="M 576 64 L 576 64 L 576 824 L 576 824 L 576 64 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2149"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g2147">
+        <path
+           id="path2143"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text2145"
+           y="65"
+           x="685"
+           text-decoration="none"
+           font-weight="normal"
+           font-style="normal"
+           font-size="28px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">Game Code</text>
+      </g>
+    </g>
+    <g
+       id="g2153"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2151"
+         stroke-dasharray="3"
+         stroke-miterlimit="10"
+         d="M 790 551 L 791 473"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2157"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2155"
+         stroke-miterlimit="10"
+         d="M 795.0788918518372 483.2158035054036 L 791 473 L 786.6605481542205 483.1078760221008"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2161"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2159"
+         stroke-dasharray="3"
+         stroke-miterlimit="10"
+         d="M 789 225 L 790 279"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2165"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2163"
+         stroke-miterlimit="10"
+         d="M 785.603038433977 268.9170079347985 L 790 279 L 794.0206307240026 268.76112659609436"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2169"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect2167"
+         opacity="0.2"
+         height="44"
+         width="94"
+         y="431"
+         x="129"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g2173"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect2171"
+         height="44"
+         width="94"
+         y="424"
+         x="122"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g2177"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2175"
+         stroke-miterlimit="10"
+         d="M 122 424 L 216 424 L 216 468 L 122 468 L 122 424 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2181"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect2179"
+         height="10"
+         width="20"
+         y="431"
+         x="112"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g2185"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2183"
+         stroke-miterlimit="10"
+         d="M 112 431 L 132 431 L 132 441 L 112 441 L 112 431 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2189"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect2187"
+         height="10"
+         width="20"
+         y="451"
+         x="112"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g2193"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2191"
+         stroke-miterlimit="10"
+         d="M 112 451 L 132 451 L 132 461 L 112 461 L 112 451 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2201"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g2199">
+        <path
+           id="path2195"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text2197"
+           y="443.5"
+           x="155.20458984375"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">Shape</text>
+      </g>
+    </g>
+    <g
+       id="g2205"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2203"
+         stroke-dasharray="3"
+         stroke-miterlimit="10"
+         d="M 112 381 L 146 423"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2209"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2207"
+         stroke-miterlimit="10"
+         d="M 136.3338368970389 417.7497342098753 L 146 423 L 142.87748906506994 412.4524919786121"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2213"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2211"
+         stroke-dasharray="3"
+         stroke-miterlimit="10"
+         d="M 147 469 L 111 519"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2217"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2215"
+         stroke-miterlimit="10"
+         d="M 113.52193072657992 508.2929992336634 L 111 519 L 120.35426716649354 513.2122814704012"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2221"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect2219"
+         opacity="0.2"
+         height="44"
+         width="85.447265625"
+         y="431"
+         x="369"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g2225"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect2223"
+         height="44"
+         width="85.447265625"
+         y="424"
+         x="362"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g2229"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2227"
+         stroke-miterlimit="10"
+         d="M 362 424 L 447.447265625 424 L 447.447265625 468 L 362 468 L 362 424 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2233"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect2231"
+         height="10"
+         width="20"
+         y="431"
+         x="352"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g2237"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2235"
+         stroke-miterlimit="10"
+         d="M 352 431 L 372 431 L 372 441 L 352 441 L 352 431 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2241"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect2239"
+         height="10"
+         width="20"
+         y="451"
+         x="352"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g2245"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2243"
+         stroke-miterlimit="10"
+         d="M 352 451 L 372 451 L 372 461 L 352 461 L 352 451 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2253"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g2251">
+        <path
+           id="path2247"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text2249"
+           y="443.5"
+           x="384.069580078125"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">Scenario</text>
+      </g>
+    </g>
+    <g
+       id="g2257"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect2255"
+         height="760"
+         width="0"
+         y="64"
+         x="992"
+         stroke="none"
+         fill="#3c3c3c" />
+    </g>
+    <g
+       id="g2261"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2259"
+         stroke-miterlimit="10"
+         d="M 992 64 L 992 64 L 992 824 L 992 824 L 992 64 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2265"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect2263"
+         opacity="0.2"
+         height="44"
+         width="90.50634765625"
+         y="631"
+         x="697"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g2269"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect2267"
+         height="44"
+         width="90.50634765625"
+         y="624"
+         x="690"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g2273"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2271"
+         stroke-miterlimit="10"
+         d="M 690 624 L 780.50634765625 624 L 780.50634765625 668 L 690 668 L 690 624 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2277"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect2275"
+         height="10"
+         width="20"
+         y="631"
+         x="680"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g2281"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2279"
+         stroke-miterlimit="10"
+         d="M 680 631 L 700 631 L 700 641 L 680 641 L 680 631 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2285"
+       transform="translate(-14,-22) scale(1,1)">
+      <rect
+         id="rect2283"
+         height="10"
+         width="20"
+         y="651"
+         x="680"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g2289"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2287"
+         stroke-miterlimit="10"
+         d="M 680 651 L 700 651 L 700 661 L 680 661 L 680 651 Z Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2297"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g2295">
+        <path
+           id="path2291"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text2293"
+           y="643.5"
+           x="723.635009765625"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">Client</text>
+      </g>
+    </g>
+    <g
+       id="g2301"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2299"
+         opacity="0.2"
+         d="M 443.5 510.5 C 443.5 501.9395856 450.4395856 495 459 495 C 467.5604144 495 474.5 501.9395856 474.5 510.5 C 474.5 519.0604144 467.5604144 526 459 526 C 450.4395856 526 443.5 519.0604144 443.5 510.5 Z"
+         stroke="none"
+         fill="#C0C0C0" />
+    </g>
+    <g
+       id="g2305"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2303"
+         stroke-miterlimit="10"
+         d="M 442.8833386860368 515.5354093066994 A 15.5 15.5 0 0 1 461.1166613139632 490.4645906933006"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2309"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2307"
+         d="M 439.5 503.5 C 439.5 496.59644 445.09644 491 452 491 C 458.90356 491 464.5 496.59644 464.5 503.5 C 464.5 510.40356 458.90356 516 452 516 C 445.09644 516 439.5 510.40356 439.5 503.5 Z"
+         stroke="none"
+         fill="#ffffff" />
+    </g>
+    <g
+       id="g2313"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2311"
+         stroke-miterlimit="10"
+         d="M 439.5 503.5 C 439.5 496.59644 445.09644 491 452 491 C 458.90356 491 464.5 496.59644 464.5 503.5 C 464.5 510.40356 458.90356 516 452 516 C 445.09644 516 439.5 510.40356 439.5 503.5 Z"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2321"
+       transform="translate(-14,-22) scale(1,1)">
+      <g
+         id="g2319">
+        <path
+           id="path2315"
+           stroke="none"
+           fill="none" />
+        <text
+           id="text2317"
+           y="538.5"
+           x="397.44189453125"
+           text-decoration="none"
+           font-weight="bold"
+           font-style="normal"
+           font-size="13px"
+           font-family="Helvetica"
+           stroke="none"
+           fill="#000000">IScenarioDefinition</text>
+      </g>
+    </g>
+    <g
+       id="g2325"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2323"
+         stroke-miterlimit="10"
+         d="M 416 469 L 436.5 491.72727272727275"
+         stroke="#000000"
+         fill="none" />
+    </g>
+    <g
+       id="g2329"
+       transform="translate(-14,-22) scale(1,1)">
+      <path
+         id="path2327"
+         stroke-miterlimit="10"
+         d="M 713 405 L 467.5 499.3529411764706"
+         stroke="#000000"
+         fill="none" />
+    </g>
+  </g>
+</svg>
