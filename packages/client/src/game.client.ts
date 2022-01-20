@@ -147,12 +147,15 @@ export class GameClient {
     this.game.setScenario(scenarioId);
 
     if (typeof scenarioDef.initScene !== "undefined") {
-      scenarioDef.initScene(this.scene);
+      //scenarioDef.initScene(this.scene);
     }
 
     if (typeof this.clientScenarios[scenarioDef.name] !== "undefined") {
       EventHandler.publish('client:cleanUIComponents')
       const cliScenarioDef = this.clientScenarios[scenarioDef.name]
+      if (typeof cliScenarioDef.initScene !== "undefined") {
+        cliScenarioDef.initScene()
+      }
       cliScenarioDef.uiComps?.forEach((comp: any) => {
         EventHandler.publish('client:addUIComponent', comp)
       })
