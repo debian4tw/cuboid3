@@ -1,5 +1,6 @@
 import { CameraHandler } from "../CameraHandler";
 import { OrbitControls as THREEOrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
+import { PointerLockControls} from 'three/examples/jsm/controls/PointerLockControls';
 import { EventHandler } from "@cuboid3/core";
 import * as THREE from "three";
 import { ICanvasUIElementsManager } from ".";
@@ -13,6 +14,8 @@ export class RenderManager {
   private inGameUiElements: THREE.Mesh[]
   // private stats: Stats
   private canvasUIElementsManager: ICanvasUIElementsManager
+
+  private pointerLockControls: PointerLockControls
 
   renderCanvas: boolean
   constructor() {
@@ -30,6 +33,7 @@ export class RenderManager {
     this.renderer = new THREE.WebGLRenderer( {antialias: false})
     this.renderer.setPixelRatio( window.devicePixelRatio );
 
+  
     // @todo: gammaOutput deprecated?
     (this.renderer as any).gammaOutput = true
 
@@ -37,6 +41,7 @@ export class RenderManager {
     this.attachEvents()
 
     this.initCanvas()
+    this.pointerLockControls = new PointerLockControls(this.cameraHandler.getCamera(), this.renderer.domElement)
     // this.initRenderLoop()
     this.animate()
   }
@@ -51,6 +56,13 @@ export class RenderManager {
 
     EventHandler.subscribe('RemoveInGameUiElement', (mesh: THREE.Mesh) => {
       this.inGameUiElements = this.inGameUiElements.filter((m) => m !== mesh)
+    })
+
+    EventHandler.subscribe('client:LockScreen', () => {
+      this.pointerLockControls.lock()
+    })
+    EventHandler.subscribe('client:UnlockScreen', () => {
+      this.pointerLockControls.unlock()
     })
   }
 
