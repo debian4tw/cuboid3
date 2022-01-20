@@ -326,7 +326,7 @@ export class GameServer {
       const game = this.findGame(socket)
       if (game) {
         const role = game.getScenario().findRoleById(socket.id)
-        const location = game.getScenario().getSpawnLocationManager()?.getNextAvailable()
+        const location = game.getScenario().getSpawnLocationManager()?.getNextAvailable(role.getPlayer().team)
         if (location) {
           role?.respawn(location)
         }
