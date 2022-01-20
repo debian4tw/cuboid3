@@ -11,6 +11,7 @@ export declare class Player {
     team: number;
     private createdAt;
     private isBot;
+    lastState: Object;
     constructor(socketId: string, playerName: string, isBot?: boolean);
     sanitize(playerName: string): string;
     setTeam(team: number): void;
@@ -25,6 +26,8 @@ export declare class Player {
         kills: number;
         deaths: number;
     };
+    setLastState(state: any): void;
+    getLastState(): Object;
     setColor(color: any): void;
     getColor(color: any): any;
     getId(): string;

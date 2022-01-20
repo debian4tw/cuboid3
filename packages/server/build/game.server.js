@@ -275,7 +275,7 @@ class GameServer {
             const game = this.findGame(socket);
             if (game) {
                 const role = game.getScenario().findRoleById(socket.id);
-                const location = (_a = game.getScenario().getSpawnLocationManager()) === null || _a === void 0 ? void 0 : _a.getNextAvailable();
+                const location = (_a = game.getScenario().getSpawnLocationManager()) === null || _a === void 0 ? void 0 : _a.getNextAvailable(role.getPlayer().team);
                 if (location) {
                     role === null || role === void 0 ? void 0 : role.respawn(location);
                 }

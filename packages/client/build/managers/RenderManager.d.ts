@@ -8,6 +8,7 @@ export declare class RenderManager {
     private orbitControlsEnabled;
     private inGameUiElements;
     private canvasUIElementsManager;
+    private pointerLockControls;
     renderCanvas: boolean;
     constructor();
     init(scene: THREE.Scene, cameraHandler: CameraHandler): void;

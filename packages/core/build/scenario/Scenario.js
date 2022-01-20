@@ -176,7 +176,7 @@ class Scenario {
         const actor = this.findActorByLabel(label);
         if (actor) {
             (_a = actor === null || actor === void 0 ? void 0 : actor.getAssociatedActors()) === null || _a === void 0 ? void 0 : _a.forEach((assocActor) => {
-                this.removeActorByLabel(assocActor.label);
+                this.removeActor(assocActor);
             });
             this.addToRemovedActorList(actor.getId());
             this.actors = this.actors.filter((act) => act.label !== label);

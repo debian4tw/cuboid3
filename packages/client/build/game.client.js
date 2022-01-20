@@ -115,11 +115,14 @@ class GameClient {
         }
         this.game.setScenario(scenarioId);
         if (typeof scenarioDef.initScene !== "undefined") {
-            scenarioDef.initScene(this.scene);
+            //scenarioDef.initScene(this.scene);
         }
         if (typeof this.clientScenarios[scenarioDef.name] !== "undefined") {
             core_2.EventHandler.publish('client:cleanUIComponents');
             const cliScenarioDef = this.clientScenarios[scenarioDef.name];
+            if (typeof cliScenarioDef.initScene !== "undefined") {
+                cliScenarioDef.initScene();
+            }
             (_a = cliScenarioDef.uiComps) === null || _a === void 0 ? void 0 : _a.forEach((comp) => {
                 core_2.EventHandler.publish('client:addUIComponent', comp);
             });

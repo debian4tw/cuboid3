@@ -40,6 +40,7 @@ export declare class Game {
         timeLimit: number;
         state: any;
     };
+    getDiff(): void;
     setGameState(state: any): void;
     getScenarioState(): any;
     getScenarioDiffState(): any;

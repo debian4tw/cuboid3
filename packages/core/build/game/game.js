@@ -9,6 +9,7 @@ const Scenario_1 = require("../scenario/Scenario");
 const EventHandler_1 = require("../event/EventHandler");
 const GameEventBus_1 = require("../event/GameEventBus");
 const player_1 = require("../player/player");
+const util_1 = require("../util");
 class Game {
     constructor(id, importedScenarios, gameHooksClass) {
         this.scenarios = {};
@@ -170,6 +171,16 @@ class Game {
             state
         };
     }
+    getDiff() {
+        const state = [];
+        this.gamePlayers.forEach((player) => {
+            state.push(player.serialize());
+        });
+        this.gamePlayers.forEach(player => {
+            state.push(Object.assign({ id: player.getId() }, util_1.NetworkUtils.diffState(player.getLastState(), player.serialize())));
+            player.setLastState(player.serialize());
+        });
+    }
     setGameState(state) {
         this.gamePlayers = state.state;
     }
@@ -193,17 +204,11 @@ class Game {
         return ret;
     }
     getScenarioDiffState() {
-        let ret = {
-            state: []
-        };
+        let ret = { state: [] };
         if (this.scenario) {
-            // let start = performance.now()
             ret = this.scenario.getDiffState();
-            // let end = performance.now()
-            // console.log('processed scenario step in: (ms)', end - start)
         }
         if (this.gameEventBus.popEvents().length > 0) {
-            // console.log('adding events', events)
             ret.events = this.gameEventBus.popEvents();
         }
         this.gameEventBus.flush();

@@ -15,7 +15,7 @@ class InputHandler {
         core_1.EventHandler.subscribe('client:primaryActorTypeAdded', (actorName) => {
             Object.keys(this.clientScenarioDefs).forEach((scenarioName) => {
                 if (typeof this.clientScenarioDefs[scenarioName].inputs[actorName] !== "undefined") {
-                    //console.log("applying custom inputs")
+                    console.log("applying custom inputs from scenarioName", scenarioName);
                     this.clientScenarioDefs[scenarioName].inputs[actorName](this.sock, this.document);
                 }
             });
@@ -114,6 +114,9 @@ class InputHandler {
         };
         this.document.onkeydown = (e) => {
             //console.log(e);
+            if (e.keyCode === 27) {
+                core_1.EventHandler.publish("client:toggleEscMenu");
+            }
             if (e.keyCode === 65) {
                 this.sock.emit('command', { label: 'startMoveLeft' });
             }

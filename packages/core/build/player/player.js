@@ -11,6 +11,7 @@ class Player {
         this.resetLives();
         this.createdAt = new Date();
         this.isBot = isBot;
+        this.lastState = {};
     }
     sanitize(playerName) {
         //let name =  playerName.replace(/[\W_]+/g,"");
@@ -35,6 +36,12 @@ class Player {
             kills: this.kills,
             deaths: this.deaths
         };
+    }
+    setLastState(state) {
+        this.lastState = state;
+    }
+    getLastState() {
+        return this.lastState;
     }
     setColor(color) {
         this.color = color;
