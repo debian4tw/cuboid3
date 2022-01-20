@@ -12,120 +12,129 @@ export class Player {
   public team: number
   private createdAt: Date
   private isBot: boolean
+  lastState: Object
 
   constructor(socketId: string, playerName: string, isBot: boolean = false) {
-      this.id = socketId
-      this.socketId = socketId
-      this.name = this.sanitize(playerName)
-      this.initialLives = 10
-      this.resetScore()
-      this.resetLives()
-      this.createdAt = new Date()
-      this.isBot = isBot
+    this.id = socketId
+    this.socketId = socketId
+    this.name = this.sanitize(playerName)
+    this.initialLives = 10
+    this.resetScore()
+    this.resetLives()
+    this.createdAt = new Date()
+    this.isBot = isBot
+    this.lastState = {}
   }
 
   public sanitize(playerName: string) {
-      //let name =  playerName.replace(/[\W_]+/g,"");
-      let name = playerName.replace(/[^a-zA-Z0-9_\(\)]+/g,"")
-      return name
+    //let name =  playerName.replace(/[\W_]+/g,"");
+    let name = playerName.replace(/[^a-zA-Z0-9_\(\)]+/g,"")
+    return name
   }
 
   public setTeam(team: number) {
-      console.log('set team v2', team)
-      this.team = team
+    console.log('set team v2', team)
+    this.team = team
   }
 
   public isBotPlayer() {
-      return this.isBot
+    return this.isBot
   }
 
   public serialize() {
-      return {
-          id: this.id,
-          name: this.name,
-          lives: this.lives,
-          color: this.color,
-          team: this.team,
-          score: this.score,
-          kills: this.kills,
-          deaths: this.deaths
-      }
+    return {
+      id: this.id,
+      name: this.name,
+      lives: this.lives,
+      color: this.color,
+      team: this.team,
+      score: this.score,
+      kills: this.kills,
+      deaths: this.deaths
+    }
+  }
+
+  public setLastState(state: any) {
+    this.lastState = state
+  }
+
+  public getLastState() {
+    return this.lastState
   }
 
   public setColor(color: any) {
-      this.color = color
+    this.color = color
   }
 
   public getColor(color: any) {
-      return this.color
+    return this.color
   }
 
   public getId() {
-      return this.id
+    return this.id
   }
 
   public getName() {
-      return this.name
+    return this.name
   }
 
   public addLive() {
-      this.lives++
+    this.lives++
   }
 
   public removeLive() {
-      this.lives--
+    this.lives--
   }
 
   public resetLives() {
-      this.lives = this.initialLives
+    this.lives = this.initialLives
   }
 
   public getLives() {
-      return this.lives
+    return this.lives
   }
 
   getScore() {
-      return this.score
+    return this.score
   }
 
   setScore(score: number) {
-      this.score = score
+    this.score = score
   }
 
   increaseKills() {
-      this.kills++
+    this.kills++
   }
 
   increaseDeaths() {
-      this.deaths++
+    this.deaths++
   }
 
   resetScore() {
-      this.setScore(0)
-      this.kills = 0
-      this.deaths = 0
+    this.setScore(0)
+    this.kills = 0
+    this.deaths = 0
   }
 
-
   public playedTime(dateFuture: Date) {
-      const locale = "en-US";
-      const localeOpts = {
-        minimumIntegerDigits: 2,
-        useGrouping: false
-      };
-    
-      let delta = Math.abs(dateFuture.valueOf() - this.createdAt.valueOf()) / 1000;
-    
-      //calculate (and subtract) whole minutes
-      let minutes = Math.floor(delta / 60) % 60;
-      delta -= minutes * 60;
-    
-      // what's left is seconds
-      let seconds = Math.floor(delta % 60); 
-      return {
-        minutes: minutes.toLocaleString(locale, localeOpts),
-        seconds: seconds.toLocaleString(locale, localeOpts)
-      }
+    const locale = "en-US";
+    const localeOpts = {
+      minimumIntegerDigits: 2,
+      useGrouping: false
+    };
+  
+    let delta = Math.abs(dateFuture.valueOf() - this.createdAt.valueOf()) / 1000;
+  
+    //calculate (and subtract) whole minutes
+    let minutes = Math.floor(delta / 60) % 60;
+    delta -= minutes * 60;
+  
+    // what's left is seconds
+    let seconds = Math.floor(delta % 60); 
+    return {
+      minutes: minutes.toLocaleString(locale, localeOpts),
+      seconds: seconds.toLocaleString(locale, localeOpts)
+    }
   }
 
 }

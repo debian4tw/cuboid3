@@ -7,6 +7,7 @@ import {Player} from '../player/player'
 
 import { IScenarioDefinition } from '../scenario/IScenarioDefinition'
 import { IGameHooks } from './IGameHooks';
+import { NetworkUtils } from '../util';
 
 export class Game {
   private id: string
@@ -204,11 +205,29 @@ export class Game {
     this.gamePlayers.forEach((player) => {
       state.push(player.serialize())
     })
+
     return {
       createdAt: this.createdAt,
       timeLimit: this.timeLimit,
       state
     }
+  }
+
+  getDiff() {
+    const state: any = []
+    this.gamePlayers.forEach((player) => {
+      state.push(player.serialize())
+    })
+
+    this.gamePlayers.forEach( player => {
+      state.push(
+        {
+          id: player.getId(),
+          ...NetworkUtils.diffState(player.getLastState(), player.serialize())
+        }
+      )
+      player.setLastState(player.serialize())
+    })
   }
 
   setGameState(state: any) {
@@ -238,21 +257,18 @@ export class Game {
   }
 
   getScenarioDiffState() {
-    let ret: any = {
-      state: []
-    };
+    let ret: any = { state: [] }
+
     if(this.scenario) {
-            // let start = performance.now()
       ret = this.scenario.getDiffState()
-            // let end = performance.now()
-            // console.log('processed scenario step in: (ms)', end - start)
     }
+
     if (this.gameEventBus.popEvents().length > 0) {
-            // console.log('adding events', events)
       ret.events = this.gameEventBus.popEvents()
     }
     this.gameEventBus.flush()
-    return ret;
+
+    return ret
   }
 
   setState(state: any) {
