@@ -237,7 +237,7 @@ export class Scenario implements IScenario {
     const actor = this.findActorByLabel(label);
     if (actor) {
       actor?.getAssociatedActors()?.forEach((assocActor) => {
-        this.removeActorByLabel(assocActor.label)
+        this.removeActor(assocActor)
       })
       this.addToRemovedActorList(actor.getId())
       this.actors = this.actors.filter((act) => act.label !== label)
@@ -349,7 +349,7 @@ export class Scenario implements IScenario {
             id: actor.getId(),
             ...NetworkUtils.diffState(actor.getLastState(), actor.getState())
           }
-                )
+        )
         actor.setLastState(actor.getState())
       }
     })

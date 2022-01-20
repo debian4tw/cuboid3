@@ -1,6 +1,5 @@
 import { GVector3, Axis } from "../math/GVector3";
 
-
 export enum GBox3Vertex {
   RUF,
   RDF,
@@ -19,7 +18,6 @@ export interface GRotationCoords {
 }
 
 export class GBox3 {
-
   private nodes: any
   public origin: GVector3
 

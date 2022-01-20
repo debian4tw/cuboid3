@@ -30,7 +30,7 @@ export interface IScenario {
   destroy(): void
 
   removeActorByLabel(label: string): void
-  findActorByLabel(label: string): IActor | undefined
+  findActorByLabel(label: string): IActor | undefined 
   findActorById(id: string): IActor | undefined
   addActor(actor: IActor): void
   removeActor(actor: IActor): void
