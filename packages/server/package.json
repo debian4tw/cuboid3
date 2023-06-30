@@ -27,15 +27,17 @@
   "author": "debian4tw",
   "license": "ISC",
   "dependencies": {
-    "@cuboid3/g-physics": "^0.5.10",
     "@cuboid3/core": "^0.5.10",
+    "@cuboid3/g-physics": "^0.5.10",
     "@types/es6-shim": "^0.31.37",
     "@types/socket.io": "^1.4.38",
     "dotenv": "^8.2.0",
-    "socket.io": "^2.1.1"
+    "socket.io": "^2.1.1",
+    "ws": "^8.8.1"
   },
   "devDependencies": {
     "@types/jest": "^25.1.4",
+    "@types/ws": "^8.5.3",
     "jest": "^25.3.0",
     "jest-transform-stub": "^2.0.0",
     "npm-version": "^1.1.0",

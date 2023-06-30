@@ -23,6 +23,7 @@ class Game {
         this.attachEvents();
         if (gameHooksClass) {
             this.gameHooks = new gameHooksClass(this);
+            this.onGameCreate();
             this.configuredSwitchLoop = this.gameHooks.startScenarioSwitchLoop;
         }
     }
@@ -58,16 +59,16 @@ class Game {
         return this.gamePlayers.filter((player) => player.getId() === playerId)[0];
     }
     resetLives() {
-        this.gamePlayers.forEach(player => {
+        this.gamePlayers.forEach((player) => {
             player.lives = 5;
             player.resetScore();
         });
         // console.log('resetLives', this.id, this.gamePlayers);
-        EventHandler_1.EventHandler.publish('gameStateChanged', this.id);
+        EventHandler_1.EventHandler.publish("gameStateChanged", this.id);
     }
     setScenario(scenarioId) {
         if (typeof this.scenarios[scenarioId] === "undefined") {
-            throw new Error((`scenarioId ${scenarioId} not found`));
+            throw new Error(`scenarioId ${scenarioId} not found`);
         }
         if (this.scenario) {
             this.scenario.destroy();
@@ -80,13 +81,13 @@ class Game {
     }
     onTeamWon(team) {
         // tslint:disable-next-line:no-console
-        console.log('Team ', team, 'won');
+        console.log("Team ", team, "won");
         clearInterval(this.switchInterval);
         this.setEndScenario();
         // EventHandler.publish('server:teamWon', this.id, team)
     }
     onScenarioChange() {
-        EventHandler_1.EventHandler.publish('scenarioChanged', this.getScenarioName());
+        EventHandler_1.EventHandler.publish("scenarioChanged", this.getScenarioName());
     }
     setEmptyScenario() {
         clearInterval(this.switchInterval);
@@ -120,18 +121,18 @@ class Game {
         this.resetLives()*/
         // console.log('starting startScenarioSwitchLoop')
         /*this.switchInterval = setInterval(() => {
-            if (this.getScenarioName() == 'empty') {
-                switchToId = 1
-            } else if(this.getScenarioName() == 'space'){
-                switchToId = 2;
-            } else if (this.getScenarioName() == 'kong'){
-                switchToId = 3;
-            } else if (this.getScenarioName() == 'cannon') {
-                switchToId = 1
-            }
-            console.log(Date.now(), '*switching scenario to ', switchToId, this.id)
-            this.setScenario(switchToId).init(this.getPlayers(), this.id)
-        },25000);*/
+                if (this.getScenarioName() == 'empty') {
+                    switchToId = 1
+                } else if(this.getScenarioName() == 'space'){
+                    switchToId = 2;
+                } else if (this.getScenarioName() == 'kong'){
+                    switchToId = 3;
+                } else if (this.getScenarioName() == 'cannon') {
+                    switchToId = 1
+                }
+                console.log(Date.now(), '*switching scenario to ', switchToId, this.id)
+                this.setScenario(switchToId).init(this.getPlayers(), this.id)
+            },25000);*/
     }
     addPlayer(socketId, playerName, isBot = false) {
         //socket.join(this.id)
@@ -149,7 +150,7 @@ class Game {
             console.log(`Removing Player ${player.name} after ${minutes}:${seconds} playTime`);
             this.scenario.removePlayer(socketId);
         }
-        this.gamePlayers = this.gamePlayers.filter(pl => pl.getId() !== socketId);
+        this.gamePlayers = this.gamePlayers.filter((pl) => pl.getId() !== socketId);
     }
     onPlayerCommand(playerId, command, value = false) {
         // console.log('Game:onPlayerCommand', playerId, command, value)
@@ -168,7 +169,7 @@ class Game {
         return {
             createdAt: this.createdAt,
             timeLimit: this.timeLimit,
-            state
+            state,
         };
     }
     getDiff() {
@@ -176,7 +177,7 @@ class Game {
         this.gamePlayers.forEach((player) => {
             state.push(player.serialize());
         });
-        this.gamePlayers.forEach(player => {
+        this.gamePlayers.forEach((player) => {
             state.push(Object.assign({ id: player.getId() }, util_1.NetworkUtils.diffState(player.getLastState(), player.serialize())));
             player.setLastState(player.serialize());
         });
@@ -186,7 +187,7 @@ class Game {
     }
     getScenarioState() {
         let ret = {
-            state: []
+            state: [],
         };
         if (this.scenario) {
             // let start = performance.now()
@@ -240,13 +241,13 @@ class Game {
         (_a = this.scenario) === null || _a === void 0 ? void 0 : _a.destroy();
     }
     getBotPlayers() {
-        return this.gamePlayers.filter(player => player.isBotPlayer());
+        return this.gamePlayers.filter((player) => player.isBotPlayer());
     }
     addBot(botName) {
         this.addPlayer(base64id_1.default.generateId(), botName, true);
     }
     removeBot() {
-        const bot = this.gamePlayers.find(player => player.isBotPlayer());
+        const bot = this.gamePlayers.find((player) => player.isBotPlayer());
         if (!bot) {
             return;
         }

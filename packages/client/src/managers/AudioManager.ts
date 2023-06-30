@@ -21,6 +21,9 @@ class AudioManager {
     EventHandler.subscribe('attachAudioListener', (mesh: THREE.Mesh) => {
       mesh.add(this.listener)
     })
+    EventHandler.subscribe('client:resumeAudioContext', () => {
+      this.listener.context.resume()
+    })
   }
 
   public getListener() {

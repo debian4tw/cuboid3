@@ -21,7 +21,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RenderManager = void 0;
 const OrbitControls_js_1 = require("three/examples/jsm/controls/OrbitControls.js");
-const PointerLockControls_1 = require("three/examples/jsm/controls/PointerLockControls");
+//const PointerLockControls_1 = require("three/examples/jsm/controls/PointerLockControls");
 const core_1 = require("@cuboid3/core");
 const THREE = __importStar(require("three"));
 // import Stats from 'three/examples/jsm/libs/stats.module.js';
@@ -43,8 +43,9 @@ class RenderManager {
         this.renderer.autoClear = false; // testing for 2d canvas
         this.attachEvents();
         this.initCanvas();
-        this.pointerLockControls = new PointerLockControls_1.PointerLockControls(this.cameraHandler.getCamera(), this.renderer.domElement);
+        //this.pointerLockControls = new PointerLockControls_1.PointerLockControls(this.cameraHandler.getCamera(), this.renderer.domElement);
         // this.initRenderLoop()
+        console.log('no pointer *****');
         this.animate();
     }
     attachEvents() {
@@ -57,12 +58,10 @@ class RenderManager {
             this.inGameUiElements = this.inGameUiElements.filter((m) => m !== mesh);
         });
         core_1.EventHandler.subscribe('client:LockScreen', () => {
-            // console.log('AddInGameUiElement', mesh)
-            this.pointerLockControls.lock();
+            //this.pointerLockControls.lock();
         });
         core_1.EventHandler.subscribe('client:UnlockScreen', () => {
-            // console.log('AddInGameUiElement', mesh)
-            this.pointerLockControls.unlock();
+            //this.pointerLockControls.unlock();
         });
     }
     setSize(width, height) {
@@ -168,9 +167,6 @@ class RenderManager {
         const container = document.getElementById("game-container");
         if (!container) {
             console.log("missing game-container div");
-        }
-        else {
-            console.log(container, container.clientWidth, container.clientHeight);
         }
         const rendererWidth = (container === null || container === void 0 ? void 0 : container.clientWidth) || 0;
         const rendererHeight = (container === null || container === void 0 ? void 0 : container.clientHeight) || 0;

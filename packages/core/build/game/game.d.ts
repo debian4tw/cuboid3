@@ -1,11 +1,11 @@
-import { IScenario } from '../scenario/IScenario';
-import { GameEventBus } from '../event/GameEventBus';
-import { Player } from '../player/player';
-import { IScenarioDefinition } from '../scenario/IScenarioDefinition';
+import { IScenario } from "../scenario/IScenario";
+import { GameEventBus } from "../event/GameEventBus";
+import { Player } from "../player/player";
+import { IScenarioDefinition } from "../scenario/IScenarioDefinition";
 export declare class Game {
     private id;
-    private gamePlayers;
-    private scenario;
+    protected gamePlayers: Player[];
+    protected scenario: IScenario;
     private switchInterval;
     scenarios: any;
     scenariosNameMap: any;

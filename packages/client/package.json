@@ -27,9 +27,9 @@
   "author": "debian4tw",
   "license": "ISC",
   "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.13.10",
     "@cuboid3/g-physics": "^0.5.10",
     "@cuboid3/core": "^0.5.10",
-    "@babel/plugin-transform-runtime": "^7.13.10",
     "@types/es6-shim": "^0.31.37",
     "@types/socket.io-client": "^1.4.32",
     "dotenv": "^8.2.0",

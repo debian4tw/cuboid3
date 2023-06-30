@@ -9,15 +9,18 @@ const SocketIONetworkAdapter_1 = require("./SocketIONetworkAdapter");
 // tslint:disable-next-line:no-var-requires
 const { performance } = require("perf_hooks");
 class GameServer {
-    constructor(io, gameDefs, gameHooks) {
+    constructor(io, gameDefs, gameHooks, gameClassFactory) {
         // tslint:disable-next-line:no-console
-        console.log('Starting cuboid3 game server: version', process.env.npm_package_version);
+        console.log("Starting cuboid3 game server: version", process.env.npm_package_version);
         this.gameDefs = gameDefs;
         this.games = [];
         this.publicGamesManager = new PublicGames_manager_1.PublicGamesManager();
         this.processedFrames = 0;
         this.network = new SocketIONetworkAdapter_1.SocketIONetworkAdapter(io);
         this.gameHooksClass = gameHooks;
+        if (gameClassFactory) {
+            this.gameClassFactory = gameClassFactory;
+        }
         this.attachEvents();
         setInterval(() => {
             this.iterateGames();
@@ -26,45 +29,55 @@ class GameServer {
             const name = socket.handshake.query.name; // | 'user'+ getRandomInt(10000,100) as any
             const gameId = socket.handshake.query.gameId;
             // tslint:disable-next-line:no-console
-            console.log('name connected', name);
+            console.log("name connected", name);
             this.onClientConnect(socket, { name, gameId });
         });
     }
     attachEvents() {
-        core_3.EventHandler.subscribe('gameStateChanged', (gameId) => {
+        core_3.EventHandler.subscribe("gameStateChanged", (gameId) => {
             this.onGameStateChanged(gameId);
         });
-        core_3.EventHandler.subscribe('server:primaryActorAdded', (socketId, actorId) => {
+        core_3.EventHandler.subscribe("server:primaryActorAdded", (socketId, actorId) => {
             // console.log('primaryActorAdded', socketId, actorId)
             if (this.network.getSocketbyId(socketId)) {
-                this.network.sendToSocketId(socketId, 'primaryActorAdded', { actorId });
+                this.network.sendToSocketId(socketId, "primaryActorAdded", {
+                    actorId,
+                });
             }
         });
-        core_3.EventHandler.subscribe('playerLostLive', (gameId, position, roleLabel, actorId) => {
+        core_3.EventHandler.subscribe("playerLostLive", (gameId, position, roleLabel, actorId) => {
             // console.log('event playerLostLive', gameId, position, roleLabel, actorId)
             this.onPlayerLostLive(gameId, roleLabel);
             const game = this.findGameById(gameId);
             if (game !== undefined) {
-                game.gameEventBus.addEvent({ label: 'playerLostLive', position, value: actorId });
+                game.gameEventBus.addEvent({
+                    label: "playerLostLive",
+                    position,
+                    value: actorId,
+                });
             }
         });
-        core_3.EventHandler.subscribe('server:teamWon', (gameId, team) => {
+        core_3.EventHandler.subscribe("server:teamWon", (gameId, team) => {
             // console.log('Team ', team, 'won')
             const game = this.findGameById(gameId);
             if (!game) {
                 return;
             }
             game.onTeamWon(team);
-            this.network.sendToRoom(gameId, 'teamWon', team);
+            this.network.sendToRoom(gameId, "teamWon", team);
         });
-        core_3.EventHandler.subscribe('server:gameCollision', (gameId, position, label) => {
+        core_3.EventHandler.subscribe("server:gameCollision", (gameId, position, label) => {
             // console.log('server:gameCollision', gameId)
             const game = this.findGameById(gameId);
             if (game !== undefined) {
-                game.gameEventBus.addEvent({ label: 'gameCollision', position, value: label });
+                game.gameEventBus.addEvent({
+                    label: "gameCollision",
+                    position,
+                    value: label,
+                });
             }
         });
-        core_3.EventHandler.subscribe('server:gameEvent', (gameId, label, position, data) => {
+        core_3.EventHandler.subscribe("server:gameEvent", (gameId, label, position, data) => {
             // console.log('server:gameCollision', gameId)
             const game = this.findGameById(gameId);
             if (game !== undefined) {
@@ -72,13 +85,13 @@ class GameServer {
             }
         });
         // @todo: scenarioEvent sub
-        core_3.EventHandler.subscribe('server:displayPickRole', (socketId) => {
+        core_3.EventHandler.subscribe("server:displayPickRole", (socketId) => {
             if (this.network.getSocketbyId(socketId)) {
-                this.network.sendToSocketId(socketId, 'displayPickRole');
+                this.network.sendToSocketId(socketId, "displayPickRole");
             }
         });
         // @todo: scenarioEvent sub
-        core_3.EventHandler.subscribe('server:BotDied', (gameId, botLabel) => {
+        core_3.EventHandler.subscribe("server:BotDied", (gameId, botLabel) => {
             // console.log('playerLostLive gameId', gameId)
             const game = this.findGameById(gameId);
             if (!game) {
@@ -91,7 +104,7 @@ class GameServer {
                 }
             }, botRespawnTime);
         });
-        core_3.EventHandler.subscribe('removeActor', (gameId, actorLabel) => {
+        core_3.EventHandler.subscribe("removeActor", (gameId, actorLabel) => {
             var _a;
             const game = this.findGameById(gameId);
             if (!game) {
@@ -100,11 +113,11 @@ class GameServer {
             (_a = game.getScenario()) === null || _a === void 0 ? void 0 : _a.removeActorByLabel(actorLabel);
         });
         /*EventHandler.subscribe('server:gameEnded', ( gameId: string, winner: string ) => {
-            let game = this.findGameById(gameId)
-            if (typeof game !== "undefined") {
-                this.io.to(game.getId()).emit('gameEnded', {winner: winner})
-            }
-        })*/
+                let game = this.findGameById(gameId)
+                if (typeof game !== "undefined") {
+                    this.io.to(game.getId()).emit('gameEnded', {winner: winner})
+                }
+            })*/
         core_3.EventHandler.subscribe("sendSocketMessage", (socketId, msg) => {
             // console.log("sendSocketMessage", socketId, msg)
             this.network.sendToSocketId(socketId, "servMessage", msg);
@@ -116,7 +129,7 @@ class GameServer {
         console.log("gameId", gameId);
         if ((game === null || game === void 0 ? void 0 : game.getId()) === gameId) {
             const gameState = game === null || game === void 0 ? void 0 : game.getState();
-            this.network.sendToRoom(game.getId(), 'gameStatus', gameState);
+            this.network.sendToRoom(game.getId(), "gameStatus", gameState);
         }
     }
     onPlayerLostLive(gameId, roleLabel) {
@@ -137,10 +150,17 @@ class GameServer {
     }
     createGame(gameId) {
         // tslint:disable-next-line:no-console
-        console.log('createGame from engv2', gameId);
-        const game = new core_1.Game(gameId, this.gameDefs, this.gameHooksClass);
-        this.games.push(game);
-        return game;
+        console.log("createGame from engv2", gameId);
+        if (this.gameClassFactory) {
+            const game = this.gameClassFactory(gameId, this.gameDefs, this.gameHooksClass);
+            this.games.push(game);
+            return game;
+        }
+        else {
+            const game = new core_1.Game(gameId, this.gameDefs, this.gameHooksClass);
+            this.games.push(game);
+            return game;
+        }
     }
     setRandomScenario() {
         //
@@ -150,7 +170,7 @@ class GameServer {
         this.games.forEach((game) => {
             gamesList.push({
                 id: game.getId(),
-                playersAmount: game.getPlayersAmount()
+                playersAmount: game.getPlayersAmount(),
             });
         });
         return gamesList;
@@ -173,7 +193,7 @@ class GameServer {
             const statusTime = performance.now() - start2;
             const start3 = performance.now();
             //this.network.sendToRoom(game.getId(), 'scenarioStatus', NetworkUtils.encodeString(JSON.stringify(status)))
-            this.network.sendToRoom(game.getId(), 'scenarioDiff', core_2.NetworkUtils.encodeString(JSON.stringify(status)));
+            this.network.sendToRoom(game.getId(), "scenarioDiff", core_2.NetworkUtils.encodeString(JSON.stringify(status)));
             const emitTime = performance.now() - start3;
             const totalTime = performance.now() - start;
             /*
@@ -208,13 +228,13 @@ class GameServer {
         return this.findGameById(gameId);
     }
     findGameById(gameId) {
-        return this.games.find(game => game.getId() === gameId);
+        return this.games.find((game) => game.getId() === gameId);
     }
     onClientConnect(socket, data) {
         var _a;
         let joinGame;
         // tslint:disable-next-line:no-console
-        console.log('client connected', data);
+        console.log("client connected", data);
         if (typeof data.name === "undefined") {
             return;
         }
@@ -233,7 +253,7 @@ class GameServer {
                 const gameId = core_2.Random.getRandomInt(50000, 1000).toString();
                 joinGame = this.createGame(gameId);
                 this.publicGamesManager.addGame(joinGame);
-                joinGame.onGameCreate();
+                //joinGame.onGameCreate()
             }
             else {
                 // remove bot
@@ -246,20 +266,25 @@ class GameServer {
             this.network.joinToRoom(socket, joinGame.getId());
             joinGame.addPlayer(socket.id, data.name);
             // @todo: send full msg, as scenarioStatus will be a diff
-            this.network.sendToRoom(joinGame.getId(), 'gameStatus', joinGame.getState());
+            this.network.sendToRoom(joinGame.getId(), "gameStatus", joinGame.getState());
             this.network.sendToSocketId(socket.id, "scenarioStatus", JSON.stringify((_a = joinGame.getScenario()) === null || _a === void 0 ? void 0 : _a.getState()));
             this.attachSocketEvents(socket);
         }
     }
     attachSocketEvents(socket) {
-        socket.on('playAgain', () => {
+        console.log("attachSocketEvents**");
+        if (this.gameHooksClass.attachSocketEvents) {
+            console.log("attachSocketEvents custom****");
+            this.gameHooksClass.attachSocketEvents(socket, this);
+        }
+        socket.on("playAgain", () => {
             const game = this.findGame(socket);
             if (game) {
                 game.startScenarioSwitchLoop();
             }
         });
         // @todo: maybe transform it to roleSelected and keep it in game.server
-        socket.on('heroSelected', (data) => {
+        socket.on("heroSelected", (data) => {
             const game = this.findGame(socket);
             const roleName = data.hero;
             // console.log("heroSelected", data)
@@ -270,33 +295,35 @@ class GameServer {
             this.network.sendToSocketId(socket.id, "scenarioStatus", JSON.stringify(game === null || game === void 0 ? void 0 : game.getScenario().getState()));
         });
         // @todo: scenarioEvent - ok
-        socket.on('respawn', () => {
+        socket.on("respawn", () => {
             var _a;
             const game = this.findGame(socket);
             if (game) {
                 const role = game.getScenario().findRoleById(socket.id);
-                const location = (_a = game.getScenario().getSpawnLocationManager()) === null || _a === void 0 ? void 0 : _a.getNextAvailable(role.getPlayer().team);
+                const location = (_a = game
+                    .getScenario()
+                    .getSpawnLocationManager()) === null || _a === void 0 ? void 0 : _a.getNextAvailable(role.getPlayer().team);
                 if (location) {
                     role === null || role === void 0 ? void 0 : role.respawn(location);
                 }
             }
         });
-        socket.on('scenarioEvent', (data) => {
+        socket.on("scenarioEvent", (data) => {
             // console.log("received scenarioEvent", data)
             const game = this.findGame(socket);
             if (game) {
                 game.onScenarioEvent(socket.id, data);
             }
         });
-        socket.on('disconnecting', () => {
+        socket.on("disconnecting", () => {
             // console.log('disconnecting')
             this.onClientDisconnect(socket);
         });
-        socket.on('close', () => {
+        socket.on("close", () => {
             // console.log('close socket')
             this.onClientDisconnect(socket);
         });
-        socket.on('command', (data) => {
+        socket.on("command", (data) => {
             // console.log('socket command', socket.id, data)
             let value = false;
             if (typeof data.value !== "undefined") {
@@ -316,7 +343,7 @@ class GameServer {
             game.removePlayer(socket.id);
             if (game.getPlayersAmount() > 0) {
                 game.onPlayerDisconnect();
-                core_3.EventHandler.publish('gameStateChanged', game.getId());
+                core_3.EventHandler.publish("gameStateChanged", game.getId());
             }
             else {
                 this.removeGame(game.getId());
@@ -328,7 +355,7 @@ class GameServer {
         this.publicGamesManager.removeGame(gameId);
         const game = this.findGameById(gameId);
         game === null || game === void 0 ? void 0 : game.beforeRemove();
-        this.games = this.games.filter(game => game.getId() !== gameId);
+        this.games = this.games.filter((game) => game.getId() !== gameId);
     }
 }
 exports.GameServer = GameServer;

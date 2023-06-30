@@ -36,7 +36,7 @@ class GameClient {
         this.scenarioDefs = scenarioDefs;
         this.clientStepManagers = [];
         // tslint:disable-next-line:no-console
-        console.log('%c CubicEngine Started', 'color: white;font-weight:bold;background-color: black; padding:10px;');
+        console.log("%c CubicEngine Started", "color: white;font-weight:bold;background-color: black; padding:10px;");
         this.registerClientScenarios(clientDefs);
     }
     registerClientScenarios(importedScenarios) {
@@ -50,19 +50,21 @@ class GameClient {
     connect(name, gameId) {
         const params = {
             name,
-            gameId
+            gameId,
         };
-        const queryString = Object.keys(params).map(key => key + '=' + params[key]).join('&');
+        const queryString = Object.keys(params)
+            .map((key) => key + "=" + params[key])
+            .join("&");
         this.sock = io.connect(this.url, {
             query: queryString,
         });
-        this.sock.on('connect_error', () => {
+        this.sock.on("connect_error", () => {
             // tslint:disable-next-line:no-console
-            console.log('connect error');
-            core_2.EventHandler.publish('client:connectError');
+            console.log("connect error");
+            core_2.EventHandler.publish("client:connectError");
         });
-        this.sock.on('connect', () => {
-            core_2.EventHandler.publish('client:connected', name);
+        this.sock.on("connect", () => {
+            core_2.EventHandler.publish("client:connected", name);
             this.attachNetworkEvents();
             this.scene = new THREE.Scene();
             this.game = new core_1.Game(gameId, this.scenarioDefs, null);
@@ -98,7 +100,8 @@ class GameClient {
         const scenarioName = this.game.getScenario().getName();
         if (scenarioName &&
             typeof this.clientScenarios[scenarioName] !== "undefined" &&
-            typeof this.clientScenarios[scenarioName].resolveRemoteGameEvent !== "undefined") {
+            typeof this.clientScenarios[scenarioName].resolveRemoteGameEvent !==
+                "undefined") {
             events.forEach((event) => {
                 this.clientScenarios[scenarioName].resolveRemoteGameEvent(event);
             });
@@ -118,13 +121,13 @@ class GameClient {
             //scenarioDef.initScene(this.scene);
         }
         if (typeof this.clientScenarios[scenarioDef.name] !== "undefined") {
-            core_2.EventHandler.publish('client:cleanUIComponents');
+            core_2.EventHandler.publish("client:cleanUIComponents");
             const cliScenarioDef = this.clientScenarios[scenarioDef.name];
             if (typeof cliScenarioDef.initScene !== "undefined") {
-                cliScenarioDef.initScene();
+                cliScenarioDef.initScene(this.scene);
             }
             (_a = cliScenarioDef.uiComps) === null || _a === void 0 ? void 0 : _a.forEach((comp) => {
-                core_2.EventHandler.publish('client:addUIComponent', comp);
+                core_2.EventHandler.publish("client:addUIComponent", comp);
             });
             // @todo: clean clientManagers and instantiate new ones
             if (typeof cliScenarioDef.clientStepManagers !== "undefined") {
@@ -133,11 +136,12 @@ class GameClient {
                 });
             }
         }
-        if (typeof scenarioDef.opts.lockScreen !== "undefined" && scenarioDef.opts.lockScreen === true) {
-            core_2.EventHandler.publish('client:lockScreen');
+        if (typeof scenarioDef.opts.lockScreen !== "undefined" &&
+            scenarioDef.opts.lockScreen === true) {
+            core_2.EventHandler.publish("client:lockScreen");
         }
         else {
-            core_2.EventHandler.publish('client:unlockScreen');
+            core_2.EventHandler.publish("client:unlockScreen");
         }
     }
     onSocketStatus(status) {
@@ -201,7 +205,9 @@ class GameClient {
         }
         const cliAct = this.clientActorRegistry.findById(remoteObj.id);
         if (typeof cliAct === "undefined") {
-            this.clientActorRegistry.create(this.game.getScenario().addRemoteActor(remoteObj)).then((newCliAct) => {
+            this.clientActorRegistry
+                .create(this.game.getScenario().addRemoteActor(remoteObj))
+                .then((newCliAct) => {
                 if (remoteObj.id === this.cameraHandler.getFollowedActorId()) {
                     this.onPrimaryActorAdded(newCliAct.id);
                 }
@@ -228,7 +234,9 @@ class GameClient {
         else {
             if (this.validateRemoteObj(remoteObj)) {
                 // console.log("diff did not exist - creating", remoteObj.label, remoteObj)
-                this.clientActorRegistry.create(this.game.getScenario().addRemoteActor(remoteObj)).then((newCliAct) => {
+                this.clientActorRegistry
+                    .create(this.game.getScenario().addRemoteActor(remoteObj))
+                    .then((newCliAct) => {
                     newCliAct.getActor().setProps(remoteObj);
                     newCliAct.update();
                 });
@@ -240,17 +248,17 @@ class GameClient {
     validateRemoteObj(remoteObj) {
         if (typeof remoteObj.id === "undefined") {
             // tslint:disable-next-line:no-console
-            console.log('id not defined on remoteObj');
+            console.log("id not defined on remoteObj");
             return false;
         }
         if (typeof remoteObj.label === "undefined") {
             // tslint:disable-next-line:no-console
-            console.log('label not defined on remoteObj', remoteObj);
+            console.log("label not defined on remoteObj", remoteObj);
             return false;
         }
         if (typeof remoteObj.name === "undefined") {
             // tslint:disable-next-line:no-console
-            console.log('name not defined on remoteObj');
+            console.log("name not defined on remoteObj");
             return false;
         }
         return true;
@@ -258,7 +266,7 @@ class GameClient {
     onGameStatus(gameStatus) {
         // console.log(gameStatus);
         this.game.setGameState(gameStatus);
-        core_2.EventHandler.publish('gameStatus', gameStatus);
+        core_2.EventHandler.publish("gameStatus", gameStatus);
     }
     onPrimaryActorAdded(actorId) {
         // console.log('onPrimaryActorAdded', actorId)
@@ -266,77 +274,77 @@ class GameClient {
         const cliActor = this.clientActorRegistry.findById(actorId);
         if (cliActor) {
             this.cameraHandler.followSubject(cliActor.getActor(), cliActor.getMesh());
-            core_2.EventHandler.publish('attachAudioListener', cliActor.getMesh());
+            core_2.EventHandler.publish("attachAudioListener", cliActor.getMesh());
             //this three events shoyld be the same, only one
-            core_2.EventHandler.publish('client:primaryActorTypeAdded', cliActor.getActor().name);
-            core_2.EventHandler.publish('client:primaryActorAdded', cliActor.getActor());
-            core_2.EventHandler.publish('client:primaryClientActorAdded', cliActor);
+            core_2.EventHandler.publish("client:primaryActorTypeAdded", cliActor.getActor().name);
+            core_2.EventHandler.publish("client:primaryActorAdded", cliActor.getActor());
+            core_2.EventHandler.publish("client:primaryClientActorAdded", cliActor);
         }
         else {
             // tslint:disable-next-line:no-console
-            console.log('onPrimaryActorAdded: actor not found', actorId);
+            console.log("onPrimaryActorAdded: actor not found", actorId);
             // console.log(this.game.getScenario().getState())
         }
         // EventHandler.cleanEvent('client:actorDashed')
-        core_2.EventHandler.subscribe('client:actorDashed', (actId) => {
+        core_2.EventHandler.subscribe("client:actorDashed", (actId) => {
             if (actorId === actId) {
-                core_2.EventHandler.publish('client:dashReload');
+                core_2.EventHandler.publish("client:dashReload");
             }
         });
-        core_2.EventHandler.cleanEvent('client:playerLostLive');
-        core_2.EventHandler.subscribe('client:playerLostLive', (actId) => {
+        core_2.EventHandler.cleanEvent("client:playerLostLive");
+        core_2.EventHandler.subscribe("client:playerLostLive", (actId) => {
             if (actorId === actId) {
-                core_2.EventHandler.publish('client:displayRespawnOverlay');
-                core_2.EventHandler.publish('client:resetStatsPanel');
+                core_2.EventHandler.publish("client:displayRespawnOverlay");
+                core_2.EventHandler.publish("client:resetStatsPanel");
             }
         });
     }
     onTeamWon(team) {
-        core_2.EventHandler.publish('client:teamWon', team);
+        core_2.EventHandler.publish("client:teamWon", team);
     }
     attachNetworkEvents() {
-        this.sock.off('status');
-        this.sock.off('pong');
-        this.sock.off('gameStatus');
-        this.sock.off('primaryActorAdded');
-        this.sock.off('teamWon');
-        this.sock.off('scenarioStatus');
-        this.sock.off('pickRole');
-        this.sock.off('levelIncreased');
-        this.sock.off('scenarioDiff');
-        this.sock.off('servMessage');
-        this.sock.on('gameStatus', (gameStatus) => {
+        this.sock.off("status");
+        this.sock.off("pong");
+        this.sock.off("gameStatus");
+        this.sock.off("primaryActorAdded");
+        this.sock.off("teamWon");
+        this.sock.off("scenarioStatus");
+        this.sock.off("pickRole");
+        this.sock.off("levelIncreased");
+        this.sock.off("scenarioDiff");
+        this.sock.off("servMessage");
+        this.sock.on("gameStatus", (gameStatus) => {
             this.onGameStatus(gameStatus);
         });
-        this.sock.on('scenarioStatus', (status) => {
+        this.sock.on("scenarioStatus", (status) => {
             this.onSocketStatus(status);
         });
-        this.sock.on('scenarioDiff', (status) => {
+        this.sock.on("scenarioDiff", (status) => {
             this.onSocketDiff(status);
         });
-        this.sock.on('primaryActorAdded', (status) => {
+        this.sock.on("primaryActorAdded", (status) => {
             this.onPrimaryActorAdded(status.actorId);
         });
-        this.sock.on('teamWon', (team) => {
+        this.sock.on("teamWon", (team) => {
             // console.log('team won')
             this.onTeamWon(team);
         });
-        this.sock.on('displayPickRole', () => {
-            core_2.EventHandler.publish('client:displayPickRole');
+        this.sock.on("displayPickRole", () => {
+            core_2.EventHandler.publish("client:displayPickRole");
         });
-        this.sock.on('pong', (ms) => {
+        this.sock.on("pong", (ms) => {
             const latency = ms;
-            const container = document.getElementById('latency');
+            const container = document.getElementById("latency");
             if (container !== null) {
                 container.innerHTML = latency;
             }
         });
         this.sock.on("levelIncreased", () => {
-            core_2.EventHandler.publish('client:levelIncreased');
+            core_2.EventHandler.publish("client:levelIncreased");
         });
         this.sock.on("servMessage", (msg) => {
             // console.log("received servMessage", msg)
-            core_2.EventHandler.publish('client:' + msg.name, msg.data);
+            core_2.EventHandler.publish("client:" + msg.name, msg.data);
         });
     }
 }

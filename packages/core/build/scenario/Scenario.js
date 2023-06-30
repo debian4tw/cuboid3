@@ -203,7 +203,7 @@ class Scenario {
     addRoleActor(role, configActorForRole) {
         var _a;
         // @todo: actor factory
-        // console.log('addRoleActor', configActorForRole)
+        console.log('addRoleActor',role, configActorForRole)
         const actor = new configActorForRole.type(configActorForRole.x, configActorForRole.y, this.actorIdService.getNextActorId(), configActorForRole.z || 0);
         role.addCommands(actor, this);
         role.actors.push(actor);
@@ -218,6 +218,7 @@ class Scenario {
                 }
                 actor.setAssociatedActor(associated.associationLabel, this.findActorByLabel(associated.actorLabel));
             });
+            console.log('**actor with associated actors', actor);
         }
         if (typeof configActorForRole.orientation !== "undefined") {
             actor.setOrientation(configActorForRole.orientation);

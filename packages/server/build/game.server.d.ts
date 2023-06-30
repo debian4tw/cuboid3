@@ -1,6 +1,6 @@
 /// <reference types="socket.io" />
-import { Game, IGameHooksClass } from '@cuboid3/core';
-import { IScenarioDefinition } from '@cuboid3/core';
+import { Game, IGameHooksClass } from "@cuboid3/core";
+import { IScenarioDefinition } from "@cuboid3/core";
 export declare class GameServer {
     private gameDefs;
     private games;
@@ -8,7 +8,8 @@ export declare class GameServer {
     private network;
     private processedFrames;
     gameHooksClass: IGameHooksClass;
-    constructor(io: SocketIO.Server, gameDefs: IScenarioDefinition[], gameHooks: IGameHooksClass);
+    gameClassFactory: (id: string, importedScenarios: IScenarioDefinition[], gameHooksClass?: any) => Game;
+    constructor(io: SocketIO.Server, gameDefs: IScenarioDefinition[], gameHooks: IGameHooksClass, gameClassFactory?: (id: string, importedScenarios: IScenarioDefinition[], gameHooksClass?: any) => Game);
     private attachEvents;
     onGameStateChanged(gameId: string): void;
     onPlayerLostLive(gameId: string, roleLabel: string): void;

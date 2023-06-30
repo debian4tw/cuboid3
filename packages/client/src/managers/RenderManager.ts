@@ -186,8 +186,6 @@ export class RenderManager {
     const container = document.getElementById("game-container")
     if (!container) {
       console.log("missing game-container div")
-    } else {
-      console.log(container, container.clientWidth, container.clientHeight)
     }
     
     const rendererWidth = container?.clientWidth || 0;

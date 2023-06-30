@@ -34,6 +34,9 @@ class AudioManager {
         core_1.EventHandler.subscribe('attachAudioListener', (mesh) => {
             mesh.add(this.listener);
         });
+        core_1.EventHandler.subscribe('client:resumeAudioContext', () => {
+            this.listener.context.resume();
+        });
     }
     getListener() {
         return this.listener;
