@@ -1,6 +1,6 @@
 {
   "name": "@cuboid3/client",
-  "version": "0.5.15",
+  "version": "0.5.16",
   "description": "Client package, part of Cuboid3 Engine",
   "main": "build/index.js",
   "types": "build/index.d.ts",
