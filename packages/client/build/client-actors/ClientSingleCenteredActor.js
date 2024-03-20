@@ -31,7 +31,7 @@ class ClientSingleCenteredActor extends ClientActor_1.ClientActor {
         this.id = this.actor.getId();
     }
     update() {
-        this.actor.setState(status);
+        //this.actor.setState(status);
         this.updateMesh(this.actor);
         //this.actor.getState();
     }
@@ -45,14 +45,18 @@ class ClientSingleCenteredActor extends ClientActor_1.ClientActor {
         else if (actor.isActive === 1) {
             this.mesh.visible = true;
         }
-        this.mesh.rotation.z = actor.getR().z * Math.PI / 180;
-        this.mesh.rotation.x = actor.getR().x * Math.PI / 180;
-        this.mesh.rotation.y = actor.getR().y * Math.PI / 180;
+        this.mesh.rotation.z = (actor.getR().z * Math.PI) / 180;
+        this.mesh.rotation.x = (actor.getR().x * Math.PI) / 180;
+        this.mesh.rotation.y = (actor.getR().y * Math.PI) / 180;
     }
     createMesh(callback) {
         let geometry = GeometryFactory_1.GeometryFactory.createGeometry(this.actor.shape, this.actor.getCoordsAndDimensions());
         //@todo: vertexColors param?
-        let mesh = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: this.actor.getColor(), vertexColors: true, wireframe: this.actor.wireframe })
+        let mesh = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({
+            color: this.actor.getColor(),
+            vertexColors: true,
+            wireframe: this.actor.wireframe,
+        })
         //color: 0x00ff00
         );
         mesh.receiveShadow = true;

@@ -353,11 +353,12 @@ export class GameClient {
   }
 
   onPrimaryActorAdded(actorId: string) {
-    // console.log('onPrimaryActorAdded', actorId)
+    console.log("onPrimaryActorAdded", actorId);
     this.cameraHandler.setFollowedActorId(actorId);
 
     const cliActor = this.clientActorRegistry.findById(actorId);
-    if (cliActor) {
+    console.log("cliActor mesh?", cliActor?.getMesh());
+    if (cliActor && cliActor.getMesh()) {
       this.cameraHandler.followSubject(cliActor.getActor(), cliActor.getMesh());
       EventHandler.publish("attachAudioListener", cliActor.getMesh());
 
@@ -370,8 +371,14 @@ export class GameClient {
       EventHandler.publish("client:primaryClientActorAdded", cliActor);
     } else {
       // tslint:disable-next-line:no-console
-      console.log("onPrimaryActorAdded: actor not found", actorId);
+      console.log(
+        "onPrimaryActorAdded: actor or mesh not found, rescheduling",
+        actorId
+      );
       // console.log(this.game.getScenario().getState())
+      setTimeout(() => {
+        this.onPrimaryActorAdded(actorId);
+      }, 800);
     }
 
     // EventHandler.cleanEvent('client:actorDashed')

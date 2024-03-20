@@ -21,7 +21,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RenderManager = void 0;
 const OrbitControls_js_1 = require("three/examples/jsm/controls/OrbitControls.js");
-//const PointerLockControls_1 = require("three/examples/jsm/controls/PointerLockControls");
+//import { PointerLockControls } from "three/examples/jsm/controls/PointerLockControls";
 const core_1 = require("@cuboid3/core");
 const THREE = __importStar(require("three"));
 // import Stats from 'three/examples/jsm/libs/stats.module.js';
@@ -37,30 +37,32 @@ class RenderManager {
         this.inGameUiElements = [];
         // this.orbitControlsEnabled = true
         this.renderer = new THREE.WebGLRenderer({ antialias: false });
-        this.renderer.setPixelRatio(window.devicePixelRatio);
+        //this.renderer.setPixelRatio(window.devicePixelRatio);
         // @todo: gammaOutput deprecated?
         this.renderer.gammaOutput = true;
         this.renderer.autoClear = false; // testing for 2d canvas
         this.attachEvents();
         this.initCanvas();
-        //this.pointerLockControls = new PointerLockControls_1.PointerLockControls(this.cameraHandler.getCamera(), this.renderer.domElement);
+        /*this.pointerLockControls = new PointerLockControls(
+          this.cameraHandler.getCamera(),
+          this.renderer.domElement
+        );*/
         // this.initRenderLoop()
-        console.log('no pointer *****');
         this.animate();
     }
     attachEvents() {
-        window.addEventListener('resize', () => this.onWindowResize(), false);
-        core_1.EventHandler.subscribe('AddInGameUiElement', (mesh) => {
+        window.addEventListener("resize", () => this.onWindowResize(), false);
+        core_1.EventHandler.subscribe("AddInGameUiElement", (mesh) => {
             // console.log('AddInGameUiElement', mesh)
             this.inGameUiElements.push(mesh);
         });
-        core_1.EventHandler.subscribe('RemoveInGameUiElement', (mesh) => {
+        core_1.EventHandler.subscribe("RemoveInGameUiElement", (mesh) => {
             this.inGameUiElements = this.inGameUiElements.filter((m) => m !== mesh);
         });
-        core_1.EventHandler.subscribe('client:LockScreen', () => {
+        core_1.EventHandler.subscribe("client:LockScreen", () => {
             //this.pointerLockControls.lock();
         });
-        core_1.EventHandler.subscribe('client:UnlockScreen', () => {
+        core_1.EventHandler.subscribe("client:UnlockScreen", () => {
             //this.pointerLockControls.unlock();
         });
     }
@@ -80,14 +82,14 @@ class RenderManager {
         this.renderer.setSize(width, height);
         const container = document.getElementById("game-container");
         if (container != null) {
-            this.renderer.domElement.id = 'game-canvas';
+            this.renderer.domElement.id = "game-canvas";
             container.appendChild(this.renderer.domElement);
             // this.stats = Stats();
             // this.stats.domElement.style.left = '210px';
             // container.appendChild( this.stats.domElement );
         }
         else {
-            throw (new Error("div with id: game-container not found"));
+            throw new Error("div with id: game-container not found");
         }
         if (this.orbitControlsEnabled) {
             const controls = new OrbitControls_js_1.OrbitControls(this.cameraHandler.getCamera(), this.renderer.domElement);
@@ -114,7 +116,9 @@ class RenderManager {
         }, 30);
     }
     animate() {
-        requestAnimationFrame(() => { this.animate(); });
+        requestAnimationFrame(() => {
+            this.animate();
+        });
         /*let cameraQuaternion = this.cameraHandler.getCamera().quaternion
           this.inGameUiElements.forEach((uiElement: THREE.Mesh) => {
           uiElement.quaternion.copy(cameraQuaternion)
@@ -133,7 +137,7 @@ class RenderManager {
         // custom fps, otherwise fallback to 60
         const fps = fpsArg || 30;
         const interval = 1000 / fps;
-        let oldtime = +new Date;
+        let oldtime = +new Date();
         const that = this;
         return (function loop(time) {
             // console.log(that)
@@ -151,7 +155,7 @@ class RenderManager {
                 // call the fn
                 fn();
             }
-        }(0));
+        })(0);
     }
     calculateCanvassize() {
         /*const headerElem = document.getElementById("header")
@@ -172,7 +176,7 @@ class RenderManager {
         const rendererHeight = (container === null || container === void 0 ? void 0 : container.clientHeight) || 0;
         return {
             width: rendererWidth,
-            height: rendererHeight
+            height: rendererHeight,
         };
     }
     clearThreeScene(obj) {
@@ -184,18 +188,19 @@ class RenderManager {
             obj.geometry.dispose();
         if (obj.material) {
             // in case of map, bumpMap, normalMap, envMap ...
-            Object.keys(obj.material).forEach(prop => {
+            Object.keys(obj.material).forEach((prop) => {
                 if (!obj.material[prop]) {
                     return;
                 }
-                if (typeof obj.material[prop].dispose === 'function') {
+                if (typeof obj.material[prop].dispose === "function") {
                     obj.material[prop].dispose();
                 }
             });
-            if (typeof obj.material.dispose === 'function') {
+            if (typeof obj.material.dispose === "function") {
                 obj.material.dispose();
             }
         }
+        this.renderer.clear();
     }
     addCanvas2D(canvas2DManager) {
         this.canvasUIElementsManager = canvas2DManager;

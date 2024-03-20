@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { ClientActor } from './ClientActor';
+import { ClientActor } from "./ClientActor";
 import { IActor } from "@cuboid3/core";
 export declare class ClientSingleCenteredActor extends ClientActor {
     id: string;
