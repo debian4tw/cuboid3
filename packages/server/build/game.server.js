@@ -5,18 +5,21 @@ const core_1 = require("@cuboid3/core");
 const core_2 = require("@cuboid3/core");
 const core_3 = require("@cuboid3/core");
 const PublicGames_manager_1 = require("./PublicGames.manager");
-const SocketIONetworkAdapter_1 = require("./SocketIONetworkAdapter");
 // tslint:disable-next-line:no-var-requires
-const { performance } = require("perf_hooks");
+/* @todo: conditional load perf_hooks or smth else
+ * if on node or client worker
+ * e.g. window is defined ?
+ */
+//const { performance } = require("perf_hooks");
 class GameServer {
-    constructor(io, gameDefs, gameHooks, gameClassFactory) {
+    constructor(network, gameDefs, gameHooks, gameClassFactory) {
         // tslint:disable-next-line:no-console
         console.log("Starting cuboid3 game server: version", process.env.npm_package_version);
         this.gameDefs = gameDefs;
         this.games = [];
         this.publicGamesManager = new PublicGames_manager_1.PublicGamesManager();
         this.processedFrames = 0;
-        this.network = new SocketIONetworkAdapter_1.SocketIONetworkAdapter(io);
+        this.network = network;
         this.gameHooksClass = gameHooks;
         if (gameClassFactory) {
             this.gameClassFactory = gameClassFactory;
@@ -26,8 +29,11 @@ class GameServer {
             this.iterateGames();
         }, 30);
         this.network.onConnect((socket) => {
-            const name = socket.handshake.query.name; // | 'user'+ getRandomInt(10000,100) as any
-            const gameId = socket.handshake.query.gameId;
+            var _a, _b, _c, _d;
+            const name = ((_b = (_a = socket.handshake) === null || _a === void 0 ? void 0 : _a.query) === null || _b === void 0 ? void 0 : _b.name) ||
+                ("user" + core_2.Random.getRandomInt(10000, 100));
+            const gameId = ((_d = (_c = socket.handshake) === null || _c === void 0 ? void 0 : _c.query) === null || _d === void 0 ? void 0 : _d.gameId) ||
+                core_2.Random.getRandomInt(10000, 100).toString();
             // tslint:disable-next-line:no-console
             console.log("name connected", name);
             this.onClientConnect(socket, { name, gameId });
@@ -181,21 +187,21 @@ class GameServer {
         }
         this.games.forEach((game) => {
             // -- performance measure
-            const start = performance.now();
+            //const start = performance.now();
             game.getScenario().update2();
-            const updateTime = performance.now() - start;
-            const start1 = performance.now();
+            //const updateTime = performance.now() - start;
+            //const start1 = performance.now();
             game.getScenario().updateCollisions();
-            const collisionsTime = performance.now() - start1;
-            const start2 = performance.now();
+            //const collisionsTime = performance.now() - start1;
+            //const start2 = performance.now();
             const status = game.getScenarioDiffState();
             //const status = game.getScenarioState()
-            const statusTime = performance.now() - start2;
-            const start3 = performance.now();
+            //const statusTime = performance.now() - start2;
+            //const start3 = performance.now();
             //this.network.sendToRoom(game.getId(), 'scenarioStatus', NetworkUtils.encodeString(JSON.stringify(status)))
             this.network.sendToRoom(game.getId(), "scenarioDiff", core_2.NetworkUtils.encodeString(JSON.stringify(status)));
-            const emitTime = performance.now() - start3;
-            const totalTime = performance.now() - start;
+            //const emitTime = performance.now() - start3;
+            //const totalTime = performance.now() - start;
             /*
             if(totalTime > 4) {
               // "\x1b[31m",
@@ -242,7 +248,9 @@ class GameServer {
         if (typeof data.gameId !== "undefined" && data.gameId !== "") {
             joinGame = this.findGameById(data.gameId);
             if (!joinGame) {
+                console.log("creating game", data.gameId);
                 joinGame = this.createGame(data.gameId);
+                console.log("created:", joinGame);
             }
         }
         else {
@@ -266,7 +274,12 @@ class GameServer {
             this.network.joinToRoom(socket, joinGame.getId());
             joinGame.addPlayer(socket.id, data.name);
             // @todo: send full msg, as scenarioStatus will be a diff
-            this.network.sendToRoom(joinGame.getId(), "gameStatus", joinGame.getState());
+            setTimeout(() => {
+                console.log("sending game status***");
+                if (joinGame !== undefined) {
+                    this.network.sendToRoom(joinGame.getId(), "gameStatus", joinGame === null || joinGame === void 0 ? void 0 : joinGame.getState());
+                }
+            }, 0);
             this.network.sendToSocketId(socket.id, "scenarioStatus", JSON.stringify((_a = joinGame.getScenario()) === null || _a === void 0 ? void 0 : _a.getState()));
             this.attachSocketEvents(socket);
         }

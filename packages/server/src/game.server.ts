@@ -6,10 +6,15 @@ import { EventHandler } from "@cuboid3/core";
 import { GPoint3 } from "@cuboid3/g-physics";
 
 import { PublicGamesManager } from "./PublicGames.manager";
-import { SocketIONetworkAdapter } from "./SocketIONetworkAdapter";
-import { INetworkAdapter } from "./INetworkAdapter";
+import { SocketIONetworkAdapter } from "./network/SocketIONetworkAdapter";
+import { INetworkAdapter } from "./network/INetworkAdapter";
 // tslint:disable-next-line:no-var-requires
-const { performance } = require("perf_hooks");
+
+/* @todo: conditional load perf_hooks or smth else
+ * if on node or client worker
+ * e.g. window is defined ?
+ */
+//const { performance } = require("perf_hooks");
 
 export class GameServer {
   // private io: SocketIO.Server
@@ -26,7 +31,7 @@ export class GameServer {
   ) => Game;
 
   constructor(
-    io: SocketIO.Server,
+    network: INetworkAdapter,
     gameDefs: IScenarioDefinition[],
     gameHooks: IGameHooksClass,
     gameClassFactory?: (
@@ -44,7 +49,7 @@ export class GameServer {
     this.games = [];
     this.publicGamesManager = new PublicGamesManager();
     this.processedFrames = 0;
-    this.network = new SocketIONetworkAdapter(io);
+    this.network = network;
     this.gameHooksClass = gameHooks;
     if (gameClassFactory) {
       this.gameClassFactory = gameClassFactory;
@@ -57,8 +62,12 @@ export class GameServer {
     }, 30);
 
     this.network.onConnect((socket: SocketIO.Socket) => {
-      const name: any = socket.handshake.query.name; // | 'user'+ getRandomInt(10000,100) as any
-      const gameId: any = socket.handshake.query.gameId;
+      const name: any =
+        socket.handshake?.query?.name ||
+        (("user" + Random.getRandomInt(10000, 100)) as any);
+      const gameId: any =
+        socket.handshake?.query?.gameId ||
+        Random.getRandomInt(10000, 100).toString();
 
       // tslint:disable-next-line:no-console
       console.log("name connected", name);
@@ -260,29 +269,29 @@ export class GameServer {
 
     this.games.forEach((game) => {
       // -- performance measure
-      const start = performance.now();
+      //const start = performance.now();
       game.getScenario().update2();
-      const updateTime = performance.now() - start;
+      //const updateTime = performance.now() - start;
 
-      const start1 = performance.now();
+      //const start1 = performance.now();
       game.getScenario().updateCollisions();
-      const collisionsTime = performance.now() - start1;
+      //const collisionsTime = performance.now() - start1;
 
-      const start2 = performance.now();
+      //const start2 = performance.now();
       const status = game.getScenarioDiffState();
       //const status = game.getScenarioState()
-      const statusTime = performance.now() - start2;
+      //const statusTime = performance.now() - start2;
 
-      const start3 = performance.now();
+      //const start3 = performance.now();
       //this.network.sendToRoom(game.getId(), 'scenarioStatus', NetworkUtils.encodeString(JSON.stringify(status)))
       this.network.sendToRoom(
         game.getId(),
         "scenarioDiff",
         NetworkUtils.encodeString(JSON.stringify(status))
       );
-      const emitTime = performance.now() - start3;
+      //const emitTime = performance.now() - start3;
 
-      const totalTime = performance.now() - start;
+      //const totalTime = performance.now() - start;
 
       /*
       if(totalTime > 4) {
@@ -334,7 +343,9 @@ export class GameServer {
     if (typeof data.gameId !== "undefined" && data.gameId !== "") {
       joinGame = this.findGameById(data.gameId);
       if (!joinGame) {
+        console.log("creating game", data.gameId);
         joinGame = this.createGame(data.gameId);
+        console.log("created:", joinGame);
       }
     } else {
       // tslint:disable-next-line:no-console
@@ -359,11 +370,17 @@ export class GameServer {
       joinGame.addPlayer(socket.id, data.name);
 
       // @todo: send full msg, as scenarioStatus will be a diff
-      this.network.sendToRoom(
-        joinGame.getId(),
-        "gameStatus",
-        joinGame.getState()
-      );
+
+      setTimeout(() => {
+        console.log("sending game status***");
+        if (joinGame !== undefined) {
+          this.network.sendToRoom(
+            joinGame.getId(),
+            "gameStatus",
+            joinGame?.getState()
+          );
+        }
+      }, 0);
 
       this.network.sendToSocketId(
         socket.id,

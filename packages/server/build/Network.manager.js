@@ -2,9 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NetworkManager = void 0;
 class NetworkManager {
-    constructor() {
-    }
-    registerStrategy() {
-    }
+    constructor() { }
+    registerStrategy() { }
 }
 exports.NetworkManager = NetworkManager;

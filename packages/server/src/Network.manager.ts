@@ -1,11 +1,5 @@
 export class NetworkManager {
+  constructor() {}
 
-
-  constructor() {
-
-  }
-
-  registerStrategy() {
-    
-  }
+  registerStrategy() {}
 }
