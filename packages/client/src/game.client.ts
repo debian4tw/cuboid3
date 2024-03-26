@@ -13,9 +13,10 @@ import { CameraHandler } from "./CameraHandler";
 import { AudioManager } from "./managers/AudioManager";
 import { RenderManager } from "./managers/RenderManager";
 import { ICanvasUIElementsManager } from "./managers";
+import { WebWorkerLocalSocketClient } from "./WebWorkerLocalSocketClient";
 
 export class GameClient {
-  private sock: SocketIOClient.Socket;
+  private sock: SocketIOClient.Socket | WebWorkerLocalSocketClient;
   private game: Game;
   private clientActorRegistry: ClientActorRegistry;
   private scene: THREE.Scene;
@@ -69,6 +70,12 @@ export class GameClient {
     this.canvasUIElementsManager = canvasUIElementsManager;
   }
 
+  connectLocal(worker: Worker, name: string, gameId: any) {
+    this.sock = new WebWorkerLocalSocketClient(worker);
+    this.sock.connect(name, gameId);
+    this.onClientConnect(gameId);
+  }
+
   connect(name: string, gameId: any) {
     const params: any = {
       name,
@@ -82,7 +89,10 @@ export class GameClient {
       query: queryString,
       // 'forceNew': true,
     });
+    this.onClientConnect(gameId);
+  }
 
+  onClientConnect(gameId: any) {
     this.sock.on("connect_error", () => {
       // tslint:disable-next-line:no-console
       console.log("connect error");

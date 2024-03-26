@@ -18,7 +18,9 @@ export declare class GameClient {
     constructor(url: string, scenarioDefs: IScenarioDefinition[], clientDefs: any);
     registerClientScenarios(importedScenarios: any[]): void;
     setCanvasUIElementsManager(canvasUIElementsManager: new (width: number, height: number, camera: THREE.PerspectiveCamera) => ICanvasUIElementsManager): void;
+    connectLocal(worker: Worker, name: string, gameId: any): void;
     connect(name: string, gameId: any): void;
+    onClientConnect(gameId: any): void;
     disconnect(): void;
     setUrl(url: string): void;
     onSocketGameEvents(events: GameEvent[]): void;

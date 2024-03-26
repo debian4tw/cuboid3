@@ -83,10 +83,10 @@ class CameraHandler {
         this.attachEvents();
     }
     attachEvents() {
-        core_1.EventHandler.subscribe('scenarioChanged', () => {
+        core_1.EventHandler.subscribe("scenarioChanged", () => {
             this.setDefaultCamera();
         });
-        core_1.EventHandler.subscribe('setCameraParams', (params) => {
+        core_1.EventHandler.subscribe("setCameraParams", (params) => {
             this.setCameraParams(params);
         });
     }

@@ -29,6 +29,7 @@ const ClientActorRegistry_1 = require("./client-actors/ClientActorRegistry");
 const InputHandler_1 = require("./InputHandler");
 const CameraHandler_1 = require("./CameraHandler");
 const RenderManager_1 = require("./managers/RenderManager");
+const WebWorkerLocalSocketClient_1 = require("./WebWorkerLocalSocketClient");
 class GameClient {
     constructor(url, scenarioDefs, clientDefs) {
         this.clientScenarios = {};
@@ -47,6 +48,11 @@ class GameClient {
     setCanvasUIElementsManager(canvasUIElementsManager) {
         this.canvasUIElementsManager = canvasUIElementsManager;
     }
+    connectLocal(worker, name, gameId) {
+        this.sock = new WebWorkerLocalSocketClient_1.WebWorkerLocalSocketClient(worker);
+        this.sock.connect(name, gameId);
+        this.onClientConnect(gameId);
+    }
     connect(name, gameId) {
         const params = {
             name,
@@ -58,6 +64,9 @@ class GameClient {
         this.sock = io.connect(this.url, {
             query: queryString,
         });
+        this.onClientConnect(gameId);
+    }
+    onClientConnect(gameId) {
         this.sock.on("connect_error", () => {
             // tslint:disable-next-line:no-console
             console.log("connect error");
@@ -318,6 +327,7 @@ class GameClient {
         this.sock.off("scenarioDiff");
         this.sock.off("servMessage");
         this.sock.on("gameStatus", (gameStatus) => {
+            console.log("gameStatus from socket", gameStatus);
             this.onGameStatus(gameStatus);
         });
         this.sock.on("scenarioStatus", (status) => {
