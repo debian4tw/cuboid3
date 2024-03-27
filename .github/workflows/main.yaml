@@ -23,7 +23,12 @@ jobs:
           cd packages/g-physics
           npm install
 
-      - name: Run Jest tests
+      - name: Run g-physics tests
         run: |
           cd packages/g-physics
+          npm test
+
+      - name: Run server tests
+        run: |
+          cd packages/server
           npm test

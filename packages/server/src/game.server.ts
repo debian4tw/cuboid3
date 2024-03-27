@@ -2,12 +2,10 @@ import { Game, IGameHooksClass } from "@cuboid3/core";
 import { IScenarioDefinition } from "@cuboid3/core";
 import { Random, NetworkUtils } from "@cuboid3/core";
 import { EventHandler } from "@cuboid3/core";
-
 import { GPoint3 } from "@cuboid3/g-physics";
-
 import { PublicGamesManager } from "./PublicGames.manager";
-import { SocketIONetworkAdapter } from "./network/SocketIONetworkAdapter";
 import { INetworkAdapter } from "./network/INetworkAdapter";
+import { WebWorkerNetworkAdapter } from "./network/WebWorkerNetworkAdapter";
 // tslint:disable-next-line:no-var-requires
 
 /* @todo: conditional load perf_hooks or smth else
@@ -24,6 +22,7 @@ export class GameServer {
   private network: INetworkAdapter;
   private processedFrames: number;
   gameHooksClass: IGameHooksClass;
+  private gamesLoopInterval: ReturnType<typeof setInterval>;
   gameClassFactory: (
     id: string,
     importedScenarios: IScenarioDefinition[],
@@ -57,7 +56,7 @@ export class GameServer {
 
     this.attachEvents();
 
-    setInterval(() => {
+    this.gamesLoopInterval = setInterval(() => {
       this.iterateGames();
     }, 30);
 
@@ -73,6 +72,14 @@ export class GameServer {
       console.log("name connected", name);
       this.onClientConnect(socket, { name, gameId });
     });
+  }
+
+  isRunningAsLocalWorker(): boolean {
+    console.log(
+      "isRunningAsLocalWorker",
+      this.network instanceof WebWorkerNetworkAdapter
+    );
+    return this.network instanceof WebWorkerNetworkAdapter;
   }
 
   private attachEvents() {
@@ -488,5 +495,10 @@ export class GameServer {
     const game = this.findGameById(gameId);
     game?.beforeRemove();
     this.games = this.games.filter((game) => game.getId() !== gameId);
+  }
+
+  stop() {
+    clearInterval(this.gamesLoopInterval);
+    this.games = [];
   }
 }
