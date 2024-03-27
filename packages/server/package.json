@@ -30,7 +30,7 @@
     "@cuboid3/core": "^0.5.10",
     "@cuboid3/g-physics": "^0.5.10",
     "@types/es6-shim": "^0.31.37",
-    "@types/socket.io": "^1.4.38",
+    "@types/socket.io": "^2.1.13",
     "dotenv": "^8.2.0",
     "socket.io": "^2.1.1",
     "ws": "^8.8.1"

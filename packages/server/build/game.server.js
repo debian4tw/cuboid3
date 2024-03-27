@@ -5,6 +5,7 @@ const core_1 = require("@cuboid3/core");
 const core_2 = require("@cuboid3/core");
 const core_3 = require("@cuboid3/core");
 const PublicGames_manager_1 = require("./PublicGames.manager");
+const WebWorkerNetworkAdapter_1 = require("./network/WebWorkerNetworkAdapter");
 // tslint:disable-next-line:no-var-requires
 /* @todo: conditional load perf_hooks or smth else
  * if on node or client worker
@@ -25,7 +26,7 @@ class GameServer {
             this.gameClassFactory = gameClassFactory;
         }
         this.attachEvents();
-        setInterval(() => {
+        this.gamesLoopInterval = setInterval(() => {
             this.iterateGames();
         }, 30);
         this.network.onConnect((socket) => {
@@ -38,6 +39,10 @@ class GameServer {
             console.log("name connected", name);
             this.onClientConnect(socket, { name, gameId });
         });
+    }
+    isRunningAsLocalWorker() {
+        console.log("isRunningAsLocalWorker", this.network instanceof WebWorkerNetworkAdapter_1.WebWorkerNetworkAdapter);
+        return this.network instanceof WebWorkerNetworkAdapter_1.WebWorkerNetworkAdapter;
     }
     attachEvents() {
         core_3.EventHandler.subscribe("gameStateChanged", (gameId) => {
@@ -309,13 +314,15 @@ class GameServer {
         });
         // @todo: scenarioEvent - ok
         socket.on("respawn", () => {
-            var _a;
             const game = this.findGame(socket);
             if (game) {
                 const role = game.getScenario().findRoleById(socket.id);
-                const location = (_a = game
+                const spawnLocationManager = game
                     .getScenario()
-                    .getSpawnLocationManager()) === null || _a === void 0 ? void 0 : _a.getNextAvailable(role.getPlayer().team);
+                    .getSpawnLocationManager();
+                console.log("player team", role.getPlayer().team);
+                const location = role.getPlayer().team !== undefined
+                    ? spawnLocationManager === null || spawnLocationManager === void 0 ? void 0 : spawnLocationManager.getNextAvailable(role.getPlayer().team) : spawnLocationManager === null || spawnLocationManager === void 0 ? void 0 : spawnLocationManager.getNextAvailable();
                 if (location) {
                     role === null || role === void 0 ? void 0 : role.respawn(location);
                 }
@@ -369,6 +376,10 @@ class GameServer {
         const game = this.findGameById(gameId);
         game === null || game === void 0 ? void 0 : game.beforeRemove();
         this.games = this.games.filter((game) => game.getId() !== gameId);
+    }
+    stop() {
+        clearInterval(this.gamesLoopInterval);
+        this.games = [];
     }
 }
 exports.GameServer = GameServer;

@@ -61,6 +61,7 @@
   "include": ["src"],
   "exclude": [
     "node_modules",
-    "src/*/tests"
+    "src/*/tests",
+    "src/tests"
   ]
 }
