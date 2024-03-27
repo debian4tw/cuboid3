@@ -9,12 +9,12 @@ class SpawnLocationManager {
         spawnLocations.forEach((spawnLoc) => {
             this.spawnLocations.push({
                 busy: false,
-                slot: spawnLoc
+                slot: spawnLoc,
             });
         });
         this.spawnLocationsCount = spawnLocations.length;
     }
-    getNextAvailable() {
+    getNextAvailable(team) {
         const loc = this.getFreeSlot();
         loc.busy = true;
         setTimeout(() => {
@@ -24,11 +24,13 @@ class SpawnLocationManager {
     }
     getFreeSlot() {
         let loc;
-        loc = this.spawnLocations[util_1.Random.getRandomInt(this.spawnLocationsCount - 1, 0)];
+        loc =
+            this.spawnLocations[util_1.Random.getRandomInt(this.spawnLocationsCount - 1, 0)];
         if (loc.busy === true) {
             loc = this.spawnLocations.find((item) => item.busy === false);
             if (!loc) {
-                loc = this.spawnLocations[util_1.Random.getRandomInt(this.spawnLocationsCount - 1, 0)];
+                loc =
+                    this.spawnLocations[util_1.Random.getRandomInt(this.spawnLocationsCount - 1, 0)];
             }
         }
         return loc;

@@ -436,7 +436,7 @@ export class GameServer {
         const spawnLocationManager = game
           .getScenario()
           .getSpawnLocationManager();
-
+        console.log("player team", role.getPlayer().team);
         const location = role.getPlayer().team
           ? spawnLocationManager?.getNextAvailable(role.getPlayer().team)
           : spawnLocationManager?.getNextAvailable();
