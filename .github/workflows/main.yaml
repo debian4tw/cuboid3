@@ -23,17 +23,27 @@ jobs:
           cd packages/g-physics
           npm install
 
-      - name: Install server dependencies
-        run: |
-          cd packages/server
-          npm install
-
       - name: Run g-physics tests
         run: |
           cd packages/g-physics
           npm test
 
+      - name: Install server dependencies
+        run: |
+          cd packages/server
+          npm install
+
       - name: Run server tests
         run: |
           cd packages/server
+          npm test
+
+      - name: Install core dependencies
+        run: |
+          cd packages/core
+          npm install
+
+      - name: Run core tests
+        run: |
+          cd packages/core
           npm test

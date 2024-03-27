@@ -8,7 +8,7 @@
     "build"
   ],
   "scripts": {
-    "tsc": "tsc",
+    "tsc": "tsc --project tsconfig.json",
     "build": "tsc",
     "test": "jest --verbose",
     "coverage": "jest --coverage",
