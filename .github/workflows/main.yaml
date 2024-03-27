@@ -22,6 +22,8 @@ jobs:
         run: |
           cd packages/g-physics
           npm install
+          cd packages/server
+          npm install
 
       - name: Run g-physics tests
         run: |
