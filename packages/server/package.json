@@ -9,9 +9,9 @@
   ],
   "scripts": {
     "link": "npm link ../core ../g-physics",
-    "tsc": "tsc",
-    "build": "tsc",
-    "test": "jest --verbose",
+    "tsc": "tsc --project tsconfig.json",
+    "build": "tsc --project tsconfig.json",
+    "test": "jest --verbose --detectOpenHandles",
     "coverage": "jest --coverage",
     "lint": "tslint 'game/**/*.ts?(x)'",
     "locs": "find ./g-physics -name '*.ts' | xargs wc -l  && find ./src -name '*.ts' -o -name '*.handlebars' | xargs wc -l && find ./client-src -name '*.ts' -o -name '*.tsx' | xargs wc -l  && find ./game -name '*.ts' -o -name '*.tsx' | xargs wc -l && find ./scenarios -name '*.ts' -o -name '*.tsx' | xargs wc -l ",
@@ -30,7 +30,7 @@
     "@cuboid3/core": "^0.5.10",
     "@cuboid3/g-physics": "^0.5.10",
     "@types/es6-shim": "^0.31.37",
-    "@types/socket.io": "^1.4.38",
+    "@types/socket.io": "^2.1.13",
     "dotenv": "^8.2.0",
     "socket.io": "^2.1.1",
     "ws": "^8.8.1"

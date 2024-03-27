@@ -9,8 +9,10 @@ export declare class GameServer {
     private network;
     private processedFrames;
     gameHooksClass: IGameHooksClass;
+    private gamesLoopInterval;
     gameClassFactory: (id: string, importedScenarios: IScenarioDefinition[], gameHooksClass?: any) => Game;
     constructor(network: INetworkAdapter, gameDefs: IScenarioDefinition[], gameHooks: IGameHooksClass, gameClassFactory?: (id: string, importedScenarios: IScenarioDefinition[], gameHooksClass?: any) => Game);
+    isRunningAsLocalWorker(): boolean;
     private attachEvents;
     onGameStateChanged(gameId: string): void;
     onPlayerLostLive(gameId: string, roleLabel: string): void;
@@ -25,4 +27,5 @@ export declare class GameServer {
     attachSocketEvents(socket: SocketIO.Socket): void;
     onClientDisconnect(socket: SocketIO.Socket): void;
     removeGame(gameId: string): void;
+    stop(): void;
 }

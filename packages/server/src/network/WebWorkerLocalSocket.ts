@@ -1,5 +1,9 @@
 import { Random } from "@cuboid3/core";
 
+declare module globalThis {
+  let onmessage: any;
+}
+
 /*
  * Fake socket interface wrapping onmessage/postMessage of WebWorkers
  * to be used by GameServer running on client browser
@@ -31,7 +35,8 @@ export class WebWorkerLocalSocket {
   }
 
   attachOnMessage() {
-    onmessage = (ev) => {
+    // @ts-ignore
+    globalThis.onmessage = (ev: any) => {
       //console.log('WorkerSocketServer onmessage', ev);
       if (ev.data && typeof ev.data["name"] !== "undefined") {
         if (typeof ev.data["args"] !== "undefined" && ev.data["args"].length) {

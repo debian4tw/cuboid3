@@ -17,6 +17,7 @@ export class SocketIONetworkAdapter implements INetworkAdapter {
 
   sendToRoom(gameId: string, eventName: string, data: object | null = null) {
     // this.io.to(game.getId()).emit('scenarioDiff', NetworkUtils.encodeString(JSON.stringify(status)))
+    // @ts-ignore
     this.io.to(gameId).emit(eventName, data);
   }
 
@@ -27,6 +28,7 @@ export class SocketIONetworkAdapter implements INetworkAdapter {
   ) {
     // this.io.sockets.connected[socketId].emit('primaryActorAdded', {actorId: actorId})
     // console.log("sendToSocketId", eventName, data)
+    // @ts-ignore
     this.io.sockets.connected[socketId]?.emit(eventName, data);
   }
 

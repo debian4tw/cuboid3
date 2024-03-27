@@ -1,5 +1,3 @@
-export interface GSocket {
-}
 export declare class WebWorkerLocalSocketClient {
     private worker;
     private eventResolvers;

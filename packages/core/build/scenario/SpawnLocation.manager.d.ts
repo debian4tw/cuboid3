@@ -4,7 +4,7 @@ export declare class SpawnLocationManager implements ISpawnLocationManager {
     spawnLocationsCount: number;
     busyTime: number;
     constructor(spawnLocations: ISpawnLocationDef[]);
-    getNextAvailable(): ISpawnLocationDef;
+    getNextAvailable(team?: number): ISpawnLocationDef;
     private getFreeSlot;
     getSlots(): ISpawnLocationSlot[];
 }

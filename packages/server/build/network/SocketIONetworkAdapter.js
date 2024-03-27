@@ -13,12 +13,14 @@ class SocketIONetworkAdapter {
     }
     sendToRoom(gameId, eventName, data = null) {
         // this.io.to(game.getId()).emit('scenarioDiff', NetworkUtils.encodeString(JSON.stringify(status)))
+        // @ts-ignore
         this.io.to(gameId).emit(eventName, data);
     }
     sendToSocketId(socketId, eventName, data) {
         var _a;
         // this.io.sockets.connected[socketId].emit('primaryActorAdded', {actorId: actorId})
         // console.log("sendToSocketId", eventName, data)
+        // @ts-ignore
         (_a = this.io.sockets.connected[socketId]) === null || _a === void 0 ? void 0 : _a.emit(eventName, data);
     }
     joinToRoom(socket, gameId) {
