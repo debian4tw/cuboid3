@@ -26,7 +26,7 @@ class WebWorkerLocalSocket {
         this.rooms[gameId] = {};
     }
     attachOnMessage() {
-        onmessage = (ev) => {
+        window.onmessage = (ev) => {
             //console.log('WorkerSocketServer onmessage', ev);
             if (ev.data && typeof ev.data["name"] !== "undefined") {
                 if (typeof ev.data["args"] !== "undefined" && ev.data["args"].length) {

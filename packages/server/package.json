@@ -9,8 +9,8 @@
   ],
   "scripts": {
     "link": "npm link ../core ../g-physics",
-    "tsc": "tsc",
-    "build": "tsc",
+    "tsc": "tsc --project tsconfig.json",
+    "build": "tsc --project tsconfig.json",
     "test": "jest --verbose --detectOpenHandles",
     "coverage": "jest --coverage",
     "lint": "tslint 'game/**/*.ts?(x)'",
