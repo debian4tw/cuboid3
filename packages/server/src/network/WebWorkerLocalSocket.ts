@@ -36,7 +36,7 @@ export class WebWorkerLocalSocket {
 
   attachOnMessage() {
     // @ts-ignore
-    onmessage = (ev: any) => {
+    globalThis.onmessage = (ev: any) => {
       //console.log('WorkerSocketServer onmessage', ev);
       if (ev.data && typeof ev.data["name"] !== "undefined") {
         if (typeof ev.data["args"] !== "undefined" && ev.data["args"].length) {
