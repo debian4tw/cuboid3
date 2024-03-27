@@ -2,6 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WebWorkerLocalSocketClient = void 0;
 const core_1 = require("@cuboid3/core");
+/*
+ * Fake socket interface wrapping onmessage/postMessage of WebWorker
+ * To be used by GameClient talking with GameServer running on a
+ * browser WebWorker
+ */
 class WebWorkerLocalSocketClient {
     constructor(worker) {
         this.worker = worker;
@@ -17,7 +22,6 @@ class WebWorkerLocalSocketClient {
         this.worker.postMessage({ name: "connect", args: [name, gameId] });
     }
     on(event, callback) {
-        //console.log("attaching ev", event);
         this.eventResolvers[event] = callback;
     }
     off(event) {

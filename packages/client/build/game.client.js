@@ -327,7 +327,6 @@ class GameClient {
         this.sock.off("scenarioDiff");
         this.sock.off("servMessage");
         this.sock.on("gameStatus", (gameStatus) => {
-            console.log("gameStatus from socket", gameStatus);
             this.onGameStatus(gameStatus);
         });
         this.sock.on("scenarioStatus", (status) => {
