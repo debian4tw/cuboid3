@@ -433,10 +433,11 @@ export class GameServer {
       const game = this.findGame(socket);
       if (game) {
         const role = game.getScenario().findRoleById(socket.id);
+        const team = role.getPlayer().team ? role.getPlayer().team : undefined;
         const location = game
           .getScenario()
           .getSpawnLocationManager()
-          ?.getNextAvailable(role.getPlayer().team);
+          ?.getNextAvailable(team);
         if (location) {
           role?.respawn(location);
         }
