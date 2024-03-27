@@ -1,5 +1,5 @@
 import { Random } from "@cuboid3/core";
-
+declare var onmessage: ((this: Window, ev: MessageEvent) => any) | null;
 /*
  * Fake socket interface wrapping onmessage/postMessage of WebWorkers
  * to be used by GameServer running on client browser
