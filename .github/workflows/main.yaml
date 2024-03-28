@@ -47,3 +47,13 @@ jobs:
         run: |
           cd packages/core
           npm test
+
+      - name: Install client dependencies
+        run: |
+          cd packages/client
+          npm install
+
+      - name: Run client tests
+        run: |
+          cd packages/client
+          npm test
