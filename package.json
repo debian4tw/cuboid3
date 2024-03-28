@@ -5,6 +5,5 @@
     "lerna": "^4.0.0"
   },
   "scripts": {
-    "locs": "echo g-physics && find ./packages/g-physics/src -name '*.ts' -o -name '*.tsx' | xargs wc -l | grep 'total' && echo server && find ./packages/server/src -name '*.ts' -o -name '*.handlebars' | xargs wc -l | grep 'total' && echo client && find ./packages/client/src -name '*.ts' -o -name '*.tsx' -o -name '*.scss' -o -name '*.css' | xargs wc -l | grep 'total' && echo core && find ./packages/core/src -name '*.ts' -o -name '*.tsx' | xargs wc -l | grep 'total' && echo all && find ./packages/server/src ./packages/core/src ./packages/core/src ./packages/g-physics/src -name '*.ts' -o -name '*.handlebars' -o -name '*.tsx' -o -name '*.scss' -o -name '*.css' | xargs wc -l | grep 'total'"
   }
 }

@@ -71,14 +71,15 @@ class Scenario {
         }
         botActors[index].forEach((envActorConfig) => {
             const act = this.addEnvActor(envActorConfig);
-            if (typeof envActorConfig.primary !== "undefined" && envActorConfig.primary === true) {
+            if (typeof envActorConfig.primary !== "undefined" &&
+                envActorConfig.primary === true) {
                 act.respawn(spawn);
             }
         });
     }
     removeBot() {
         // console.log("removing bot");
-        const actor = this.actors.find(act => act.label.startsWith("bot"));
+        const actor = this.actors.find((act) => act.label.startsWith("bot"));
         // console.log("found actor:", actor?.label)
         if (actor) {
             actor.getAssociatedActors().forEach((act) => {
@@ -94,10 +95,10 @@ class Scenario {
         this.name = name;
     }
     findActorByLabel(label) {
-        return this.actors.find(actor => actor.label === label);
+        return this.actors.find((actor) => actor.label === label);
     }
     findActorById(id) {
-        return this.actors.find(actor => actor.getId() === id);
+        return this.actors.find((actor) => actor.getId() === id);
     }
     update() {
         this.actors.forEach((actor) => {
@@ -130,7 +131,7 @@ class Scenario {
     removeActor(roleActor) {
         this.collisionManager.onActorRemove(roleActor.getLabel());
         this.addToRemovedActorList(roleActor.getId());
-        this.actors = this.actors.filter(actor => actor !== roleActor);
+        this.actors = this.actors.filter((actor) => actor !== roleActor);
     }
     addToRemovedActorList(actorId) {
         this.removedActorsBuffer.push(actorId);
@@ -152,8 +153,9 @@ class Scenario {
         if (typeof envActor.associatedActors !== "undefined") {
             // console.log('actorForRole.associated', actorForRole.associated);
             envActor.associatedActors.forEach((associated) => {
-                if (typeof associated.associationLabel === "undefined" || typeof associated.actorLabel === "undefined") {
-                    throw new Error(("incorrect actor association config " + envActor.label));
+                if (typeof associated.associationLabel === "undefined" ||
+                    typeof associated.actorLabel === "undefined") {
+                    throw new Error("incorrect actor association config " + envActor.label);
                 }
                 act.setAssociatedActor(associated.associationLabel, this.findActorByLabel(associated.actorLabel));
             });
@@ -184,7 +186,8 @@ class Scenario {
     }
     addRemoteActor(remoteObj) {
         // console.log('addRemoreActor',z)
-        if (typeof this.actorRepository[remoteObj.name] === 'undefined') {
+        if (typeof this.actorRepository[remoteObj.name] === "undefined") {
+            console.log("this.actorRepository", this.actorRepository);
             throw new Error(`actor name: ${remoteObj.name} not found in actorRepository`);
         }
         const z = remoteObj.z || 0;
@@ -213,8 +216,9 @@ class Scenario {
         }
         if (typeof configActorForRole.associatedActors !== "undefined") {
             configActorForRole.associatedActors.forEach((associated) => {
-                if (typeof associated.associationLabel === "undefined" || typeof associated.actorLabel === "undefined") {
-                    throw new Error(("incorrect actor association config " + configActorForRole.label));
+                if (typeof associated.associationLabel === "undefined" ||
+                    typeof associated.actorLabel === "undefined") {
+                    throw new Error("incorrect actor association config " + configActorForRole.label);
                 }
                 actor.setAssociatedActor(associated.associationLabel, this.findActorByLabel(associated.actorLabel));
             });
@@ -236,7 +240,7 @@ class Scenario {
             actor.setUsername(role.player.name);
             role.setPrimaryActorId(actor.getId());
             setTimeout(() => {
-                EventHandler_1.EventHandler.publish('server:primaryActorAdded', role.getPlayer().getId(), actor.getId());
+                EventHandler_1.EventHandler.publish("server:primaryActorAdded", role.getPlayer().getId(), actor.getId());
             }, 1500);
         }
         return actor;
@@ -244,7 +248,7 @@ class Scenario {
     getState() {
         const state = [];
         // let start3 = performance.now()
-        this.actors.forEach(actor => {
+        this.actors.forEach((actor) => {
             if (actor.invisible !== true) {
                 state.push(actor.getState());
             }
@@ -254,13 +258,13 @@ class Scenario {
             gameId: this.gameId,
             type: this.name,
             // players: this.roleManager.getScenarioPlayers(),
-            state
+            state,
         };
     }
     getDiffState() {
         const state = [];
         // let start3 = performance.now()
-        this.actors.forEach(actor => {
+        this.actors.forEach((actor) => {
             if (actor.invisible !== true) {
                 state.push(Object.assign({ id: actor.getId() }, util_1.NetworkUtils.diffState(actor.getLastState(), actor.getState())));
                 actor.setLastState(actor.getState());
@@ -272,7 +276,7 @@ class Scenario {
             type: this.name,
             // players: this.roleManager.getScenarioPlayers(),
             state,
-            removed: this.getRemovedActorList()
+            removed: this.getRemovedActorList(),
         };
     }
     setDiffState(state) {
@@ -312,7 +316,7 @@ class Scenario {
         this.scenarioHooks.checkWinCondition();
     }
     onTeamWon(team) {
-        EventHandler_1.EventHandler.publish('server:teamWon', this.gameId, team);
+        EventHandler_1.EventHandler.publish("server:teamWon", this.gameId, team);
     }
     getGameId() {
         return this.gameId;

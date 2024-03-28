@@ -1,14 +1,14 @@
-import { IActor } from '../actor/IActor';
-import { IScenario } from './IScenario';
-import { Player } from '../player/player';
-import { Role } from '../player/role';
-import { ICollisionManager } from '../collision/ICollisionManager';
-import { IRoleManager } from '../role/IRoleManager';
-import { ActorIdService } from './ActorIdService';
-import { IScenarioDefinition } from './IScenarioDefinition';
-import { ScenarioHooks } from './';
-import { IScenarioComponent } from './IScenarioComponent';
-import { ISpawnLocationManager } from './ISpawnLocationManager';
+import { IActor } from "../actor/IActor";
+import { IScenario } from "./IScenario";
+import { Player } from "../player/player";
+import { Role } from "../player/role";
+import { ICollisionManager } from "../collision/ICollisionManager";
+import { IRoleManager } from "../role/IRoleManager";
+import { ActorIdService } from "./ActorIdService";
+import { IScenarioDefinition } from "./IScenarioDefinition";
+import { ScenarioHooks } from "./";
+import { IScenarioComponent } from "./IScenarioComponent";
+import { ISpawnLocationManager } from "./ISpawnLocationManager";
 export declare class Scenario implements IScenario {
     name: string;
     actors: IActor[];

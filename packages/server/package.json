@@ -9,14 +9,11 @@
   ],
   "scripts": {
     "link": "npm link ../core ../g-physics",
-    "tsc": "tsc --project tsconfig.json",
+    "tsc": "tsc",
     "build": "tsc --project tsconfig.json",
     "test": "jest --verbose --detectOpenHandles",
     "coverage": "jest --coverage",
-    "lint": "tslint 'game/**/*.ts?(x)'",
-    "locs": "find ./g-physics -name '*.ts' | xargs wc -l  && find ./src -name '*.ts' -o -name '*.handlebars' | xargs wc -l && find ./client-src -name '*.ts' -o -name '*.tsx' | xargs wc -l  && find ./game -name '*.ts' -o -name '*.tsx' | xargs wc -l && find ./scenarios -name '*.ts' -o -name '*.tsx' | xargs wc -l ",
-    "locs-total": "echo g-physics && find ./g-physics -name '*.ts' -o -name '*.tsx' | xargs wc -l | grep 'total' && echo server && find ./src -name '*.ts' -o -name '*.handlebars' | xargs wc -l | grep 'total' && echo client && find ./client-src -name '*.ts' -o -name '*.tsx' -o -name '*.scss' -o -name '*.css' | xargs wc -l | grep 'total' && echo game && find ./game -name '*.ts' -o -name '*.tsx' | xargs wc -l | grep 'total' && echo scenarios && find ./scenarios -name '*.ts' -o -name '*.tsx' | xargs wc -l | grep 'total' && echo all && find ./src ./client-src ./scenarios ./game ./g-physics -name '*.ts' -o -name '*.handlebars' -o -name '*.tsx' -o -name '*.scss' -o -name '*.css' | xargs wc -l | grep 'total'",
-    "locs-all": "find ./src ./client-src ./scenarios ./game ./g-physics -name '*.ts' -o -name '*.handlebars' -o -name '*.tsx' | xargs wc -l | grep 'total'"
+    "lint": "tslint 'game/**/*.ts?(x)'"
   },
   "repository": {
     "type": "git",
