@@ -81,7 +81,7 @@ class GameClient {
             this.clientActorRegistry = new ClientActorRegistry_1.ClientActorRegistry(this.game, this.scene, Object.values(this.clientScenarios));
             this.renderManager = new RenderManager_1.RenderManager();
             const { width, height } = this.renderManager.calculateCanvassize();
-            this.cameraHandler = new CameraHandler_1.CameraHandler(new THREE.PerspectiveCamera(60, width / height, 0.1, 12000));
+            this.cameraHandler = new CameraHandler_1.CameraHandler(new THREE.PerspectiveCamera(60, width / height, 1, 12000));
             this.cameraHandler.init(this.scenarioDefs);
             this.inputHandler = new InputHandler_1.InputHandler(this.sock, document, this.clientScenarios);
             this.inputHandler.init();
@@ -126,14 +126,11 @@ class GameClient {
             return;
         }
         this.game.setScenario(scenarioId);
-        if (typeof scenarioDef.initScene !== "undefined") {
-            //scenarioDef.initScene(this.scene);
-        }
         if (typeof this.clientScenarios[scenarioDef.name] !== "undefined") {
             core_2.EventHandler.publish("client:cleanUIComponents");
             const cliScenarioDef = this.clientScenarios[scenarioDef.name];
             if (typeof cliScenarioDef.initScene !== "undefined") {
-                cliScenarioDef.initScene(this.scene);
+                cliScenarioDef.initScene(this.scene, this.cameraHandler);
             }
             (_a = cliScenarioDef.uiComps) === null || _a === void 0 ? void 0 : _a.forEach((comp) => {
                 core_2.EventHandler.publish("client:addUIComponent", comp);
@@ -175,8 +172,9 @@ class GameClient {
     }
     onSocketDiff(status) {
         var _a;
+        //console.log("onSocketDiff", status);
         status = JSON.parse(core_3.NetworkUtils.decodeString(status));
-        // console.log("onSocketDiff", status)
+        //console.log("onSocketDiff decoded", status);
         this.onSocketGameEvents(status.events);
         if (status.type !== this.game.getScenarioName()) {
             this.clientScenarioChange(status);

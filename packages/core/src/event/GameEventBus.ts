@@ -1,22 +1,25 @@
-import {GameEvent} from './GameEvent'
+import { GameEvent } from "./GameEvent";
 
 export class GameEventBus {
-
-  private events: Array<GameEvent>
+  private events: Array<GameEvent>;
 
   constructor() {
-    this.events = []
+    this.events = [];
   }
 
   addEvent(event: GameEvent) {
-    this.events.push(event)
+    this.events.push(event);
   }
 
   popEvents() {
-    return this.events
+    return this.events;
   }
 
   flush() {
-    this.events = []
+    this.events = [];
+  }
+
+  hasEvents() {
+    return this.events.length > 0;
   }
 }

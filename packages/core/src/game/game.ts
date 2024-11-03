@@ -52,13 +52,9 @@ export class Game {
   }
 
   public getPlayersIds() {
-    const ids: any = [];
-    this.gamePlayers.forEach((pl: Player) => {
-      ids.push(pl.getId());
-    });
-
-    return ids;
+    return this.gamePlayers.map((pl) => pl.getId());
   }
+
   public getRegisteredScenarios() {
     return this.scenarios;
   }
@@ -68,10 +64,11 @@ export class Game {
   }
 
   public getPlayersAmount() {
-    //return this.gamePlayers.length
-    const reducer: any = (accumulator: number, currentPlayer: Player) =>
-      accumulator + (currentPlayer.isBotPlayer() ? 0 : 1);
-    let playersAmount = this.gamePlayers.reduce(reducer, 0);
+    let playersAmount = this.gamePlayers.reduce(
+      (accum: number, currentPlayer: Player) =>
+        accum + (currentPlayer.isBotPlayer() ? 0 : 1),
+      0
+    );
     return playersAmount;
   }
 
@@ -80,7 +77,7 @@ export class Game {
   }
 
   public getPlayer(playerId: string) {
-    return this.gamePlayers.filter((player) => player.getId() === playerId)[0];
+    return this.gamePlayers.find((player) => player.getId() === playerId);
   }
 
   public resetLives() {
@@ -158,7 +155,8 @@ export class Game {
     this.resetLives()*/
 
     // console.log('starting startScenarioSwitchLoop')
-    /*this.switchInterval = setInterval(() => {
+    /*
+    this.switchInterval = setInterval(() => {
             if (this.getScenarioName() == 'empty') {
                 switchToId = 1
             } else if(this.getScenarioName() == 'space'){
@@ -170,7 +168,8 @@ export class Game {
             }
             console.log(Date.now(), '*switching scenario to ', switchToId, this.id)
             this.setScenario(switchToId).init(this.getPlayers(), this.id)
-        },25000);*/
+        },25000);
+    */
   }
 
   addPlayer(socketId: string, playerName: string, isBot: boolean = false) {
@@ -185,6 +184,9 @@ export class Game {
   removePlayer(socketId: string) {
     if (this.scenario !== null) {
       const player = this.getPlayer(socketId);
+      if (!player) {
+        return;
+      }
       const { minutes, seconds } = player.playedTime(new Date());
       // tslint:disable-next-line:no-console
       console.log(
@@ -248,10 +250,7 @@ export class Game {
       // let end = performance.now()
       // console.log('processed scenario step in: (ms)', end - start)
     }
-    // ret.events = []
-    // let events = this.gameEventBus.popEvents()
-    if (this.gameEventBus.popEvents().length > 0) {
-      // console.log('adding events', events)
+    if (this.gameEventBus.hasEvents()) {
       ret.events = this.gameEventBus.popEvents();
     }
 

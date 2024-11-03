@@ -3,6 +3,7 @@ import * as THREE from "three";
 import { ICanvasUIElementsManager } from ".";
 export declare class RenderManager {
     private renderer;
+    private renderer2;
     private cameraHandler;
     private scene;
     private orbitControlsEnabled;

@@ -187,7 +187,6 @@ class Scenario {
     addRemoteActor(remoteObj) {
         // console.log('addRemoreActor',z)
         if (typeof this.actorRepository[remoteObj.name] === "undefined") {
-            console.log("this.actorRepository", this.actorRepository);
             throw new Error(`actor name: ${remoteObj.name} not found in actorRepository`);
         }
         const z = remoteObj.z || 0;
@@ -271,6 +270,7 @@ class Scenario {
             }
         });
         // console.log('processed actors getstate in: (ms)', performance.now() - start3)
+        console.log("scenario getDiffState", state);
         return {
             // gameId: this.gameId,
             type: this.name,

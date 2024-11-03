@@ -36,11 +36,25 @@ class RenderManager {
         this.cameraHandler = cameraHandler;
         this.inGameUiElements = [];
         // this.orbitControlsEnabled = true
-        this.renderer = new THREE.WebGLRenderer({ antialias: false });
+        console.log("renderer with antialias true***");
+        this.renderer = new THREE.WebGLRenderer({
+            antialias: true,
+            logarithmicDepthBuffer: true,
+            preserveDrawingBuffer: true,
+        });
+        this.renderer2 = new THREE.WebGLRenderer({
+            antialias: true,
+            alpha: true,
+        });
+        //(this.renderer as any).preserveDrawingBuffer = true;
         //this.renderer.setPixelRatio(window.devicePixelRatio);
         // @todo: gammaOutput deprecated?
         this.renderer.gammaOutput = true;
+        this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        this.renderer.outputEncoding = THREE.sRGBEncoding;
+        //this.renderer.outputEncoding = THREE.LinearEncoding;
         this.renderer.autoClear = false; // testing for 2d canvas
+        //this.renderer.setClearColor(0x000000, 1);
         this.attachEvents();
         this.initCanvas();
         /*this.pointerLockControls = new PointerLockControls(
@@ -80,10 +94,15 @@ class RenderManager {
     initCanvas() {
         const { width, height } = this.calculateCanvassize();
         this.renderer.setSize(width, height);
+        this.renderer2.setSize(width, height);
         const container = document.getElementById("game-container");
         if (container != null) {
-            this.renderer.domElement.id = "game-canvas";
+            this.renderer.domElement.id = "game-canvas2";
             container.appendChild(this.renderer.domElement);
+            this.renderer2.domElement.id = "game-canvas";
+            this.renderer2.domElement.style.position = "absolute";
+            this.renderer2.domElement.style.top = "0";
+            container.appendChild(this.renderer2.domElement);
             // this.stats = Stats();
             // this.stats.domElement.style.left = '210px';
             // container.appendChild( this.stats.domElement );
@@ -123,13 +142,21 @@ class RenderManager {
           this.inGameUiElements.forEach((uiElement: THREE.Mesh) => {
           uiElement.quaternion.copy(cameraQuaternion)
         })*/
+        //this.renderer.clear();
+        //this.renderer.clearDepth();
+        //this.renderer.clearColor();
+        //this.renderer.clearStencil();
+        //this.renderer;
+        if (this.canvasUIElementsManager) {
+            this.canvasUIElementsManager.clear();
+            //this.canvasUIElementsManager.cameraHUD.clear();
+            this.canvasUIElementsManager.updateUIElements();
+            this.renderer2.render(this.canvasUIElementsManager.sceneHUD, this.canvasUIElementsManager.cameraHUD);
+        }
         this.renderer.render(this.scene, this.cameraHandler.getCamera());
+        //
         // console.log("calls", this.renderer.info.render.calls );
         // console.log("triangles", this.renderer.info.render.triangles );
-        if (this.canvasUIElementsManager) {
-            this.canvasUIElementsManager.updateUIElements();
-            this.renderer.render(this.canvasUIElementsManager.sceneHUD, this.canvasUIElementsManager.cameraHUD);
-        }
         // this.stats.update();
     }
     limitLoop(fn, fpsArg) {

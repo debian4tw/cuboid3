@@ -409,7 +409,7 @@ export class Scenario implements IScenario {
       }
     });
     // console.log('processed actors getstate in: (ms)', performance.now() - start3)
-
+    console.log("scenario getDiffState", state);
     return {
       // gameId: this.gameId,
       type: this.name,

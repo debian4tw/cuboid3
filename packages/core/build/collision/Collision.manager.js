@@ -17,8 +17,7 @@ class CollisionManager {
     removeRegisteredCollisionsForActorLabel(actorLabel) {
         this.registeredCollisions = this.registeredCollisions.filter((collision) => collision.name.indexOf(actorLabel) === -1);
     }
-    onActorAdd() {
-    }
+    onActorAdd() { }
     onActorRemove(actorLabel) {
         this.removeRegisteredCollisionsForActorLabel(actorLabel);
     }
@@ -40,14 +39,14 @@ class CollisionManager {
                 this.registeredCollisions.push({
                     name: configCollision.name,
                     cb: () => {
-                        configCollision.callback(this.gameId, ...implicatedScenarioActors);
-                    }
+                        configCollision.callback(this.scenario, ...implicatedScenarioActors);
+                    },
                 });
             }
         });
     }
     iterateRegisteredCollisions() {
-        this.registeredCollisions.forEach(collision => {
+        this.registeredCollisions.forEach((collision) => {
             collision.cb();
         });
     }

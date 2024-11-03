@@ -12,7 +12,7 @@ class ClientActorRegistry {
     }
     findById(id) {
         //console.log('getById', id, this.clientActors);
-        return this.clientActors.find(cliActor => cliActor.id == id);
+        return this.clientActors.find((cliActor) => cliActor.id == id);
     }
     create(actor) {
         //let cliActor = ClientActorFactory.createClientActor(actor)
@@ -37,7 +37,7 @@ class ClientActorRegistry {
     }
     delete(cliActor) {
         //console.log('deleteCliActor', cliActor);
-        core_1.EventHandler.publish('remove2DCanvasUI', cliActor);
+        core_1.EventHandler.publish("remove2DCanvasUI", cliActor);
         if (cliActor instanceof ClientMultipleActor_1.ClientMultipleActor) {
             let me = cliActor.getMesh();
             for (let i = 0; i < me.length; i++) {
@@ -51,7 +51,7 @@ class ClientActorRegistry {
             }
             this.scene.remove(cliActor.getMesh());
         }
-        this.clientActors = this.clientActors.filter(cliAct => cliAct.id != cliActor.id);
+        this.clientActors = this.clientActors.filter((cliAct) => cliAct.id != cliActor.id);
     }
     deleteById(actorId) {
         const cliAct = this.findById(actorId);
@@ -61,6 +61,9 @@ class ClientActorRegistry {
     }
     getArr() {
         return this.clientActors;
+    }
+    getCount() {
+        return this.clientActors.length;
     }
 }
 exports.ClientActorRegistry = ClientActorRegistry;

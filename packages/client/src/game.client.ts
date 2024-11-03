@@ -118,7 +118,7 @@ export class GameClient {
       const { width, height } = this.renderManager.calculateCanvassize();
 
       this.cameraHandler = new CameraHandler(
-        new THREE.PerspectiveCamera(60, width / height, 0.1, 12000)
+        new THREE.PerspectiveCamera(60, width / height, 1, 12000)
       );
       this.cameraHandler.init(this.scenarioDefs);
 
@@ -187,15 +187,11 @@ export class GameClient {
 
     this.game.setScenario(scenarioId);
 
-    if (typeof scenarioDef.initScene !== "undefined") {
-      //scenarioDef.initScene(this.scene);
-    }
-
     if (typeof this.clientScenarios[scenarioDef.name] !== "undefined") {
       EventHandler.publish("client:cleanUIComponents");
       const cliScenarioDef = this.clientScenarios[scenarioDef.name];
       if (typeof cliScenarioDef.initScene !== "undefined") {
-        cliScenarioDef.initScene(this.scene);
+        cliScenarioDef.initScene(this.scene, this.cameraHandler);
       }
       cliScenarioDef.uiComps?.forEach((comp: any) => {
         EventHandler.publish("client:addUIComponent", comp);
@@ -244,8 +240,9 @@ export class GameClient {
   }
 
   onSocketDiff(status: any) {
+    //console.log("onSocketDiff", status);
     status = JSON.parse(NetworkUtils.decodeString(status));
-    // console.log("onSocketDiff", status)
+    //console.log("onSocketDiff decoded", status);
     this.onSocketGameEvents(status.events);
 
     if (status.type !== this.game.getScenarioName()) {

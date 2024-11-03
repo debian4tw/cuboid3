@@ -6,8 +6,8 @@ const g_physics_1 = require("@cuboid3/g-physics");
 const ClientActorType_1 = require("./ClientActorType");
 class Actor {
     constructor(x, y, id = null, z = 0) {
-        this.name = 'Actor';
-        this.label = 'base-actor';
+        this.name = "Actor";
+        this.label = "base-actor";
         this.id = id || uuid_1.v4();
         this.x = x;
         this.y = y;
@@ -37,14 +37,16 @@ class Actor {
         return this.lastState;
     }
     setProp(prop, value) {
-        if (typeof this['set' + prop] !== "undefined") {
-            this['set' + prop](value);
+        //console.log("set prop", prop);
+        if (typeof this["set" + prop] !== "undefined") {
+            this["set" + prop](value);
         }
         else {
             this[prop] = value;
         }
     }
     setProps(obj) {
+        console.log("set props", obj);
         Object.keys(obj).forEach((key) => {
             this.setProp(key, obj[key]);
         });
@@ -125,7 +127,7 @@ class Actor {
             z: this.z,
             w: this.w,
             h: this.h,
-            d: this.d
+            d: this.d,
         };
     }
     getIndexCoordsAndDimensions(i) {

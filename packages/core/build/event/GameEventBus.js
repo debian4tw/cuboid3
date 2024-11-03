@@ -14,5 +14,8 @@ class GameEventBus {
     flush() {
         this.events = [];
     }
+    hasEvents() {
+        return this.events.length > 0;
+    }
 }
 exports.GameEventBus = GameEventBus;

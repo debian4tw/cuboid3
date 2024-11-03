@@ -47,14 +47,18 @@ class ClientSingleActor extends ClientActor_1.ClientActor {
         else if (actor.isActive === 1) {
             this.mesh.visible = true;
         }
-        this.mesh.rotation.z = actor.getR().z * Math.PI / 180;
-        this.mesh.rotation.x = actor.getR().x * Math.PI / 180;
-        this.mesh.rotation.y = actor.getR().y * Math.PI / 180;
+        this.mesh.rotation.z = (actor.getR().z * Math.PI) / 180;
+        this.mesh.rotation.x = (actor.getR().x * Math.PI) / 180;
+        this.mesh.rotation.y = (actor.getR().y * Math.PI) / 180;
     }
     createMesh(callback) {
         const geometry = GeometryFactory_1.GeometryFactory.createGeometry(this.actor.shape, this.actor.getCoordsAndDimensions());
         // @todo: vertexColors param?
-        const mesh = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: this.actor.getColor(), vertexColors: true, wireframe: this.actor.wireframe })
+        const mesh = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({
+            color: this.actor.getColor(),
+            vertexColors: true,
+            wireframe: this.actor.wireframe,
+        })
         // color: 0x00ff00
         );
         mesh.receiveShadow = true;
@@ -66,10 +70,15 @@ class ClientSingleActor extends ClientActor_1.ClientActor {
         */
         mesh.position.x = this.actor.getX() + this.actor.getW() / 2;
         mesh.position.y = this.actor.getY() + this.actor.getH() / 2;
-        mesh.position.z = this.actor.getZ() ? (this.actor.getZ() + this.actor.getD() / 2) : 0;
+        mesh.position.z = this.actor.getZ()
+            ? this.actor.getZ() + this.actor.getD() / 2
+            : 0;
         if (!this.actor.wireframe) {
             const geo = new THREE.EdgesGeometry(geometry);
-            const mat = new THREE.LineBasicMaterial({ color: 0xffffff, linewidth: 8 });
+            const mat = new THREE.LineBasicMaterial({
+                color: 0xffffff,
+                linewidth: 8,
+            });
             const geoWireframe = new THREE.LineSegments(geo, mat);
             mesh.add(geoWireframe);
             geoWireframe.renderOrder = 1;

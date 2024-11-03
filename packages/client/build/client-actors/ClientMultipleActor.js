@@ -23,7 +23,6 @@ exports.ClientMultipleActor = void 0;
 const THREE = __importStar(require("three"));
 const ClientActor_1 = require("./ClientActor");
 const GeometryFactory_1 = require("./GeometryFactory");
-const g_physics_1 = require("@cuboid3/g-physics");
 class ClientMultipleActor extends ClientActor_1.ClientActor {
     constructor(actor) {
         super(actor);
@@ -44,31 +43,45 @@ class ClientMultipleActor extends ClientActor_1.ClientActor {
             else {
                 this.multipleMesh[i].visible = false;
             }
-            this.multipleMesh[i].position.x = actor.rectangle[i].x + actor.rectangle[i].w / 2;
-            this.multipleMesh[i].position.y = actor.rectangle[i].y + actor.rectangle[i].h / 2;
-            if (typeof actor.rectangle[i].z !== "undefined" && actor.rectangle[i].z !== 0) {
-                this.multipleMesh[i].position.z = actor.rectangle[i].z + actor.rectangle[i].h / 2;
+            this.multipleMesh[i].position.x =
+                actor.rectangle[i].x + actor.rectangle[i].w / 2;
+            this.multipleMesh[i].position.y =
+                actor.rectangle[i].y + actor.rectangle[i].h / 2;
+            if (typeof actor.rectangle[i].z !== "undefined" &&
+                actor.rectangle[i].z !== 0) {
+                this.multipleMesh[i].position.z =
+                    actor.rectangle[i].z + actor.rectangle[i].h / 2;
             }
         }
     }
     createMesh(callback) {
-        console.log('createMultipleMesh', this.actor.name, this.actor.shape);
+        console.log("createMultipleMesh", this.actor.name, this.actor.shape);
         this.multipleMesh = [];
         for (let i = 0; i < this.actor.qty; i++) {
-            let mesh = new THREE.Mesh(GeometryFactory_1.GeometryFactory.createGeometry(this.actor.shape, this.actor.getIndexCoordsAndDimensions(i)), new THREE.MeshBasicMaterial({ color: this.actor.getColor(), wireframe: false }));
+            let mesh = new THREE.Mesh(GeometryFactory_1.GeometryFactory.createGeometry(this.actor.shape, this.actor.getIndexCoordsAndDimensions(i)), new THREE.MeshBasicMaterial({
+                color: this.actor.getColor(),
+                wireframe: false,
+            }));
+            mesh.renderOrder = i + 16;
             //mesh.receiveShadow = true;
             //mesh.castShadow = true;
-            mesh.position.x = this.actor.rectangle[i].x + this.actor.rectangle[i].w / 2;
-            mesh.position.y = this.actor.rectangle[i].y + this.actor.rectangle[i].h / 2;
-            mesh.position.z = (this.actor.rectangle[i].z + this.actor.rectangle[i].d / 2) | 0;
-            if (!this.actor.wireframe && this.actor.shape !== g_physics_1.Shape.Sphere) {
-                var geo = new THREE.EdgesGeometry(mesh.geometry);
-                var mat = new THREE.LineBasicMaterial({ color: 0xffffff, linewidth: 8 });
-                var geoWireframe = new THREE.LineSegments(geo, mat);
-                mesh.add(geoWireframe);
-                geoWireframe.renderOrder = 1;
-                //wireframe.renderOrder = 1; // make sure wireframes are rendered 2nd
-            }
+            mesh.position.x =
+                this.actor.rectangle[i].x + this.actor.rectangle[i].w / 2;
+            mesh.position.y =
+                this.actor.rectangle[i].y + this.actor.rectangle[i].h / 2;
+            mesh.position.z =
+                (this.actor.rectangle[i].z + this.actor.rectangle[i].d / 2) | 0;
+            /*if (!this.actor.wireframe && this.actor.shape !== Shape.Sphere) {
+              var geo = new THREE.EdgesGeometry(mesh.geometry);
+              var mat = new THREE.LineBasicMaterial({
+                color: 0xffffff,
+                linewidth: 8,
+              });
+              var geoWireframe = new THREE.LineSegments(geo, mat);
+              mesh.add(geoWireframe);
+              geoWireframe.renderOrder = i;
+              //wireframe.renderOrder = 1; // make sure wireframes are rendered 2nd
+            }*/
             if (this.actor.active[i]) {
                 mesh.visible = true;
             }

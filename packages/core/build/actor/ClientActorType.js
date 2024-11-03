@@ -12,4 +12,5 @@ var ClientActorType;
     ClientActorType[ClientActorType["ClientAnimatedCharacterCenteredActor"] = 6] = "ClientAnimatedCharacterCenteredActor";
     ClientActorType[ClientActorType["ClientAnimatedUnifiedActor"] = 7] = "ClientAnimatedUnifiedActor";
     ClientActorType[ClientActorType["ClientSingleTranslatedActor"] = 8] = "ClientSingleTranslatedActor";
+    ClientActorType[ClientActorType["ClientMultipleCharacterActor"] = 9] = "ClientMultipleCharacterActor";
 })(ClientActorType = exports.ClientActorType || (exports.ClientActorType = {}));

@@ -39,6 +39,12 @@ class ClientSingleCenteredActor extends ClientActor_1.ClientActor {
         this.mesh.position.x = actor.getX();
         this.mesh.position.y = actor.getY();
         this.mesh.position.z = actor.getZ();
+        /*console.log(
+          "mesh pos",
+          this.mesh.position.x,
+          this.mesh.position.y,
+          this.mesh.position.z
+        );*/
         if (actor.isActive === 0) {
             this.mesh.visible = false;
         }

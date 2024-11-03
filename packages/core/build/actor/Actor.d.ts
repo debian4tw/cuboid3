@@ -1,6 +1,6 @@
-import { Shape } from '@cuboid3/g-physics';
-import { ClientActorType } from './ClientActorType';
-import { IActor } from './IActor';
+import { Shape } from "@cuboid3/g-physics";
+import { ClientActorType } from "./ClientActorType";
+import { IActor } from "./IActor";
 export interface Rotation {
     x: number;
     y: number;

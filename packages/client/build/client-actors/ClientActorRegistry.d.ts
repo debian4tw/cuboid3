@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { Game } from '@cuboid3/core';
+import { Game } from "@cuboid3/core";
 import { IActor } from "@cuboid3/core";
 import { IClientActor } from ".";
 export declare class ClientActorRegistry {
@@ -13,4 +13,5 @@ export declare class ClientActorRegistry {
     delete(cliActor: IClientActor): void;
     deleteById(actorId: string): void;
     getArr(): IClientActor[];
+    getCount(): number;
 }

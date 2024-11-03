@@ -34,11 +34,7 @@ class Game {
         });
     }
     getPlayersIds() {
-        const ids = [];
-        this.gamePlayers.forEach((pl) => {
-            ids.push(pl.getId());
-        });
-        return ids;
+        return this.gamePlayers.map((pl) => pl.getId());
     }
     getRegisteredScenarios() {
         return this.scenarios;
@@ -47,16 +43,14 @@ class Game {
         // placeholder
     }
     getPlayersAmount() {
-        //return this.gamePlayers.length
-        const reducer = (accumulator, currentPlayer) => accumulator + (currentPlayer.isBotPlayer() ? 0 : 1);
-        let playersAmount = this.gamePlayers.reduce(reducer, 0);
+        let playersAmount = this.gamePlayers.reduce((accum, currentPlayer) => accum + (currentPlayer.isBotPlayer() ? 0 : 1), 0);
         return playersAmount;
     }
     getPlayers() {
         return this.gamePlayers;
     }
     getPlayer(playerId) {
-        return this.gamePlayers.filter((player) => player.getId() === playerId)[0];
+        return this.gamePlayers.find((player) => player.getId() === playerId);
     }
     resetLives() {
         this.gamePlayers.forEach((player) => {
@@ -120,7 +114,8 @@ class Game {
     
         this.resetLives()*/
         // console.log('starting startScenarioSwitchLoop')
-        /*this.switchInterval = setInterval(() => {
+        /*
+        this.switchInterval = setInterval(() => {
                 if (this.getScenarioName() == 'empty') {
                     switchToId = 1
                 } else if(this.getScenarioName() == 'space'){
@@ -132,7 +127,8 @@ class Game {
                 }
                 console.log(Date.now(), '*switching scenario to ', switchToId, this.id)
                 this.setScenario(switchToId).init(this.getPlayers(), this.id)
-            },25000);*/
+            },25000);
+        */
     }
     addPlayer(socketId, playerName, isBot = false) {
         //socket.join(this.id)
@@ -145,6 +141,9 @@ class Game {
     removePlayer(socketId) {
         if (this.scenario !== null) {
             const player = this.getPlayer(socketId);
+            if (!player) {
+                return;
+            }
             const { minutes, seconds } = player.playedTime(new Date());
             // tslint:disable-next-line:no-console
             console.log(`Removing Player ${player.name} after ${minutes}:${seconds} playTime`);
@@ -195,10 +194,7 @@ class Game {
             // let end = performance.now()
             // console.log('processed scenario step in: (ms)', end - start)
         }
-        // ret.events = []
-        // let events = this.gameEventBus.popEvents()
-        if (this.gameEventBus.popEvents().length > 0) {
-            // console.log('adding events', events)
+        if (this.gameEventBus.hasEvents()) {
             ret.events = this.gameEventBus.popEvents();
         }
         this.gameEventBus.flush();

@@ -17,3 +17,4 @@ __exportStar(require("./ClientSingleTranslatedActor"), exports);
 __exportStar(require("./IClientActor"), exports);
 __exportStar(require("./ClientActor"), exports);
 __exportStar(require("./ClientActorRegistry"), exports);
+__exportStar(require("./GeometryFactory"), exports);

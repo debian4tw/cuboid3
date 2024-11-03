@@ -7,5 +7,6 @@ export declare enum ClientActorType {
     ClientSingleCenteredActor = 5,
     ClientAnimatedCharacterCenteredActor = 6,
     ClientAnimatedUnifiedActor = 7,
-    ClientSingleTranslatedActor = 8
+    ClientSingleTranslatedActor = 8,
+    ClientMultipleCharacterActor = 9
 }

@@ -16,12 +16,12 @@ export declare class Game {
     private gameHooks;
     constructor(id: string, importedScenarios: IScenarioDefinition[], gameHooksClass?: any);
     registerScenarios(importedScenarios: IScenarioDefinition[]): void;
-    getPlayersIds(): any;
+    getPlayersIds(): string[];
     getRegisteredScenarios(): any;
     attachEvents(): void;
     getPlayersAmount(): number;
     getPlayers(): Player[];
-    getPlayer(playerId: string): Player;
+    getPlayer(playerId: string): Player | undefined;
     resetLives(): void;
     setScenario(scenarioId: number): IScenario;
     onTeamWon(team: number): void;

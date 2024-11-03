@@ -1,4 +1,3 @@
-
 export enum ClientActorType {
   ClientMultipleActor,
   ClientCharacterActor,
@@ -8,7 +7,6 @@ export enum ClientActorType {
   ClientSingleCenteredActor,
   ClientAnimatedCharacterCenteredActor,
   ClientAnimatedUnifiedActor,
-  ClientSingleTranslatedActor
+  ClientSingleTranslatedActor,
+  ClientMultipleCharacterActor,
 }
-
-

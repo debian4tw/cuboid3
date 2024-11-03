@@ -1,5 +1,5 @@
 import { IScenario } from "../scenario/IScenario";
-import { ICollisionManager } from './ICollisionManager';
+import { ICollisionManager } from "./ICollisionManager";
 export declare class CollisionManager implements ICollisionManager {
     scenarioCollisions: any;
     registeredCollisions: any[];

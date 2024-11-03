@@ -199,12 +199,16 @@ class GameServer {
             game.getScenario().updateCollisions();
             //const collisionsTime = performance.now() - start1;
             //const start2 = performance.now();
-            const status = game.getScenarioDiffState();
-            //const status = game.getScenarioState()
+            //const status = game.getScenarioDiffState();
+            const status = game.getScenarioState();
             //const statusTime = performance.now() - start2;
             //const start3 = performance.now();
-            //this.network.sendToRoom(game.getId(), 'scenarioStatus', NetworkUtils.encodeString(JSON.stringify(status)))
-            this.network.sendToRoom(game.getId(), "scenarioDiff", core_2.NetworkUtils.encodeString(JSON.stringify(status)));
+            this.network.sendToRoom(game.getId(), "scenarioStatus", core_2.NetworkUtils.encodeString(JSON.stringify(status)));
+            /*this.network.sendToRoom(
+              game.getId(),
+              "scenarioDiff",
+              NetworkUtils.encodeString(JSON.stringify(status))
+            );*/
             //const emitTime = performance.now() - start3;
             //const totalTime = performance.now() - start;
             /*
